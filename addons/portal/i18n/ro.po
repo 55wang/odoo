@@ -1,143 +1,559 @@
-# Romanian translation for openobject-addons
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-#
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * portal
+# 
+# Translators:
+# Dorin Hongu <dhongu@gmail.com>, 2017
+# Martin Trigaux <mat@odoo.com>, 2017
+# Cozmin Candea <office@terrabit.ro>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2011-07-11 09:51+0000\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: Romanian <ro@li.org>\n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-10-02 11:27+0000\n"
+"PO-Revision-Date: 2017-10-02 11:27+0000\n"
+"Last-Translator: Cozmin Candea <office@terrabit.ro>, 2017\n"
+"Language-Team: Romanian (https://www.transifex.com/odoo/teams/41243/ro/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 07:45+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Transfer-Encoding: \n"
+"Language: ro\n"
+"Plural-Forms: nplurals=3; plural=(n==1?0:(((n%100>19)||((n%100==0)&&(n!=0)))?2:1));\n"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Mako"
-msgstr "Mako"
-
-#. module: portal
-#: code:addons/portal/wizard/share_wizard.py:50
-#, python-format
-msgid "Please select at least one user to share with"
-msgstr ""
-"Va rugam sa selectati cel putin un utilizator cu care sa partajati "
-"informatiile"
-
-#. module: portal
-#: view:portal.wizard:0
+#: model:mail.template,body_html:portal.mail_template_data_portal_welcome
 msgid ""
-"Select which contacts should belong to the portal in the list below.\n"
-"                        The email address of each selected contact must be "
-"valid and unique.\n"
-"                        If necessary, you can fix any contact's email "
-"address directly in the list."
+"\n"
+"<p>\n"
+"    Dear ${object.user_id.name or ''},\n"
+"</p>\n"
+"<p>\n"
+"    You have been given access to ${user.company_id.name}'s ${object.wizard_id.portal_id.name}.\n"
+"</p>\n"
+"<p>\n"
+"    Your login account data is:\n"
+"</p>\n"
+"<ul>\n"
+"    <li>Username: ${object.user_id.login or ''}</li>\n"
+"    <li>Portal: <a href=\"${'portal_url' in ctx and ctx['portal_url'] or ''}\">${'portal_url' in ctx and ctx['portal_url'] or ''}</a></li>\n"
+"    <li>Database: ${'dbname' in ctx and ctx['dbname'] or ''}</li>\n"
+"</ul>\n"
+"<p>\n"
+"    You can set or change your password via the following url:\n"
+"</p>\n"
+"<ul>\n"
+"    <li><a href=\"${object.user_id.signup_url}\">${object.user_id.signup_url}</a></li>\n"
+"</ul>\n"
+"<p>\n"
+"${object.wizard_id.welcome_message or ''}"
 msgstr ""
-"Selectati contactele care ar trebui sa apartina portalului din lista de mai "
-"jos.\n"
-"                        Adresa de email a fiecarui contact selectat trebuie "
-"sa fie valabila si unica.\n"
-"                        Daca este necesar, puteti repara adresa de email a "
-"oricarui contact direct in lista."
 
 #. module: portal
-#: model:mail.group,name:portal.company_jobs
-msgid "Company Jobs"
-msgstr "Locurile de munca din companie"
+#: model:ir.ui.view,arch_db:portal.portal_show_sign_in
+msgid "<b>Sign in</b>"
+msgstr "<b>Logare</b>"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "amount: the total amount to pay, as a float"
-msgstr "suma: suma totala de plata, ca emitere"
+#: model:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "<span id=\"search_label\">Search</span> <span class=\"caret\"/>"
+msgstr ""
 
 #. module: portal
-#: view:portal.wizard.user:0
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Apply"
+msgstr "Aplică"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_archive_groups
+msgid "Archives"
+msgstr "Arhive"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Cancel"
+msgstr "Anulează"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_layout
+msgid "Change"
+msgstr "Rest"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "City"
+msgstr "Oraș"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:12
+#, python-format
+msgid "Clear"
+msgstr "Golește"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:27
+#, python-format
+msgid "Click here to see your document."
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Company Name"
+msgstr "Numele companiei"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid ""
+"Confirm\n"
+"                                <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_partner_id
+msgid "Contact"
+msgstr "Contact"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
 msgid "Contacts"
 msgstr "Contacte"
 
 #. module: portal
-#: view:share.wizard:0
-#: field:share.wizard,group_ids:0
-msgid "Existing groups"
-msgstr "Grupuri existente"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Country"
+msgstr "Țară"
 
 #. module: portal
-#: view:res.groups:0
-msgid "Portal Groups"
-msgstr "Grupuri Portal"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Country..."
+msgstr "Țara..."
 
 #. module: portal
-#: field:portal.wizard,welcome_message:0
-msgid "Invitation Message"
-msgstr "Mesajul Invitatiei"
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_create_uid
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_create_uid
+msgid "Created by"
+msgstr "Creat de"
 
 #. module: portal
-#: view:res.groups:0
-msgid "Non-Portal Groups"
-msgstr "Grupuri Non-Portal"
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_create_date
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_create_date
+msgid "Created on"
+msgstr "Creat în"
 
 #. module: portal
-#: code:addons/portal/wizard/share_wizard.py:54
+#: model:ir.model.fields,help:portal.field_account_invoice_portal_url
+#: model:ir.model.fields,help:portal.field_portal_mixin_portal_url
+#: model:ir.model.fields,help:portal.field_project_project_portal_url
+#: model:ir.model.fields,help:portal.field_project_task_portal_url
+#: model:ir.model.fields,help:portal.field_sale_order_portal_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_mixin_display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_display_name
+msgid "Display Name"
+msgstr "Nume afișat"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:14
 #, python-format
-msgid "Please select at least one group to share with"
+msgid "Draw your signature"
 msgstr ""
-"Va rugam sa selectati cel putin un grup cu care sa partajati informatiile"
 
 #. module: portal
-#: view:share.wizard:0
-msgid "Details"
-msgstr "Detalii"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_orders
-msgid "Quotations and Sales Orders"
-msgstr "Cotatii si Comenzi de Vanzare"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "reference: the reference number of the document to pay"
-msgstr "referinta: numarul de referinta al documentului de plata"
-
-#. module: portal
-#: help:portal.payment.acquirer,visible:0
-msgid ""
-"Make this payment acquirer available in portal forms (Customer invoices, "
-"etc.)"
-msgstr ""
-"Face acest beneficiar al platii disponibil in formularele portalului "
-"(Facturi clienti, etc.)"
-
-#. module: portal
-#: model:ir.model,name:portal.model_share_wizard
-msgid "Share Wizard"
-msgstr "Wizard Partajare"
-
-#. module: portal
-#: field:portal.wizard.user,email:0
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_email
+#: model:ir.ui.view,arch_db:portal.portal_my_details
 msgid "Email"
 msgstr "Email"
 
 #. module: portal
-#: model:ir.actions.client,help:portal.action_news
-msgid ""
-"<p>\n"
-"                    Youd don't have unread company's news.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    Nu aveti stiri necitite.\n"
-"                </p>\n"
-"            "
+#: model:ir.model,name:portal.model_mail_thread
+msgid "Email Thread"
+msgstr "Fir E-mail"
 
 #. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:194
+#: code:addons/portal/wizard/portal_wizard.py:130
+#, python-format
+msgid "Group %s is not a portal"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_mixin_id
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_id
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_id
+msgid "ID"
+msgstr "ID"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_in_portal
+msgid "In Portal"
+msgstr "In Portal"
+
+#. module: portal
+#: code:addons/portal/controllers/portal.py:180
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_welcome_message
+msgid "Invitation Message"
+msgstr "Mesajul Invitatiei"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_mixin___last_update
+#: model:ir.model.fields,field_description:portal.field_portal_wizard___last_update
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user___last_update
+msgid "Last Modified on"
+msgstr "Ultima modificare la"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_write_uid
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_write_uid
+msgid "Last Updated by"
+msgstr "Ultima actualizare făcută de"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_write_date
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_write_date
+msgid "Last Updated on"
+msgstr "Ultima actualizare pe"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:20
+#, python-format
+msgid "Leave a comment"
+msgstr "Lăsați un comentariu"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_user_id
+msgid "Login User"
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.frontend_layout
+msgid "Logout"
+msgstr "Deconectare"
+
+#. module: portal
+#: model:ir.model,name:portal.model_mail_message
+msgid "Message"
+msgstr "Mesaj"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.my_account_link
+msgid "My Account"
+msgstr "Contul meu"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.pager
+msgid "Next"
+msgstr "Înainte"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:38
+#, python-format
+msgid "Oops! Something went wrong. Try to reload the page and log in."
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Phone"
+msgstr "Telefon"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_portal_id
+msgid "Portal"
+msgstr "Portal"
+
+#. module: portal
+#: model:ir.actions.act_window,name:portal.partner_wizard_action
+#: model:ir.model,name:portal.model_portal_wizard
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Portal Access Management"
+msgstr "Management Acces Portal"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_account_invoice_portal_url
+#: model:ir.model.fields,field_description:portal.field_portal_mixin_portal_url
+#: model:ir.model.fields,field_description:portal.field_project_project_portal_url
+#: model:ir.model.fields,field_description:portal.field_project_task_portal_url
+#: model:ir.model.fields,field_description:portal.field_sale_order_portal_url
+msgid "Portal Access URL"
+msgstr ""
+
+#. module: portal
+#: model:ir.model,name:portal.model_portal_wizard_user
+msgid "Portal User Config"
+msgstr "Config Utilizator Portal"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.pager
+msgid "Prev"
+msgstr "Înapoi"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/js/portal_chatter.js:101
+#, python-format
+msgid "Published on %s"
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid ""
+"Select which contacts should belong to the portal in the list below.\n"
+"                        The email address of each selected contact must be valid and unique.\n"
+"                        If necessary, you can fix any contact's email address directly in the list."
+msgstr ""
+"Selectati contactele care ar trebui sa apartina portalului din lista de mai jos.\n"
+"                        Adresa de email a fiecarui contact selectat trebuie sa fie valabila si unica.\n"
+"                        Daca este necesar, puteti repara adresa de email a oricarui contact direct in lista."
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:41
+#, python-format
+msgid "Send"
+msgstr "Trimite"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:106
+#, python-format
+msgid "Several contacts have the same email: "
+msgstr "Mai multe contacte au același email: "
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:103
+#, python-format
+msgid "Some contacts don't have a valid email: "
+msgstr "Mai multe contacte nu au adresă de email validă: "
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:109
+#, python-format
+msgid "Some contacts have the same email as an existing portal user:"
+msgstr ""
+"Unele contacte au aceeași adresă de email cu utilizatorii existenți în "
+"portal:"
+
+#. module: portal
+#: code:addons/portal/controllers/portal.py:197
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Câteva câmpuri necesare sunt necompletate."
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "State / Province"
+msgstr "Județ"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Street"
+msgstr "Stradă"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:25
+#, python-format
+msgid "Thank You !"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_portal_wizard_portal_id
+msgid "The portal that users can be added in or removed from."
+msgstr "Portalul in care utilizatorii pot fi adaugati sau stersi."
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:11
+#, python-format
+msgid "There are no comments for now."
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "This text is included in the email sent to new portal users."
+msgstr ""
+"Acest text este inclus in email-ul trimis noilor utilizatori ai portalului."
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_portal_wizard_welcome_message
+msgid "This text is included in the email sent to new users of the portal."
+msgstr ""
+"Textul este inclus in email-ul trimis noilor utilizatori ai portalului."
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:112
+#, python-format
+msgid ""
+"To resolve this error, you can: \n"
+"- Correct the emails of the relevant contacts\n"
+"- Grant access only to contacts with unique emails"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_ids
+msgid "Users"
+msgstr "Utilizatori"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "VAT Number"
+msgstr "CUI"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_account_analytic_account_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_asset_asset_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_bank_statement_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_invoice_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_payment_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_voucher_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_blog_blog_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_calendar_event_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_lead_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_team_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crossovered_budget_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_event_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_registration_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_track_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_fleet_vehicle_log_contract_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_fleet_vehicle_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_forum_forum_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_forum_tag_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_gamification_badge_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_gamification_challenge_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_applicant_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_contract_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_department_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_employee_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_expense_sheet_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_expense_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_holidays_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_job_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_channel_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_mass_mailing_contact_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_simple_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_equipment_category_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_equipment_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_request_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_bom_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_production_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_repair_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_unbuild_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_workorder_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_note_note_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_product_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_template_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_project_project_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_project_task_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_purchase_order_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_purchase_requisition_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_res_partner_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_res_users_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_sale_order_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_slide_channel_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_slide_slide_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_landed_cost_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_picking_batch_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_picking_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_production_lot_website_message_ids
+#: model:ir.model.fields,field_description:portal.field_survey_survey_website_message_ids
+msgid "Website Messages"
+msgstr "Mesaje Website"
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_account_analytic_account_website_message_ids
+#: model:ir.model.fields,help:portal.field_account_asset_asset_website_message_ids
+#: model:ir.model.fields,help:portal.field_account_bank_statement_website_message_ids
+#: model:ir.model.fields,help:portal.field_account_invoice_website_message_ids
+#: model:ir.model.fields,help:portal.field_account_payment_website_message_ids
+#: model:ir.model.fields,help:portal.field_account_voucher_website_message_ids
+#: model:ir.model.fields,help:portal.field_blog_blog_website_message_ids
+#: model:ir.model.fields,help:portal.field_calendar_event_website_message_ids
+#: model:ir.model.fields,help:portal.field_crm_lead_website_message_ids
+#: model:ir.model.fields,help:portal.field_crm_team_website_message_ids
+#: model:ir.model.fields,help:portal.field_crossovered_budget_website_message_ids
+#: model:ir.model.fields,help:portal.field_event_event_website_message_ids
+#: model:ir.model.fields,help:portal.field_event_registration_website_message_ids
+#: model:ir.model.fields,help:portal.field_event_track_website_message_ids
+#: model:ir.model.fields,help:portal.field_fleet_vehicle_log_contract_website_message_ids
+#: model:ir.model.fields,help:portal.field_fleet_vehicle_website_message_ids
+#: model:ir.model.fields,help:portal.field_forum_forum_website_message_ids
+#: model:ir.model.fields,help:portal.field_forum_tag_website_message_ids
+#: model:ir.model.fields,help:portal.field_gamification_badge_website_message_ids
+#: model:ir.model.fields,help:portal.field_gamification_challenge_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_applicant_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_contract_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_department_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_employee_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_expense_sheet_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_expense_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_holidays_website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_job_website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_channel_website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_mass_mailing_contact_website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_simple_website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_thread_website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_equipment_category_website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_equipment_website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_request_website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_bom_website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_production_website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_repair_website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_unbuild_website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_workorder_website_message_ids
+#: model:ir.model.fields,help:portal.field_note_note_website_message_ids
+#: model:ir.model.fields,help:portal.field_product_product_website_message_ids
+#: model:ir.model.fields,help:portal.field_product_template_website_message_ids
+#: model:ir.model.fields,help:portal.field_project_project_website_message_ids
+#: model:ir.model.fields,help:portal.field_project_task_website_message_ids
+#: model:ir.model.fields,help:portal.field_purchase_order_website_message_ids
+#: model:ir.model.fields,help:portal.field_purchase_requisition_website_message_ids
+#: model:ir.model.fields,help:portal.field_res_partner_website_message_ids
+#: model:ir.model.fields,help:portal.field_res_users_website_message_ids
+#: model:ir.model.fields,help:portal.field_sale_order_website_message_ids
+#: model:ir.model.fields,help:portal.field_slide_channel_website_message_ids
+#: model:ir.model.fields,help:portal.field_slide_slide_website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_landed_cost_website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_picking_batch_website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_picking_website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_production_lot_website_message_ids
+#: model:ir.model.fields,help:portal.field_survey_survey_website_message_ids
+msgid "Website communication history"
+msgstr "Istoric comunicare website"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user_wizard_id
+msgid "Wizard"
+msgstr "Asistent"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:32
+#, python-format
+msgid "Write a message..."
+msgstr ""
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
+#, python-format
+msgid "You must be"
+msgstr ""
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:182
 #, python-format
 msgid ""
 "You must have an email address in your User Preferences to send emails."
@@ -146,656 +562,80 @@ msgstr ""
 "trimite e-mail-uri."
 
 #. module: portal
-#: model:ir.actions.client,name:portal.action_jobs
-#: model:ir.ui.menu,name:portal.portal_jobs
-msgid "Jobs"
-msgstr "Locuri de munca"
-
-#. module: portal
-#: field:portal.wizard,user_ids:0
-msgid "Users"
-msgstr "Utilizatori"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:82
-#, python-format
-msgid "Pay safely online"
-msgstr "Plateste online in siguranta"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:77
-#, python-format
-msgid "No online payment acquirers configured"
-msgstr "Nu au fost configurati beneficiarii platii online"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"kind: the kind of document on which the payment form is rendered (translated "
-"to user language, e.g. \"Invoice\")"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Contact Details"
 msgstr ""
-"tip: tipul de document in care este redat formularul de plata (tradus in "
-"limba utilizatorului, de exemplu 'Factura\")"
 
 #. module: portal
-#: help:portal.wizard,portal_id:0
-msgid "The portal that users can be added in or removed from."
-msgstr "Portalul in care utilizatorii pot fi adaugati sau stersi."
+#: model:ir.ui.view,arch_db:portal.portal_layout
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Details"
+msgstr "Detaliile dumneavoastră"
 
 #. module: portal
-#: code:addons/portal/wizard/share_wizard.py:38
+#: model:ir.ui.view,arch_db:portal.portal_my_home
+msgid "Your Documents"
+msgstr ""
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:6
+#: model:ir.ui.view,arch_db:portal.portal_my_details
 #, python-format
-msgid "Users you already shared with"
-msgstr "Utilizatori cu care ati partajat deja"
-
-#. module: portal
-#: model:ir.actions.client,help:portal.action_jobs
-msgid ""
-"<p>\n"
-"                    Youd don't have unread job offers.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    Nu aveti oferte de munca necitite.\n"
-"                </p>\n"
-"            "
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-", so it may use Mako expressions.\n"
-"                                The Mako evaluation context provides:"
-msgstr ""
-", prin urmare poate folosi expresii Mako.\n"
-"                                Contextul evaluarii Mako ofera:"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_menu
-#: field:portal.wizard,portal_id:0
-#: field:res.groups,is_portal:0
-#: model:res.groups,name:portal.group_portal
-msgid "Portal"
-msgstr "Portal"
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:34
-#, python-format
-msgid "Your OpenERP account at %(company)s"
-msgstr "Contul d-voastra OpenERP la %(company)s"
-
-#. module: portal
-#: model:res.groups,name:portal.group_anonymous
-msgid "Anonymous"
-msgstr "Anonim"
-
-#. module: portal
-#: field:portal.wizard.user,in_portal:0
-msgid "In Portal"
-msgstr "In Portal"
-
-#. module: portal
-#: model:ir.actions.client,name:portal.action_news
-#: model:ir.ui.menu,name:portal.portal_company_news
-msgid "News"
-msgstr "Stiri"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_after_sales
-msgid "After Sale Services"
-msgstr "Servicii Post Vanzare"
-
-#. module: portal
-#: model:res.groups,comment:portal.group_portal
-msgid ""
-"Portal members have specific access rights (such as record rules and "
-"restricted menus).\n"
-"                They usually do not belong to the usual OpenERP groups."
-msgstr ""
-"Membrii portalului au drepturi de acces specifice (cum ar fi regulile de "
-"inregistrare si meniuri restrictionate).\n"
-"                De obicei, ei nu apartin grupurilor OpenERP obisnuite."
-
-#. module: portal
-#: model:ir.actions.act_window,name:portal.action_acquirer_list
-#: view:portal.payment.acquirer:0
-msgid "Payment Acquirers"
-msgstr "Beneficiarii Platii"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_projects
-msgid "Projects"
-msgstr "Proiecte"
-
-#. module: portal
-#: model:ir.actions.client,name:portal.action_mail_inbox_feeds_portal
-#: model:ir.ui.menu,name:portal.portal_inbox
-msgid "Inbox"
-msgstr "Casuta postala"
-
-#. module: portal
-#: view:share.wizard:0
-#: field:share.wizard,user_ids:0
-msgid "Existing users"
-msgstr "Utilizatori existenti"
-
-#. module: portal
-#: field:portal.wizard.user,wizard_id:0
-msgid "Wizard"
-msgstr "Wizard"
-
-#. module: portal
-#: field:portal.payment.acquirer,name:0
-msgid "Name"
+msgid "Your Name"
 msgstr "Nume"
 
 #. module: portal
-#: model:ir.model,name:portal.model_res_groups
-msgid "Access Groups"
-msgstr "Acces Grupuri"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "uid: the current user id"
-msgstr "uid: id-ul utilizatorului actual"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"quote(): a method to quote special string character to make them suitable "
-"for inclusion in a URL"
+#: model:mail.template,subject:portal.mail_template_data_portal_welcome
+msgid "Your Odoo account at ${user.company_id.name}"
 msgstr ""
-"cotatie(): o metoda de a stabili un sir de caractere speciale pentru a le "
-"face potrivite includerii intr-un URL"
 
 #. module: portal
-#: help:res.groups,is_portal:0
-msgid "If checked, this group is usable as a portal."
-msgstr "Daca este selectat, acest grup este utilizabil ca portal."
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Zip / Postal Code"
+msgstr "Cod poștal"
 
 #. module: portal
-#: field:portal.payment.acquirer,form_template:0
-msgid "Payment form template (HTML)"
-msgstr "Sablon formular de plata (HTML)"
-
-#. module: portal
-#: field:portal.wizard.user,partner_id:0
-msgid "Contact"
-msgstr "Contact"
-
-#. module: portal
-#: model:ir.model,name:portal.model_mail_mail
-msgid "Outgoing Mails"
-msgstr "Email-uri Expediate"
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:193
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:56
 #, python-format
-msgid "Email required"
-msgstr "Email necesar"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_messages
-msgid "Messaging"
-msgstr "Mesagerie"
-
-#. module: portal
-#: model:res.groups,comment:portal.group_anonymous
-msgid ""
-"Anonymous users have specific access rights (such as record rules and "
-"restricted menus).\n"
-"                They usually do not belong to the usual OpenERP groups."
+msgid "avatar"
 msgstr ""
-"Utilizatorii anonimi au drepturi de acces specifice (precum regulile de "
-"inregistrare si meniurile restrictionate).\n"
-"                De obicei, ei nu apartin grupurilor OpenERP obisnuite."
 
 #. module: portal
-#: model:ir.model,name:portal.model_portal_payment_acquirer
-msgid "Online Payment Acquirer"
-msgstr "Beneficiarul Platii Online"
-
-#. module: portal
-#: model:mail.group,name:portal.company_news_feed
-msgid "Company News"
-msgstr "Noutatile Companiei"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:76
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:8
 #, python-format
-msgid ""
-"You can finish the configuration in the <a href=\"%s\">Bank&Cash settings</a>"
-msgstr ""
-"Puteti finaliza configuratia in <a href=\"%s\">Bank&Cash settings</a>"
+msgid "comment"
+msgstr "comentariu"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "cr: the current database cursor"
-msgstr "cr: cursorul bazei de date actuale"
-
-#. module: portal
-#: model:ir.actions.client,help:portal.action_mail_inbox_feeds_portal
-msgid ""
-"<p>\n"
-"                    <b>Good Job!</b> Your inbox is empty.\n"
-"                </p><p>\n"
-"                    Your inbox contains private messages or emails sent to "
-"you\n"
-"                    as well as information related to documents or people "
-"you\n"
-"                    follow.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    <b>Treaba buna!</b> Casuta dumneavoastra postala este "
-"goala.\n"
-"                </p><p>\n"
-"                    Casuta dumneavoastra postala contine mesaje sau email-"
-"uri personale care v-au fost trimise dumneavoastra,\n"
-"                    precum si informatii legate de documentele sau "
-"persoanele pe care\n"
-"                    le urmariti.\n"
-"                </p>\n"
-"            "
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"object: the document on which the payment form is rendered (usually an "
-"invoice or sales order record)"
-msgstr ""
-"obiect: documentul in care este redat formularul de plata (de obicei o "
-"factura sau o inregistrare a comenzii de vanzare)"
-
-#. module: portal
-#: help:portal.wizard,welcome_message:0
-msgid "This text is included in the email sent to new users of the portal."
-msgstr ""
-"Textul este inclus in email-ul trimis noilor utilizatori ai portalului."
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_company
-msgid "About Us"
-msgstr "Despre Noi"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"currency: the currency record in which the document is issued (e.g. "
-"currency.name could be EUR)"
-msgstr ""
-"valuta: inregistrarea valutei in care este emis documentul (de exemplu "
-"numele.valutei poate fi EUR)"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Payment Acquirer"
-msgstr "Beneficiarul Platii"
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:35
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:9
 #, python-format
-msgid ""
-"Dear %(name)s,\n"
-"\n"
-"You have been given access to %(portal)s.\n"
-"\n"
-"Your login account data is:\n"
-"Database: %(db)s\n"
-"Username: %(login)s\n"
-"\n"
-"In order to complete the signin process, click on the following url:\n"
-"%(url)s\n"
-"\n"
-"%(welcome_message)s\n"
-"\n"
-"--\n"
-"OpenERP - Open Source Business Applications\n"
-"http://www.openerp.com\n"
-msgstr ""
-"Stimate %(name)s,\n"
-"\n"
-"Vi s-a permis accesul la %(portal)s.\n"
-"\n"
-"Datele contului dumneavoastra sunt:\n"
-"Baza de date: %(db)s\n"
-"Nume de utilizator %(login)s\n"
-"\n"
-"Pentru a finaliza procesul se inregistrare, faceti click pe urmatorul url:\n"
-"%(url)s\n"
-"\n"
-"%(welcome_message)s\n"
-"\n"
-"--\n"
-"OpenERP - Open Source Business Applications\n"
-"http://www.openerp.com\n"
+msgid "comments"
+msgstr "comentarii"
 
 #. module: portal
-#: view:portal.wizard:0
-msgid "or"
-msgstr "sau"
-
-#. module: portal
-#: model:portal.payment.acquirer,form_template:portal.paypal_acquirer
-msgid ""
-"\n"
-"% if object.company_id.paypal_account:\n"
-"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" "
-"target=\"_blank\">\n"
-"  <input type=\"hidden\" name=\"cmd\" value=\"_xclick\"/>\n"
-"  <input type=\"hidden\" name=\"business\" "
-"value=\"${object.company_id.paypal_account}\"/>\n"
-"  <input type=\"hidden\" name=\"item_name\" "
-"value=\"${object.company_id.name} ${kind.title()} ${reference}\"/>\n"
-"  <input type=\"hidden\" name=\"amount\" value=\"${amount}\"/>\n"
-"  <input type=\"hidden\" name=\"currency_code\" "
-"value=\"${currency.name}\"/>\n"
-"  <input type=\"image\" name=\"submit\" "
-"src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"/>\n"
-"</form>\n"
-"% endif\n"
-"            "
-msgstr ""
-"\n"
-"% idaca obiect.companie_id.paypal_cont:\n"
-"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" "
-"target=\"_blank\">\n"
-"  <input type=\"hidden\" name=\"cmd\" value=\"_xclick\"/>\n"
-"  <input type=\"hidden\" name=\"business\" "
-"value=\"${object.company_id.paypal_account}\"/>\n"
-"  <input type=\"hidden\" name=\"item_name\" "
-"value=\"${object.company_id.name} ${kind.title()} ${reference}\"/>\n"
-"  <input type=\"hidden\" name=\"amount\" value=\"${amount}\"/>\n"
-"  <input type=\"hidden\" name=\"currency_code\" "
-"value=\"${currency.name}\"/>\n"
-"  <input type=\"image\" name=\"submit\" "
-"src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"/>\n"
-"</form>\n"
-"% endif\n"
-"            "
-
-#. module: portal
-#: model:ir.model,name:portal.model_portal_wizard_user
-msgid "Portal User Config"
-msgstr "Config Utilizator Portal"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"If the template renders to an empty result in a certain context it will be "
-"ignored, as if it was inactive."
-msgstr ""
-"Daca sablonul duce la un rezultat nul intr-un anumit context, va fi ignorat, "
-"ca si cand ar fi inactiv."
-
-#. module: portal
-#: field:portal.payment.acquirer,visible:0
-msgid "Visible"
-msgstr "Vizibil (a)"
-
-#. module: portal
-#: code:addons/portal/wizard/share_wizard.py:39
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
 #, python-format
-msgid "Existing Groups (e.g Portal Groups)"
-msgstr "Grupuri Existente (de exemplu Grupuri Portal)"
-
-#. module: portal
-#: view:portal.wizard:0
-msgid "Cancel"
-msgstr "Anulati"
-
-#. module: portal
-#: view:portal.wizard:0
-msgid "Apply"
-msgstr "Aplica"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "ctx: the current context dictionary"
-msgstr "cxt: dictionarul contextului actual"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"This is an HTML form template to submit a payment through this acquirer.\n"
-"                                The template will be rendered with"
+msgid "logged in"
 msgstr ""
-"Acesta este un sablon de formular HTML pentru a depune o plata prin acest "
-"beneficiar.\n"
-"                                Sablonul va fi redat cu"
 
 #. module: portal
-#: code:addons/portal/mail_mail.py:42
-#, python-format
-msgid ""
-"Access your personal documents through <a href=\"%s\">our Customer Portal</a>"
+#: model:ir.model,name:portal.model_portal_mixin
+msgid "portal.mixin"
 msgstr ""
-"Accesati documentele personale prin a href=\"%s\">our Customer Portal</a>"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Form Template"
-msgstr "Sablon Formular"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "select..."
+msgstr "selectează..."
 
 #. module: portal
-#: model:ir.actions.act_window,name:portal.partner_wizard_action
-#: model:ir.model,name:portal.model_portal_wizard
-#: view:portal.wizard:0
-msgid "Portal Access Management"
-msgstr "Management Acces Portal"
-
-#~ msgid "Portal User"
-#~ msgstr "Utilizator Portal"
-
-#~ msgid "Enable this option to override the Menu Action of portal users"
-#~ msgstr ""
-#~ "Activati aceasta optiune pentru a anula Actiunea Meniului utilizatorilor "
-#~ "portalului"
-
-#~ msgid "Group"
-#~ msgstr "Grup"
-
-#~ msgid "The chosen company is not in the allowed companies for this user"
-#~ msgstr ""
-#~ "Compania aleasa nu se afla printre companiile permise acestui utilizator"
-
-#~ msgid "E-mail"
-#~ msgstr "E-mail"
-
-#~ msgid ""
-#~ "Portal managers have access to the portal definitions, and can easily "
-#~ "configure the users, access rights and menus of portal users."
-#~ msgstr ""
-#~ "Managerii portalurilor au acces la definitiile portalurilor, si pot sa "
-#~ "configureze cu usurinta utilizatorii, drepturile de acces si meniurile "
-#~ "utilizatorilor portalurilor."
-
-#~ msgid "Language"
-#~ msgstr "Limba"
-
-#~ msgid "Portal Users"
-#~ msgstr "Utilizatori Portal"
-
-#~ msgid "Portal Name"
-#~ msgstr "Nume Portal"
-
-#~ msgid "If set, replaces the standard menu for the portal's users"
-#~ msgstr ""
-#~ "Daca este setat, inlocuieste meniul standard pentru utilizatorii portalului"
-
-#~ msgid "Send Invitations"
-#~ msgstr "Trimiteti Invitatiile"
-
-#~ msgid "Widgets assigned to Users"
-#~ msgstr "Widget-uri atribuite Utilizatorilor"
-
-#~ msgid "Widgets"
-#~ msgstr "Widget-uri"
-
-#~ msgid "The url where portal users can connect to the server"
-#~ msgstr "Url-ul unde utilizatorii portalului se pot conecta la server"
-
-#~ msgid "This text is included in the welcome email sent to the users"
-#~ msgstr ""
-#~ "Acest text este inclus in e-mail-ul de bun venit trimis utilizatorilor"
-
-#~ msgid "Override Menu Action of Users"
-#~ msgstr "Anulati Actiunea Meniului Utilizatorilor"
-
-#~ msgid "Menu Action"
-#~ msgstr "Actiune Meniu"
-
-#~ msgid "User Name"
-#~ msgstr "Nume utilizator"
-
-#~ msgid "Portal Widgets"
-#~ msgstr "Widget-uri Portal"
-
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
 #, python-format
-#~ msgid "%s Menu"
-#~ msgstr "%s Meniu"
-
-#~ msgid "The portal in which new users must be added"
-#~ msgstr "Portalul in care trebuie adaugati noi utilizatori"
-
-#~ msgid "Portal Wizard"
-#~ msgstr "Wizard Portal"
-
-#~ msgid "The group corresponding to this portal"
-#~ msgstr "Grupul corespunzator acestui portal"
-
-#~ msgid "URL"
-#~ msgstr "URL"
-
-#~ msgid "Parent Menu"
-#~ msgstr "Meniu principal"
-
-#~ msgid ""
-#~ "Will be used as user login.  Also necessary to send the account information "
-#~ "to new users"
-#~ msgstr ""
-#~ "Va fi utilizat ca nume de autentificare. De asemenea, este nevoie sa "
-#~ "trimiteti informatiile despre cont utilizatorilor noi"
-
-#, python-format
-#~ msgid "(missing url)"
-#~ msgstr "(url lipsa)"
-
-#~ msgid "The language for the user's user interface"
-#~ msgstr "Limba pentru interfata utilizatorului"
-
-#~ msgid "Widgets assigned to portal users"
-#~ msgstr "Widget-uri atribuite utilizatorilor portalului"
-
-#~ msgid "Widget"
-#~ msgstr "Widget"
-
-#~ msgid "ir.ui.menu"
-#~ msgstr "ir.ui.meniu"
-
-#~ msgid ""
-#~ "The following text will be included in the welcome email sent to users."
-#~ msgstr ""
-#~ "Textul urmator va fi inclus in mesajul de bun venit trimis utilizatorilor."
-
-#~ msgid "Invalid email address"
-#~ msgstr "Adresă de mail nevalida"
-
-#~ msgid "res.users"
-#~ msgstr "res.utilizatori"
-
-#~ msgid "Portals"
-#~ msgstr "Portaluri"
-
-#~ msgid "Website"
-#~ msgstr "Pagina de Internet"
-
-#~ msgid "Create Parent Menu"
-#~ msgstr "Creati Meniu Principal"
-
-#~ msgid "Sequence"
-#~ msgstr "Secventa"
-
-#~ msgid "The menu action opens the submenus of this menu item"
-#~ msgstr "Meniul actiune deschide submeniurile acestui element de meniu"
-
-#~ msgid "Portal Menu"
-#~ msgstr "Meniu Portal"
-
-#~ msgid "Add Portal Access"
-#~ msgstr "Adaugati Acces Portal"
-
-#~ msgid "Related Partner"
-#~ msgstr "Partener Asociat"
-
-#~ msgid "You can not have two users with the same login !"
-#~ msgstr "Nu pot exista doi utilizatori cu acelasi nume de autentificare !"
-
-#~ msgid "Invitation message"
-#~ msgstr "Mesajul de invitatie"
-
-#~ msgid "The user's real name"
-#~ msgstr "Numele real al utilizatorului"
-
-#~ msgid "Manager"
-#~ msgstr "Director"
-
-#~ msgid "Partner"
-#~ msgstr "Partener"
-
-#~ msgid ""
-#~ "\n"
-#~ "A portal helps defining specific views and rules for a group of users (the\n"
-#~ "portal group).  A portal menu, widgets and specific groups may be assigned "
-#~ "to\n"
-#~ "the portal's users.\n"
-#~ "            "
-#~ msgstr ""
-#~ "\n"
-#~ "Un portal ajuta la definirea vizualizarilor specifice si a regulilor pentru "
-#~ "un grup de utilizatori (grupul\n"
-#~ "portalului). Un meniu portal, widget-uri si grupuri specifice pot fi "
-#~ "atribuite\n"
-#~ "utilizatorilor portalului.\n"
-#~ "            "
-
-#~ msgid "Portal officers can create new portal users with the portal wizard."
-#~ msgstr ""
-#~ "Administratorii portalului pot crea noi utilizatori ai portalului cu "
-#~ "ajutorul wizard-ului portaluri."
-
-#~ msgid "Officer"
-#~ msgstr "Director"
-
-#, python-format
-#~ msgid ""
-#~ "Dear %(name)s,\n"
-#~ "\n"
-#~ "You have been created an OpenERP account at %(url)s.\n"
-#~ "\n"
-#~ "Your login account data is:\n"
-#~ "Database: %(db)s\n"
-#~ "User:     %(login)s\n"
-#~ "Password: %(password)s\n"
-#~ "\n"
-#~ "%(message)s\n"
-#~ "\n"
-#~ "--\n"
-#~ "OpenERP - Open Source Business Applications\n"
-#~ "http://www.openerp.com\n"
-#~ msgstr ""
-#~ "Stimata(e) %(name)s,\n"
-#~ "\n"
-#~ "Vi s-a creat un cont OpenERP la %(url)s.\n"
-#~ "\n"
-#~ "Datele d-voastra de autentificare in cont sunt:\n"
-#~ "Baza de date: %(db)s\n"
-#~ "Utilizator: %(login)s\n"
-#~ "Parola: %(password)s\n"
-#~ "\n"
-#~ "%(message)s\n"
-#~ "\n"
-#~ "--\n"
-#~ "OpenERP - Aplicatii de afaceri Open Source\n"
-#~ "http://www.openerp.com\n"
+msgid "to post a comment."
+msgstr ""

@@ -1,1104 +1,1329 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* event
-#
+# * event
+# 
+# Translators:
+# Martin Trigaux <mat@odoo.com>, 2017
+# B Dochev <dochevb@gmail.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2010-08-03 06:12+0000\n"
-"Last-Translator: lem0na <nickyk@gmx.net>\n"
-"Language-Team: \n"
+"Project-Id-Version: Odoo Server 11.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-11-16 08:08+0000\n"
+"PO-Revision-Date: 2017-11-16 08:08+0000\n"
+"Last-Translator: B Dochev <dochevb@gmail.com>, 2017\n"
+"Language-Team: Bulgarian (https://www.transifex.com/odoo/teams/41243/bg/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 06:10+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Transfer-Encoding: \n"
+"Language: bg\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: event
-#: view:event.event:0
-#: view:report.event.registration:0
-msgid "My Events"
-msgstr "Моите събития"
-
-#. module: event
-#: field:event.registration,nb_register:0
-msgid "Number of Participants"
-msgstr ""
-
-#. module: event
-#: field:event.event,register_attended:0
-msgid "# of Participations"
-msgstr ""
-
-#. module: event
-#: field:event.event,main_speaker_id:0
-msgid "Main Speaker"
-msgstr "Основен оратор"
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
-#: view:report.event.registration:0
-msgid "Group By..."
-msgstr "Групиране по..."
-
-#. module: event
-#: field:event.event,register_min:0
-msgid "Minimum Registrations"
-msgstr "Минимални регистрации"
-
-#. module: event
-#: help:event.event,register_min:0
+#: model:mail.template,body_html:event.event_subscription
 msgid ""
-"You can for each event define a minimum registration level. If you do not "
-"enough registrations you are not able to confirm your event. (put 0 to "
-"ignore this rule )"
+"\n"
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"% set date_begin = format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%SZ')\n"
+"% set date_end = format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%SZ')\n"
+"    <table style=\"width:600px;margin:5px auto;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td>\n"
+"                    <a href=\"/\">\n"
+"                        <img src=\"/logo\" alt=\"${object.company_id.name}\" style=\"vertical-align:baseline;max-width:100px;\" />\n"
+"                    </a>\n"
+"                </td>\n"
+"                <td style=\"text-align:right;vertical-align:middle;\">\n"
+"                    % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                        <a href=\"${object.event_id.website_url}\" style=\"background-color: #1abc9c; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">View Event</a>\n"
+"                    % endif\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"    <table style=\"width:600px;margin:0px auto;background:white;border:1px solid #e1e1e1;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td style=\"padding:15px 20px 0px 20px; font-size:16px; font-weight:300;\">\n"
+"                    <p style=\"font-size:16px;\">\n"
+"                        Hi,\n"
+"                    </p><p style=\"font-size:16px;\">\n"
+"                        We are happy to confirm your registration to the event:\n"
+"                    </p>\n"
+"                    <ul>\n"
+"                        <li>Event: \n"
+"                        % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                            <a href=\"${object.event_id.website_url}\" style=\"color:#875A7B;text-decoration:none;\">${object.event_id.name}</a>\n"
+"                        % else:\n"
+"                            <strong>${object.event_id.name}</strong>\n"
+"                        % endif\n"
+"                        </li>\n"
+"                        <li>Attendee: ${object.name}</li>\n"
+"                    </ul>\n"
+"                    <p style=\"font-size:16px;\">\n"
+"                        See you soon,\n"
+"                    </p>\n"
+"                    <p style=\"font-size:16px; margin-bottom: 30px\">\n"
+"                        <i>\n"
+"                           -- <br/>\n"
+"                        % if object.event_id.organizer_id:\n"
+"                            ${object.event_id.organizer_id.name}\n"
+"                        % else:\n"
+"                            The organizers.\n"
+"                        % endif\n"
+"                        </i>\n"
+"                    </p>\n"
+"                </td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td style=\"padding:15px 20px 0px 20px;\">\n"
+"                    <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                        <tr>\n"
+"                            <td style=\"padding:25px 0px; text-align:center;\">\n"
+"                                <p>\n"
+"                                    Don't forget to <strong>add it to your calendar</strong>:\n"
+"                                </p>\n"
+"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
+"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
+"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                    <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                        <tr>\n"
+"                            <td style=\"padding:25px 0px;vertical-align:top;\">\n"
+"                                <img src=\"/web_editor/font_to_img/61555/rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\">\n"
+"                            </td>\n"
+"                            <td style=\"padding:25px 10px 25px 10px;width:50%;line-height:20px;vertical-align:top;\">\n"
+"                                <div><strong>From</strong> ${object.event_id.date_begin_located}</div>\n"
+"                                <div><strong>To</strong> ${object.event_id.date_end_located}</div>\n"
+"                                <div style=\"font-size:12px;color:#9e9e9e\"><i><strong>TZ</strong> ${object.event_id.date_tz}</i></div>\n"
+"                            </td>\n"
+"                            % if object.event_id.address_id.country_id.name:\n"
+"                                <td style=\"padding:25px 0px;vertical-align:top;\">\n"
+"                                    <img src=\"/web_editor/font_to_img/61505/rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\">\n"
+"                                </td>\n"
+"                                <td style=\"padding:30px 10px 25px 10px;width:50%;vertical-align:top;\">\n"
+"                                    % set location = ''\n"
+"                                    % if object.event_id.address_id.name:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.name}</p>\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.street:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.street}</p>\n"
+"                                        % set location = object.event_id.address_id.street\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.street2:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.street2}</p>\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.street2)\n"
+"                                    % endif\n"
+"                                    <p style=\"margin:0px 0px 0px 0px;\">\n"
+"                                    % if object.event_id.address_id.city:\n"
+"                                        ${object.event_id.address_id.city},\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.city)\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.state_id.name:\n"
+"                                        ${object.event_id.address_id.state_id.name},\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.state_id.name)\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.zip:\n"
+"                                        ${object.event_id.address_id.zip}\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.zip)\n"
+"                                    % endif\n"
+"                                    </p>\n"
+"                                    % if object.event_id.address_id.country_id.name:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.country_id.name}</p>\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.country_id.name)\n"
+"                                    % endif\n"
+"                                </td>\n"
+"                            % endif\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                    % if object.event_id.organizer_id:\n"
+"                        <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                            <tr>\n"
+"                                <td style=\"padding:10px 0px 25px 0px;\">\n"
+"                                    <h2 style=\"font-weight:300;margin:10px 0px\">Questions about this event?</h2>\n"
+"                                    <p>Please contact the organizer:</p>\n"
+"                                    <ul>\n"
+"                                        <li>${object.event_id.organizer_id.name}</li>\n"
+"                                        % if object.event_id.organizer_id.email\n"
+"                                            <li>Mail: <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.event_id.organizer_id.email}</a></li>\n"
+"                                        % endif\n"
+"                                        % if object.event_id.organizer_id.phone\n"
+"                                            <li>Phone: ${object.event_id.organizer_id.phone}</li>\n"
+"                                        % endif\n"
+"                                    </ul>\n"
+"\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    % endif\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"    % if object.event_id.address_id:\n"
+"    <div style=\"width:598px;margin:0px auto;border-left:1px solid #dddddd;border-right:1px solid #dddddd;border-bottom:1px solid #dddddd;\">\n"
+"        <a href=\"https://maps.google.com/maps?q=${location}\" target=\"new\">\n"
+"            <img src=\"http://maps.googleapis.com/maps/api/staticmap?autoscale=1&size=598x200&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xa5117d%7Clabel:%7C${location}\" style=\"vertical-align:bottom;\" />\n"
+"        </a>\n"
+"    </div>\n"
+"    % endif\n"
+"    <table style=\"width:600px;margin:0px auto;text-align:center;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td style=\"padding-top:10px;font-size: 12px;\">\n"
+"                    <div>Sent by ${object.company_id.name}</div>\n"
+"                    % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                    <div>\n"
+"                        Discover <a href=\"/event\" style=\"text-decoration:none;color:#717188;\">all our events</a>.\n"
+"                    </div>\n"
+"                    % endif\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"</div>\n"
+"            "
 msgstr ""
 
 #. module: event
-#: field:event.registration,date_open:0
-msgid "Registration Date"
-msgstr "Дата на регистрация"
-
-#. module: event
-#: field:event.event,type:0
-msgid "Type of Event"
+#: model:mail.template,body_html:event.event_reminder
+msgid ""
+"\n"
+"<div style=\"background:#F3F5F6;color:#515166;padding:25px 0px;font-family:Arial,Helvetica,sans-serif;font-size:14px;\">\n"
+"% set date_begin = format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%SZ')\n"
+"% set date_end = format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%SZ')\n"
+"    <table style=\"width:600px;margin:5px auto;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td>\n"
+"                    <a href=\"/\">\n"
+"                        <img src=\"/logo\" alt=\"${object.company_id.name}\" style=\"vertical-align:baseline;max-width:100px;\" />\n"
+"                    </a>\n"
+"                </td>\n"
+"                <td style=\"text-align:right;vertical-align:middle;\">\n"
+"                    % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                        <a href=\"${object.event_id.website_url}\" style=\"background-color: #1abc9c; padding: 12px; font-weight: 12px; text-decoration: none; color: #fff; border-radius: 5px; font-size:16px;\">View Event</a>\n"
+"                    % endif\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"    <table style=\"width:600px;margin:0px auto;background:white;border:1px solid #e1e1e1;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td style=\"padding:15px 20px 0px 20px; font-size:16px;\">\n"
+"                    <p style=\"font-size:16px;\">\n"
+"                        Hello,\n"
+"                    </p>\n"
+"                    <p style=\"font-size:16px;\">\n"
+"                        We are excited to remind you that the event\n"
+"                        % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                            <a href=\"${object.event_id.website_url}\" style=\"color:#875A7B;text-decoration:none;\">${object.event_id.name}</a>\n"
+"                        % else:\n"
+"                            ${object.event_id.name}\n"
+"                        % endif\n"
+"                        is starting\n"
+"                        <strong>${object.get_date_range_str()}</strong>.\n"
+"                    </p><p style=\"font-size:16px;\">\n"
+"                        We confirm your registration and hope to meet you there,\n"
+"                    </p><p style=\"font-size:16px; margin-bottom: 30px\">\n"
+"                        <i>\n"
+"                           -- <br/>\n"
+"                        % if object.event_id.organizer_id:\n"
+"                            ${object.event_id.organizer_id.name}\n"
+"                        % else:\n"
+"                            The organizers.\n"
+"                        % endif\n"
+"                        </i>\n"
+"                    </p>\n"
+"\n"
+"                </td>\n"
+"            </tr>\n"
+"            <tr>\n"
+"                <td style=\"padding:15px 20px 0px 20px;\">\n"
+"                    <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                        <tr>\n"
+"                            <td style=\"padding:25px 0px;vertical-align:top;\">\n"
+"                                <img src=\"/web_editor/font_to_img/61555/rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\">\n"
+"                            </td>\n"
+"                            <td style=\"padding:25px 10px 25px 10px;width:50%;line-height:20px;vertical-align:top;\">\n"
+"                                <div><strong>From</strong> ${object.event_id.date_begin_located}</div>\n"
+"                                <div><strong>To</strong> ${object.event_id.date_end_located}</div>\n"
+"                                <div style=\"font-size:12px;color:#9e9e9e\"><i><strong>TZ</strong> ${object.event_id.date_tz}</i></div>\n"
+"                            </td>\n"
+"                            % if object.event_id.address_id:\n"
+"                                <td style=\"padding:25px 0px;vertical-align:top;\">\n"
+"                                    <img src=\"/web_editor/font_to_img/61505/rgb(81,81,102)/34\" style=\"padding:4px;max-width:inherit;\" height=\"34\">\n"
+"                                </td>\n"
+"                                <td style=\"padding:30px 10px 25px 10px;width:50%;vertical-align:top;\">\n"
+"                                    % set location = ''\n"
+"                                    % if object.event_id.address_id.name:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.name}</p>\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.street:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.street}</p>\n"
+"                                        % set location = object.event_id.address_id.street\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.street2:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.street2}</p>\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.street2)\n"
+"                                    % endif\n"
+"                                    <p style=\"margin:0px 0px 0px 0px;\">\n"
+"                                    % if object.event_id.address_id.city:\n"
+"                                        ${object.event_id.address_id.city},\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.city)\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.state_id.name:\n"
+"                                        ${object.event_id.address_id.state_id.name},\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.state_id.name)\n"
+"                                    % endif\n"
+"                                    % if object.event_id.address_id.zip:\n"
+"                                        ${object.event_id.address_id.zip}\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.zip)\n"
+"                                    % endif\n"
+"                                    </p>\n"
+"                                    % if object.event_id.address_id.country_id.name:\n"
+"                                        <p style=\"margin:0px 0px 0px 0px;\">${object.event_id.address_id.country_id.name}</p>\n"
+"                                        % set location = '%s, %s' % (location, object.event_id.address_id.country_id.name)\n"
+"                                    % endif\n"
+"                                </td>\n"
+"                            % endif\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                    % if object.event_id.organizer_id.email:\n"
+"                        <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                            <tr>\n"
+"                                <td style=\"padding:10px 0px 25px 0px;\">\n"
+"                                    <h2 style=\"font-weight:300;margin:10px 0px\">Questions about this event?</h2>\n"
+"                                    <p>Please contact the organizer:</p>\n"
+"                                    <ul>\n"
+"                                        <li>${object.event_id.organizer_id.name}</li>\n"
+"                                        % if object.event_id.organizer_id.email\n"
+"                                            <li>Mail: <a href=\"mailto:${object.event_id.organizer_id.email}\" style=\"text-decoration:none;color:#875A7B;\">${object.event_id.organizer_id.email}</a></li>\n"
+"                                        % endif\n"
+"                                        % if object.event_id.organizer_id.phone\n"
+"                                            <li>Phone: ${object.event_id.organizer_id.phone}</li>\n"
+"                                        % endif\n"
+"                                    </ul>\n"
+"                                </td>\n"
+"                            </tr>\n"
+"                        </table>\n"
+"                    % endif\n"
+"                    <table style=\"width:100%;border-top:1px solid #e1e1e1;\">\n"
+"                        <tr>\n"
+"                            <td style=\"padding:25px 0px;\">\n"
+"                                <strong>Add this event to your calendar</strong>\n"
+"                                <a href=\"https://www.google.com/calendar/render?action=TEMPLATE&text=${object.event_id.name}&dates=${date_begin}/${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Google</a>\n"
+"                                <a href=\"https://bay02.calendar.live.com/calendar/calendar.aspx?rru=addevent&summary=${object.event_id.name}&dtstart=${date_begin}&dtend=${date_end}&location=${location}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Outlook</a>\n"
+"                                <a href=\"https://calendar.yahoo.com/?v=60&view=d&type=20&title=${object.event_id.name}&in_loc=${location}&st=${format_tz(object.event_id.date_begin, tz='UTC', format='%Y%m%dT%H%M%S')}&et=${format_tz(object.event_id.date_end, tz='UTC', format='%Y%m%dT%H%M%S')}\" style=\"padding:3px 5px;border:1px solid #875A7B;color:#875A7B;text-decoration:none;border-radius:3px;\" target=\"new\"><img src=\"/web_editor/font_to_img/61525/rgb(135,90,123)/16\" style=\"vertical-align:middle;\" height=\"16\"> Yahoo</a>\n"
+"                            </td>\n"
+"                        </tr>\n"
+"                    </table>\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"    % if object.event_id.address_id:\n"
+"    <div style=\"width:598px;margin:0px auto;border-left:1px solid #dddddd;border-right:1px solid #dddddd;border-bottom:1px solid #dddddd;\">\n"
+"        <a href=\"https://maps.google.com/maps?q=${location}\" target=\"new\">\n"
+"            <img src=\"http://maps.googleapis.com/maps/api/staticmap?autoscale=1&size=598x200&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xa5117d%7Clabel:%7C${location}\" style=\"vertical-align:bottom;\" />\n"
+"        </a>\n"
+"    </div>\n"
+"    % endif\n"
+"    <table style=\"width:600px;margin:0px auto;text-align:center;\">\n"
+"        <tbody>\n"
+"            <tr>\n"
+"                <td style=\"padding-top:10px;font-size: 12px;\">\n"
+"                    <p style=\"margin:0px 0px 9px 0px;padding-top:10px;\">Sent by ${object.company_id.name}</p>\n"
+"                    % if 'website_url' in object.event_id and object.event_id.website_url:\n"
+"                    <div>\n"
+"                        Discover <a href=\"/event\" style=\"text-decoration:none;color:#717188;\">all our events</a>.\n"
+"                    </div>\n"
+"                    % endif\n"
+"                </td>\n"
+"            </tr>\n"
+"        </tbody>\n"
+"    </table>\n"
+"</div>\n"
+"            "
 msgstr ""
 
 #. module: event
-#: model:event.event,name:event.event_0
-msgid "Concert of Bon Jovi"
-msgstr "Концерт на Bon Jovi"
+#: model:mail.template,body_html:event.event_registration_mail_template_badge
+msgid ""
+"\n"
+"<p>Dear ${object.name},</p>\n"
+"<p>Thank you for your inquiry.</p>\n"
+"<p>Here is your badge for the event ${object.event_id.name}.</p>\n"
+"<p>If you have any questions, please let us know.</p>\n"
+"<p>Best regards,</p>"
+msgstr ""
 
 #. module: event
-#: view:event.registration:0
+#: model:mail.template,subject:event.event_reminder
+msgid "${object.event_id.name}: ${object.get_date_range_str()}"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"1 business room: to discuss implementation methodologies, best sales "
+"practices, etc."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid "1 workshop room: mainly for developers."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"2 technical rooms: one dedicated to advanced Odoo developers, one for new "
+"developers."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid ""
+"<em>(Chamber Works reserves the right to cancel, re-name or re-locate<br>the"
+" event or change the dates on which it is held.)</em>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"<em>(OpenElec Applications reserves the right to cancel, re-name or re-"
+"locate<br>the event or change the dates on which it is held.)</em>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_3
+msgid ""
+"<em>(YourCompany reserves the right to cancel, re-name or re-locate<br>the "
+"event or change the dates on which it is held.)</em>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"<em>If you wish to make a presentation, please send your topic proposal as "
+"soon as possible for approval to Mr. Famke Jenssens at ngh (a) yourcompany "
+"(dot) com. The presentations should be, for example, a presentation of a "
+"community module, a case study, methodology feedback, technical, etc. Each "
+"presentation must be in English.</em>"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_kanban
+msgid ""
+"<i class=\"fa fa-clock-o\"/>\n"
+"                                        <b>To</b>"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.event_event_report_template_badge
+#: model:ir.ui.view,arch_db:event.event_registration_report_template_badge
+msgid "<i>to</i>"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid ""
+"<span attrs=\"{'invisible': [('seats_availability', '=', 'unlimited')]}\" class=\"oe_read_only\">\n"
+"                                        to \n"
+"                                    </span>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "<strong>5-days Technical Training</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "<strong>Cancellation Policy: </strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "<strong>Conference on Business Apps</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "<strong>Course summary:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "<strong>Functional Webinar</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"<strong>Having attended this course, participants should be able "
+"to:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid "<strong>Join us to our main event of the year: the Open Days</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "<strong>Objective:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "<strong>Objectives:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "<strong>Our prices include:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_2
+msgid "<strong>Program:</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "<strong>Requirements</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid "<strong>What's new for this year?</strong>"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "<strong>Where to find us:</strong>"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_active
+msgid "Active"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid ""
+"Add a navigation menu to your event web pages with schedule, tracks, a track"
+" proposal form, etc."
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_type:0
+#: selection:event.type.mail,interval_type:0
+msgid "After each registration"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid ""
+"After registering, you will receive a link and password by email before the "
+"start of the session. If you have a problem to connect, please contact us at"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_type:0
+#: selection:event.type.mail,interval_type:0
+msgid "After the event"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Archived"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid ""
+"Are you sure you want to cancel this event? All the linked attendees will be"
+" cancelled as well."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "Ask your questions to our expert;"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "Assess whether your expectations are met;"
+msgstr "Оценявайте дали вашите очаквания са изпълнени;"
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Attendance"
+msgstr ""
+
+#. module: event
 #: selection:event.registration,state:0
-#: selection:report.event.registration,registration_state:0
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
 msgid "Attended"
 msgstr ""
 
 #. module: event
-#: selection:report.event.registration,month:0
-msgid "March"
-msgstr "Март"
-
-#. module: event
-#: view:event.registration:0
-msgid "Send Email"
-msgstr ""
-
-#. module: event
-#: field:event.event,company_id:0
-#: field:event.registration,company_id:0
-#: view:report.event.registration:0
-#: field:report.event.registration,company_id:0
-msgid "Company"
-msgstr "Фирма"
-
-#. module: event
-#: field:event.event,email_confirmation_id:0
-#: field:event.type,default_email_event:0
-msgid "Event Confirmation Email"
-msgstr ""
-
-#. module: event
-#: field:event.type,default_registration_max:0
-msgid "Default Maximum Registration"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Display"
-msgstr ""
-
-#. module: event
-#: field:event.event,register_avail:0
-msgid "Available Registrations"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-#: model:ir.model,name:event.model_event_registration
-msgid "Event Registration"
-msgstr "Регистрация за събитие"
-
-#. module: event
-#: model:ir.module.category,description:event.module_category_event_management
-msgid "Helps you manage your Events."
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Day"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Event on Registration"
-msgstr "Събитие при регистрация"
-
-#. module: event
-#: view:event.event:0
-msgid "Confirmed events"
-msgstr "Bevestig gebeurtenis"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Event Beginning Date"
-msgstr "Aanvangsdatum gebeurtenis"
-
-#. module: event
-#: model:ir.actions.act_window,name:event.action_report_event_registration
-#: model:ir.model,name:event.model_report_event_registration
-#: model:ir.ui.menu,name:event.menu_report_event_registration
-#: view:report.event.registration:0
-msgid "Events Analysis"
-msgstr "Анализи на събитие"
-
-#. module: event
-#: help:event.type,default_registration_max:0
-msgid "It will select this default maximum value when you choose this event"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,user_id_registration:0
-msgid "Register"
-msgstr ""
-
-#. module: event
-#: field:event.event,message_ids:0
-#: field:event.registration,message_ids:0
-msgid "Messages"
-msgstr "Съобщения"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,registration_ids:0
-#: model:ir.actions.act_window,name:event.act_event_list_register_event
-#: model:ir.actions.act_window,name:event.action_registration
-#: model:ir.ui.menu,name:event.menu_action_registration
-#: view:res.partner:0
-msgid "Registrations"
-msgstr "Регистрации"
-
-#. module: event
-#: code:addons/event/event.py:89
-#: code:addons/event/event.py:100
-#: code:addons/event/event.py:355
-#, python-format
-msgid "Error!"
-msgstr "Грешка!"
-
-#. module: event
-#: view:event.event:0
-msgid "Confirm Event"
-msgstr "Потвърждение на събитие"
-
-#. module: event
-#: view:board.board:0
-#: model:ir.actions.act_window,name:event.act_event_view
-msgid "Next Events"
-msgstr "Следващо събитие"
-
-#. module: event
-#: selection:event.event,state:0
-#: selection:event.registration,state:0
-#: selection:report.event.registration,event_state:0
-#: selection:report.event.registration,registration_state:0
-msgid "Cancelled"
-msgstr "Отменени"
-
-#. module: event
-#: view:event.event:0
-msgid "ticket"
-msgstr ""
-
-#. module: event
-#: model:event.event,name:event.event_1
-msgid "Opera of Verdi"
-msgstr "Опера на Верди"
-
-#. module: event
-#: help:event.event,message_unread:0
-#: help:event.registration,message_unread:0
-msgid "If checked new messages require your attention."
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,registration_state:0
-msgid "Registration State"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "tickets"
-msgstr ""
-
-#. module: event
-#: view:res.partner:0
-msgid "False"
-msgstr ""
-
-#. module: event
-#: field:event.registration,event_end_date:0
-msgid "Event End Date"
-msgstr ""
-
-#. module: event
-#: help:event.event,message_summary:0
-#: help:event.registration,message_summary:0
-msgid ""
-"Holds the Chatter summary (number of messages, ...). This summary is "
-"directly in html format in order to be inserted in kanban views."
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Registrations in confirmed or done state"
-msgstr ""
-
-#. module: event
-#: code:addons/event/event.py:106
-#: code:addons/event/event.py:108
-#, python-format
-msgid "Warning!"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
-msgid "Registration"
-msgstr "Регистрация"
-
-#. module: event
-#: view:event.registration:0
-#: field:event.registration,partner_id:0
-#: model:ir.model,name:event.model_res_partner
-msgid "Partner"
-msgstr "Партньор"
-
-#. module: event
-#: help:event.type,default_registration_min:0
-msgid "It will select this default minimum value when you choose this event"
-msgstr ""
-
-#. module: event
-#: model:ir.model,name:event.model_event_type
-msgid " Event Type "
-msgstr " Тип на събитие "
-
-#. module: event
-#: view:event.registration:0
-#: field:event.registration,event_id:0
-#: model:ir.model,name:event.model_event_event
-#: view:report.event.registration:0
-#: field:report.event.registration,event_id:0
-#: view:res.partner:0
-msgid "Event"
-msgstr "Събитие"
-
-#. module: event
-#: view:event.event:0
-#: selection:event.event,state:0
-#: view:event.registration:0
-#: selection:event.registration,state:0
-#: selection:report.event.registration,event_state:0
-#: selection:report.event.registration,registration_state:0
-msgid "Confirmed"
-msgstr "Потвърден"
-
-#. module: event
-#: view:event.registration:0
-msgid "Participant"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-#: view:report.event.registration:0
-msgid "Confirm"
-msgstr "Bevestigen"
-
-#. module: event
-#: view:event.event:0
-msgid "Organized by"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Register with this event"
-msgstr ""
-
-#. module: event
-#: help:event.type,default_email_registration:0
-msgid ""
-"It will select this default confirmation registration mail value when you "
-"choose this event"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Only"
-msgstr ""
-
-#. module: event
-#: field:event.event,message_follower_ids:0
-#: field:event.registration,message_follower_ids:0
-msgid "Followers"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Location"
-msgstr "Местонахождение"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,message_unread:0
-#: view:event.registration:0
-#: field:event.registration,message_unread:0
-msgid "Unread Messages"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-#: view:report.event.registration:0
-msgid "New"
-msgstr "Nieuw"
-
-#. module: event
-#: field:event.event,register_current:0
-msgid "Confirmed Registrations"
-msgstr "Потвърдени регистрации"
-
-#. module: event
-#: field:event.registration,email:0
-msgid "Email"
-msgstr "Имейл"
-
-#. module: event
-#: code:addons/event/event.py:329
-#, python-format
-msgid "New registration confirmed: %s."
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Upcoming"
-msgstr ""
-
-#. module: event
-#: field:event.registration,create_date:0
-msgid "Creation Date"
-msgstr "Дата на създаване"
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,user_id:0
-msgid "Event Responsible"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
-#: view:res.partner:0
-msgid "Cancel Registration"
-msgstr "Отказ от регистрация"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "July"
-msgstr "Юли"
-
-#. module: event
-#: field:event.event,reply_to:0
-msgid "Reply-To Email"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-msgid "Confirmed registrations"
-msgstr "Bevestigde registraties"
-
-#. module: event
-#: view:event.event:0
-msgid "Starting Date"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Event Organization"
-msgstr "Организация"
-
-#. module: event
-#: view:event.confirm:0
-msgid "Confirm Anyway"
-msgstr "Изрично потвърждение"
-
-#. module: event
-#: field:report.event.registration,nbevent:0
-msgid "Number Of Events"
-msgstr "Брой събития"
-
-#. module: event
-#: help:event.event,main_speaker_id:0
-msgid "Speaker who will be giving speech at the event."
-msgstr "Spreker welke een toespraak zal geven tijdens het evenement"
-
-#. module: event
-#: view:event.event:0
-msgid "Cancel Event"
-msgstr "Отказ на събитие"
-
-#. module: event
-#: model:ir.actions.act_window,name:event.act_event_reg
-#: view:report.event.registration:0
-msgid "Events Filling Status"
-msgstr "Evenement bezettingstatus"
-
-#. module: event
-#: view:event.event:0
-msgid "Event Category"
-msgstr ""
-
-#. module: event
-#: field:event.event,register_prospect:0
-msgid "Unconfirmed Registrations"
-msgstr "Непотвърдени регистрации"
-
-#. module: event
-#: model:ir.actions.client,name:event.action_client_event_menu
-msgid "Open Event Menu"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,event_state:0
-msgid "Event State"
-msgstr ""
-
-#. module: event
-#: field:event.registration,log_ids:0
-msgid "Logs"
-msgstr "Дневници"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,state_id:0
-msgid "State"
-msgstr "Състояние"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "September"
-msgstr "Септември"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "December"
-msgstr "Декември"
-
-#. module: event
-#: help:event.registration,origin:0
-msgid "Reference of the sales order which created the registration"
-msgstr ""
-
-#. module: event
-#: field:report.event.registration,draft_state:0
-msgid " # No of Draft Registrations"
-msgstr ""
-
-#. module: event
-#: field:event.event,email_registration_id:0
-#: field:event.type,default_email_registration:0
-msgid "Registration Confirmation Email"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,month:0
-msgid "Month"
-msgstr "Месец"
-
-#. module: event
-#: field:event.registration,date_closed:0
+#: model:ir.model.fields,field_description:event.field_event_registration_date_closed
 msgid "Attended Date"
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-msgid "Finish Event"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-msgid "Registrations in unconfirmed state"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Event Description"
-msgstr ""
-
-#. module: event
-#: field:event.event,date_begin:0
-msgid "Start Date"
-msgstr "Начална дата"
-
-#. module: event
-#: view:event.confirm:0
-msgid "or"
-msgstr ""
-
-#. module: event
-#: help:res.partner,speaker:0
-msgid "Check this box if this contact is a speaker."
-msgstr ""
-
-#. module: event
-#: code:addons/event/event.py:108
-#, python-format
-msgid "No Tickets Available!"
-msgstr ""
-
-#. module: event
-#: help:event.event,state:0
-msgid ""
-"If event is created, the status is 'Draft'.If event is confirmed for the "
-"particular dates the status is set to 'Confirmed'. If the event is over, the "
-"status is set to 'Done'.If event is cancelled the status is set to "
-"'Cancelled'."
-msgstr ""
-
-#. module: event
-#: model:ir.actions.act_window,help:event.action_event_view
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"               Click to add a new event.\n"
-"             </p><p>\n"
-"               OpenERP helps you schedule and efficiently organize your "
-"events:\n"
-"               track subscriptions and participations, automate the "
-"confirmation emails,\n"
-"               sell tickets, etc.\n"
-"             </p>\n"
-"           "
-msgstr ""
-
-#. module: event
-#: help:event.event,register_max:0
-msgid ""
-"You can for each event define a maximum registration level. If you have too "
-"much registrations you are not able to confirm your event. (put 0 to ignore "
-"this rule )"
-msgstr ""
-
-#. module: event
-#: field:event.event,user_id:0
-msgid "Responsible User"
-msgstr "Отговорен потребител"
-
-#. module: event
-#: code:addons/event/event.py:100
-#, python-format
-msgid ""
-"The total of confirmed registration for the event '%s' does not meet the "
-"expected minimum/maximum. Please reconsider those limits before going "
-"further."
-msgstr ""
-
-#. module: event
-#: help:event.event,email_confirmation_id:0
-msgid ""
-"If you set an email template, each participant will receive this email "
-"announcing the confirmation of the event."
-msgstr ""
-
-#. module: event
-#: view:board.board:0
-msgid "Events Filling By Status"
-msgstr ""
-
-#. module: event
-#: selection:report.event.registration,event_state:0
-#: selection:report.event.registration,registration_state:0
-msgid "Draft"
-msgstr "Проект"
-
-#. module: event
-#: view:event.event:0
-msgid "Events in New state"
-msgstr "Gebeurtenissen met status 'Nieuw'"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Events which are in New state"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-#: model:ir.actions.act_window,name:event.action_event_view
-#: model:ir.actions.act_window,name:event.open_board_associations_manager
-#: model:ir.module.category,name:event.module_category_event_management
-#: model:ir.ui.menu,name:event.event_main_menu
-#: model:ir.ui.menu,name:event.menu_board_associations_manager
-#: model:ir.ui.menu,name:event.menu_event_event
-#: model:ir.ui.menu,name:event.menu_reporting_events
-#: view:res.partner:0
-msgid "Events"
-msgstr "Събития"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,state:0
-#: view:event.registration:0
-#: field:event.registration,state:0
-msgid "Status"
-msgstr "Състояние"
-
-#. module: event
-#: field:event.event,city:0
-msgid "city"
-msgstr ""
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "August"
-msgstr "Август"
-
-#. module: event
-#: field:event.event,zip:0
-msgid "zip"
-msgstr ""
-
-#. module: event
-#: field:res.partner,event_ids:0
-#: field:res.partner,event_registration_ids:0
-msgid "unknown"
-msgstr "неизвестен"
-
-#. module: event
-#: field:event.event,street2:0
-msgid "Street2"
-msgstr ""
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "June"
-msgstr "Юни"
-
-#. module: event
-#: help:event.type,default_reply_to:0
-msgid ""
-"The email address of the organizer which is put in the 'Reply-To' of all "
-"emails sent automatically at event or registrations confirmation. You can "
-"also put your email address of your mail gateway if you use one."
-msgstr ""
-
-#. module: event
-#: help:event.event,message_ids:0
-#: help:event.registration,message_ids:0
-msgid "Messages and communication history"
-msgstr ""
-
-#. module: event
-#: field:event.registration,phone:0
-msgid "Phone"
-msgstr ""
-
-#. module: event
-#: model:email.template,body_html:event.confirmation_event
-msgid ""
-"\n"
-"        <p>Hello ${object.name},</p>\n"
-"        <p>The event ${object.event_id.name} that you registered for is "
-"confirmed and will be held from ${object.event_id.date_begin} to "
-"${object.event_id.date_end}.\n"
-"        For any further information please contact our event "
-"department.</p>\n"
-"        <p>Thank you for your participation!</p>\n"
-"        <p>Best regards</p>"
-msgstr ""
-
-#. module: event
-#: field:event.event,message_is_follower:0
-#: field:event.registration,message_is_follower:0
-msgid "Is a Follower"
-msgstr ""
-
-#. module: event
-#: field:event.registration,user_id:0
-#: model:res.groups,name:event.group_event_user
-msgid "User"
-msgstr ""
-
-#. module: event
-#: view:event.confirm:0
-msgid ""
-"Warning: This Event has not reached its Minimum Registration Limit. Are you "
-"sure you want to confirm it?"
-msgstr ""
-"Внимание: Това събитие не е достигнало минималната граница за брой "
-"регистрации. Сигурни ли сте, искате да го потвърдите?"
-
-#. module: event
-#: view:event.event:0
-msgid "(confirmed:"
-msgstr ""
-
-#. module: event
-#: view:event.registration:0
-msgid "My Registrations"
-msgstr "Моите регистрации"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "November"
-msgstr "Ноември"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Extended Filters..."
-msgstr "Разширени филтри"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "October"
-msgstr "Октомври"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "January"
-msgstr "Януари"
-
-#. module: event
-#: view:event.event:0
-msgid "Set To Draft"
-msgstr "Изпратено в проект"
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
-#: view:res.partner:0
-msgid "Confirm Registration"
-msgstr "Потвърждаване на регистрация"
-
-#. module: event
-#: code:addons/event/event.py:89
-#, python-format
-msgid ""
-"You have already set a registration for this event as 'Attended'. Please "
-"reset it to draft if you want to cancel this event."
-msgstr ""
-
-#. module: event
-#: view:res.partner:0
-msgid "Date"
-msgstr "Дата"
-
-#. module: event
-#: view:event.event:0
-msgid "Email Configuration"
-msgstr ""
-
-#. module: event
-#: field:event.type,default_registration_min:0
-msgid "Default Minimum Registration"
-msgstr ""
-
-#. module: event
-#: field:event.event,address_id:0
-msgid "Location Address"
-msgstr "Адрес на местонахождението"
-
-#. module: event
-#: model:ir.actions.act_window,name:event.action_event_type
-#: model:ir.ui.menu,name:event.menu_event_type
-msgid "Types of Events"
-msgstr "Видове събития"
-
-#. module: event
-#: help:event.event,email_registration_id:0
-msgid ""
-"This field contains the template of the mail that will be automatically sent "
-"each time a registration for this event is confirmed."
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
+#: model:ir.ui.view,arch_db:event.view_event_registration_tree
 msgid "Attended the Event"
 msgstr ""
 
 #. module: event
-#: constraint:event.event:0
-msgid "Error ! Closing Date cannot be set before Beginning Date."
-msgstr "Грешка! Крайната дата е преди началнта."
-
-#. module: event
-#: code:addons/event/event.py:355
-#, python-format
-msgid "You must wait for the starting day of the event to do this action."
+#: model:ir.model,name:event.model_event_registration
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_registration_id
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Attendee"
 msgstr ""
 
 #. module: event
-#: selection:event.event,state:0
-#: selection:report.event.registration,event_state:0
-msgid "Done"
-msgstr "Приключен"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Show Confirmed Registrations"
+#: model:ir.model.fields,field_description:event.field_event_registration_name
+#: model:ir.ui.view,arch_db:event.event_event_report_template_badge
+msgid "Attendee Name"
 msgstr ""
 
 #. module: event
-#: view:event.confirm:0
+#: model:ir.actions.act_window,name:event.act_event_registration_from_event
+#: model:ir.actions.act_window,name:event.action_registration
+#: model:ir.model.fields,field_description:event.field_event_event_registration_ids
+#: model:ir.ui.menu,name:event.menu_action_registration
+#: model:ir.ui.view,arch_db:event.view_event_form
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid "Attendees"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_auto_confirm
+msgid "Autoconfirm Registrations"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_auto_confirm
+msgid "Automatically Confirm Registrations"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_use_mail_schedule
+msgid "Automatically Send Emails"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_available
+msgid "Available Seats"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_badge_back
+msgid "Badge Back"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_badge_front
+msgid "Badge Front"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_badge_innerleft
+msgid "Badge Inner Left"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_badge_innerright
+msgid "Badge Inner Right"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_res_config_settings_module_event_barcode
+msgid "Barcode"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_type:0
+#: selection:event.type.mail,interval_type:0
+msgid "Before the event"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "Best regards,"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "Bring your own laptop."
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_confirm
 msgid "Cancel"
-msgstr "Отказ"
+msgstr "Откажи"
 
 #. module: event
-#: field:event.registration,reply_to:0
-msgid "Reply-to Email"
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Cancel Event"
 msgstr ""
 
 #. module: event
-#: code:addons/event/event.py:106
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+#: model:ir.ui.view,arch_db:event.view_event_registration_tree
+msgid "Cancel Registration"
+msgstr ""
+
+#. module: event
+#: selection:event.event,state:0 selection:event.registration,state:0
+msgid "Cancelled"
+msgstr "Отказанa"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_event_type_id
+msgid "Category"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Chamber Works 60, Rosewood Court Detroit, MI 48212 (United States)"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "Chaussée de Namur 69, 1300 Wavre, Belgium"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,help:event.act_event_registration_from_event
+msgid "Click to add a new attendee."
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,help:event.action_event_view
+msgid "Click to add a new event."
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:264
 #, python-format
-msgid "Only %d Seats are Available!"
+msgid "Closing Date cannot be set before Beginning Date."
 msgstr ""
 
 #. module: event
-#: model:email.template,subject:event.confirmation_event
-#: model:email.template,subject:event.confirmation_registration
-msgid "Your registration at ${object.event_id.name}"
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid "Communication"
 msgstr ""
 
 #. module: event
-#: view:event.registration:0
-msgid "Set To Unconfirmed"
+#: model:ir.model.fields,field_description:event.field_event_event_company_id
+#: model:ir.model.fields,field_description:event.field_event_registration_company_id
+msgid "Company"
+msgstr "Фирма"
+
+#. module: event
+#: code:addons/event/models/event.py:475
+#, python-format
+msgid "Compose Email"
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-#: field:event.event,is_subscribed:0
-msgid "Subscribed"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-msgid "Unsubscribe"
-msgstr ""
-
-#. module: event
-#: view:event.event:0
-#: view:event.registration:0
-msgid "Responsible"
-msgstr "Отговорник"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Registration contact"
-msgstr ""
-
-#. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,speaker_id:0
-#: field:res.partner,speaker:0
-msgid "Speaker"
-msgstr "Оратор"
-
-#. module: event
-#: view:event.event:0
-msgid "Upcoming events from today"
+#: model:event.type,name:event.event_type_2
+msgid "Conference"
 msgstr ""
 
 #. module: event
 #: model:event.event,name:event.event_2
-msgid "Conference on ERP Business"
+msgid "Conference on Business Apps"
 msgstr ""
 
 #. module: event
-#: model:ir.actions.act_window,name:event.act_event_view_registration
-#: model:mail.message.subtype,name:event.mt_event_registration
-msgid "New Registration"
+#: model:event.event,description:event.event_0
+msgid "Conferences, workshops and trainings will be organized in 6 rooms:"
 msgstr ""
 
 #. module: event
-#: field:event.event,note:0
+#: model:ir.ui.menu,name:event.menu_event_configuration
+msgid "Configuration"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Confirm"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_confirm
+msgid "Confirm Anyway"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Confirm Event"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_tree
+msgid "Confirm Registration"
+msgstr ""
+
+#. module: event
+#: selection:event.event,state:0 selection:event.registration,state:0
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Confirmed"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_kanban
+msgid "Confirmed attendees"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Confirmed events"
+msgstr ""
+
+#. module: event
+#: model:ir.model,name:event.model_res_partner
+#: model:ir.model.fields,field_description:event.field_event_registration_partner_id
+msgid "Contact"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_country_id
+msgid "Country"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm_create_uid
+#: model:ir.model.fields,field_description:event.field_event_event_create_uid
+#: model:ir.model.fields,field_description:event.field_event_mail_create_uid
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_create_uid
+#: model:ir.model.fields,field_description:event.field_event_registration_create_uid
+#: model:ir.model.fields,field_description:event.field_event_type_create_uid
+#: model:ir.model.fields,field_description:event.field_event_type_mail_create_uid
+msgid "Created by"
+msgstr "Създадено от"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm_create_date
+#: model:ir.model.fields,field_description:event.field_event_event_create_date
+#: model:ir.model.fields,field_description:event.field_event_mail_create_date
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_create_date
+#: model:ir.model.fields,field_description:event.field_event_registration_create_date
+#: model:ir.model.fields,field_description:event.field_event_type_create_date
+#: model:ir.model.fields,field_description:event.field_event_type_mail_create_date
+msgid "Created on"
+msgstr "Създадено на"
+
+#. module: event
+#: code:addons/event/models/event.py:438
+#, python-format
+msgid "Customer"
+msgstr "Клиент"
+
+#. module: event
+#: code:addons/event/models/event.py:440
+#, python-format
+msgid "Customer Email"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_unit:0
+#: selection:event.type.mail,interval_unit:0
+msgid "Day(s)"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_description
 msgid "Description"
 msgstr "Описание"
 
 #. module: event
-#: field:report.event.registration,confirm_state:0
-msgid " # No of Confirmed Registrations"
-msgstr " # Брой потвърдени регистрации"
-
-#. module: event
-#: field:report.event.registration,name_registration:0
-msgid "Participant / Contact Name"
+#: model:event.event,description:event.event_3
+msgid "Develop a new module for a particular application."
 msgstr ""
 
 #. module: event
-#: selection:report.event.registration,month:0
-msgid "May"
-msgstr "Май"
-
-#. module: event
-#: view:res.partner:0
-msgid "Events Registration"
-msgstr "Регистрация за събитие"
-
-#. module: event
-#: view:event.event:0
-msgid "No ticket available."
+#: model:event.event,description:event.event_1
+msgid "Discover how to navigate in our software;"
 msgstr ""
 
 #. module: event
-#: field:event.event,register_max:0
-#: field:report.event.registration,register_max:0
-msgid "Maximum Registrations"
-msgstr "Максимално регистрации"
+#: model:ir.model.fields,field_description:event.field_event_confirm_display_name
+#: model:ir.model.fields,field_description:event.field_event_event_display_name
+#: model:ir.model.fields,field_description:event.field_event_mail_display_name
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_display_name
+#: model:ir.model.fields,field_description:event.field_event_registration_display_name
+#: model:ir.model.fields,field_description:event.field_event_type_display_name
+#: model:ir.model.fields,field_description:event.field_event_type_mail_display_name
+msgid "Display Name"
+msgstr "Име за показване"
 
 #. module: event
-#: view:event.event:0
+#: model:ir.model.fields,field_description:event.field_event_mail_sequence
+msgid "Display order"
+msgstr ""
+
+#. module: event
 #: selection:event.event,state:0
-#: selection:event.registration,state:0
-msgid "Unconfirmed"
-msgstr "Непотвърдено"
+msgid "Done"
+msgstr ""
 
 #. module: event
-#: field:event.event,date_end:0
+#: model:event.event,description:event.event_2
+msgid ""
+"During this conference, our team will give a detailed overview of our "
+"business applications. You’ll know all the benefits of using it."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid ""
+"Each session lasts approximately one hour and is free, we just ask you to "
+"register to receive access codes."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_email
+msgid "Email"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid "Email Schedule"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_template_id
+#: model:ir.model.fields,field_description:event.field_event_type_mail_template_id
+msgid "Email Template"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_date_end
 msgid "End Date"
-msgstr "Крайна дата"
-
-#. module: event
-#: selection:report.event.registration,month:0
-msgid "February"
-msgstr "Февруари"
-
-#. module: event
-#: view:board.board:0
-msgid "Association Dashboard"
-msgstr "Табло Асоциации"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,name:0
-#: field:event.registration,name:0
-msgid "Name"
-msgstr "Име"
-
-#. module: event
-#: view:event.event:0
-#: field:event.event,country_id:0
-msgid "Country"
-msgstr "Държава"
-
-#. module: event
-#: view:res.partner:0
-msgid "Close Registration"
-msgstr "Затвори регистрация"
-
-#. module: event
-#: field:event.registration,origin:0
-msgid "Source Document"
 msgstr ""
 
 #. module: event
-#: selection:report.event.registration,month:0
-msgid "April"
-msgstr "Април"
-
-#. module: event
-#: help:event.type,default_email_event:0
-msgid ""
-"It will select this default confirmation event mail value when you choose "
-"this event"
+#: model:ir.model.fields,field_description:event.field_event_event_date_end_located
+msgid "End Date Located"
 msgstr ""
 
 #. module: event
-#: view:report.event.registration:0
-msgid "Events which are in confirm state"
+#: model:ir.model,name:event.model_event_event
+#: model:ir.model.fields,field_description:event.field_event_mail_event_id
+#: model:ir.model.fields,field_description:event.field_event_registration_event_id
+#: model:ir.ui.view,arch_db:event.event_event_view_pivot
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Event"
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-#: view:event.type:0
-#: field:event.type,name:0
-#: view:report.event.registration:0
-#: field:report.event.registration,event_type:0
-msgid "Event Type"
-msgstr "Вид събитие"
-
-#. module: event
-#: field:event.event,message_summary:0
-#: field:event.registration,message_summary:0
-msgid "Summary"
-msgstr "Обобщена информация"
-
-#. module: event
-#: field:event.registration,id:0
-msgid "ID"
+#: model:ir.model,name:event.model_event_mail
+msgid "Event Automated Mailing"
 msgstr ""
 
 #. module: event
-#: field:event.type,default_reply_to:0
-msgid "Default Reply-To"
+#: model:ir.actions.report,name:event.report_event_event_badge
+msgid "Event Badge"
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-msgid "available."
+#: model:ir.actions.act_window,name:event.action_event_type
+#: model:ir.ui.menu,name:event.menu_event_type
+msgid "Event Categories"
 msgstr ""
 
 #. module: event
-#: field:event.registration,event_begin_date:0
-#: field:report.event.registration,event_date:0
+#: model:ir.model,name:event.model_event_type
+#: model:ir.model.fields,field_description:event.field_event_type_name
+#: model:ir.ui.view,arch_db:event.view_event_search
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+#: model:ir.ui.view,arch_db:event.view_event_type_tree
+msgid "Event Category"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,name:event.action_event_confirm
+#: model:ir.ui.view,arch_db:event.view_event_confirm
+msgid "Event Confirmation"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_event_end_date
+msgid "Event End Date"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Event Information"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_event_logo
+msgid "Event Logo"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_mail_form
+msgid "Event Mail Scheduler"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_mail_tree
+msgid "Event Mail Schedulers"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_name
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Event Name"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_calendar
+msgid "Event Organization"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_calendar
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Event Registration"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_event_begin_date
 msgid "Event Start Date"
-msgstr "Начална дата на събитие"
-
-#. module: event
-#: view:report.event.registration:0
-msgid "Participant / Contact"
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-msgid "Current Registrations"
+#: model:ir.model.fields,field_description:event.field_event_type_mail_event_type_id
+msgid "Event Type"
 msgstr ""
 
 #. module: event
-#: model:email.template,body_html:event.confirmation_registration
+#: model:ir.actions.server,name:event.event_mail_scheduler_ir_actions_server
+#: model:ir.cron,cron_name:event.event_mail_scheduler
+#: model:ir.cron,name:event.event_mail_scheduler
+msgid "Event: Mail Scheduler"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,name:event.action_event_view
+#: model:ir.model.fields,field_description:event.field_res_partner_event_count
+#: model:ir.model.fields,field_description:event.field_res_users_event_count
+#: model:ir.ui.menu,name:event.event_event_menu_pivot_report
+#: model:ir.ui.menu,name:event.event_main_menu
+#: model:ir.ui.menu,name:event.menu_event_event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+#: model:ir.ui.view,arch_db:event.res_partner_view_tree
+#: model:ir.ui.view,arch_db:event.view_event_form
+#: model:ir.ui.view,arch_db:event.view_event_search
+#: model:ir.ui.view,arch_db:event.view_event_tree
+msgid "Events"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,name:event.event_event_action_pivot
+msgid "Events Analysis"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,name:event.action_event_mail
+msgid "Events Mail Schedulers"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_type_form
 msgid ""
-"\n"
-"        <p>Hello ${object.name},</p>\n"
-"        <p>We confirm that your registration to the event "
-"${object.event_id.name} has been recorded.\n"
-"        You will automatically receive an email providing you more practical "
-"information (such as the schedule, the agenda...) as soon as the event is "
-"confirmed.</p>\n"
-"        <p>Thank you for your participation!</p>\n"
-"        <p>Best regards</p>"
+"Events and registrations will automatically be confirmed\n"
+"                                            upon creation, easing the flow for simple events."
 msgstr ""
 
 #. module: event
-#: help:event.event,reply_to:0
+#: model:ir.model.fields,help:event.field_event_type_auto_confirm
 msgid ""
-"The email address of the organizer is likely to be put here, with the effect "
-"to be in the 'Reply-To' of the mails sent automatically at event or "
-"registrations confirmation. You can also put the email address of your mail "
-"gateway if you use one."
+"Events and registrations will automatically be confirmedupon creation, "
+"easing the flow for simple events."
 msgstr ""
 
 #. module: event
-#: view:event.event:0
-#: model:ir.actions.act_window,name:event.act_register_event_partner
-msgid "Subscribe"
-msgstr "Записване"
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Events in New state"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"Every year we invite our community, partners and end-users to come and meet "
+"us! It's the ideal event to get together and present new features, roadmap "
+"of future versions, achievements of the software, workshops, training "
+"sessions, etc.... This event is also an opportunity to showcase our "
+"partners' case studies, methodology or developments. Be there and see "
+"directly from the source the features of the version 8!"
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_1
+msgid "Exhibition"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Expected"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_kanban
+msgid "Expected attendees"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Finish Event"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "For any additional information, please contact us at"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_event_seats_max
+msgid ""
+"For each event you can define a maximum registration of seats(number of "
+"attendees), above this numbers the registrations are not accepted."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_event_seats_min
+msgid ""
+"For each event you can define a minimum reserved seats (number of "
+"attendees), if it does not reach the mentioned registrations the event can "
+"not be confirmed (keep 0 to ignore this rule)"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "For more information on the program, please explore"
+msgstr ""
+
+#. module: event
+#: model:event.event,name:event.event_1
+msgid "Functional Webinar"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Functional flow of the main applications;"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Group By"
+msgstr "Групиране по"
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Having attended this conference, participants should be able to:"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_unit:0
+#: selection:event.type.mail,interval_unit:0
+msgid "Hour(s)"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm_id
+#: model:ir.model.fields,field_description:event.field_event_event_id
+#: model:ir.model.fields,field_description:event.field_event_mail_id
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_id
+#: model:ir.model.fields,field_description:event.field_event_registration_id
+#: model:ir.model.fields,field_description:event.field_event_type_id
+#: model:ir.model.fields,field_description:event.field_event_type_mail_id
+msgid "ID"
+msgstr "ID"
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_event_state
+msgid ""
+"If event is created, the status is 'Draft'. If event is confirmed for the "
+"particular dates the status is set to 'Confirmed'. If the event is over, the"
+" status is set to 'Done'. If event is cancelled the status is set to "
+"'Cancelled'."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"If you have a question<strong> concerning the content of the "
+"training</strong>, please contact"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_unit:0
+#: selection:event.type.mail,interval_unit:0
+msgid "Immediately"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "Install and administer your own server;"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_interval_nbr
+#: model:ir.model.fields,field_description:event.field_event_type_mail_interval_nbr
+msgid "Interval"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Introduction, CRM, Sales Management"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_type_default_registration_max
+msgid "It will select this default maximum value when you choose this event"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_type_default_registration_min
+msgid "It will select this default minimum value when you choose this event"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_color
+msgid "Kanban Color Index"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm___last_update
+#: model:ir.model.fields,field_description:event.field_event_event___last_update
+#: model:ir.model.fields,field_description:event.field_event_mail___last_update
+#: model:ir.model.fields,field_description:event.field_event_mail_registration___last_update
+#: model:ir.model.fields,field_description:event.field_event_registration___last_update
+#: model:ir.model.fields,field_description:event.field_event_type___last_update
+#: model:ir.model.fields,field_description:event.field_event_type_mail___last_update
+msgid "Last Modified on"
+msgstr "Последно променено на"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm_write_uid
+#: model:ir.model.fields,field_description:event.field_event_event_write_uid
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_write_uid
+#: model:ir.model.fields,field_description:event.field_event_mail_write_uid
+#: model:ir.model.fields,field_description:event.field_event_registration_write_uid
+#: model:ir.model.fields,field_description:event.field_event_type_mail_write_uid
+#: model:ir.model.fields,field_description:event.field_event_type_write_uid
+msgid "Last Updated by"
+msgstr "Последно обновено от"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_confirm_write_date
+#: model:ir.model.fields,field_description:event.field_event_event_write_date
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_write_date
+#: model:ir.model.fields,field_description:event.field_event_mail_write_date
+#: model:ir.model.fields,field_description:event.field_event_registration_write_date
+#: model:ir.model.fields,field_description:event.field_event_type_mail_write_date
+#: model:ir.model.fields,field_description:event.field_event_type_write_date
+msgid "Last Updated on"
+msgstr "Последно обновено на"
+
+#. module: event
+#: selection:event.event,seats_availability:0
+msgid "Limited"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_has_seats_limitation
+msgid "Limited Seats"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_address_id
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid "Location"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "Luigi Roni, Senior Event Manager"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_mail_registration_ids
+msgid "Mail Registration"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_event_mail_ids
+#: model:ir.model.fields,field_description:event.field_event_type_event_type_mail_ids
+msgid "Mail Schedule"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_scheduler_id
+msgid "Mail Scheduler"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.menu,name:event.menu_event_mail_schedulers
+msgid "Mail Schedulers"
+msgstr ""
+
+#. module: event
+#: model:ir.model,name:event.model_event_type_mail
+msgid "Mail Scheduling on Event Type"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_mail_sent
+msgid "Mail Sent"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_mail_sent
+msgid "Mail Sent on Event"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Manage &amp; publish a schedule with tracks"
+msgstr ""
 
 #. module: event
 #: model:res.groups,name:event.group_event_manager
@@ -1106,669 +1331,701 @@ msgid "Manager"
 msgstr ""
 
 #. module: event
-#: field:event.event,street:0
-msgid "Street"
+#: model:ir.model.fields,field_description:event.field_event_event_seats_availability
+msgid "Maximum Attendees"
 msgstr ""
 
 #. module: event
-#: view:event.confirm:0
-#: model:ir.actions.act_window,name:event.action_event_confirm
+#: model:ir.model.fields,field_description:event.field_event_event_seats_max
+msgid "Maximum Attendees Number"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_default_registration_max
+msgid "Maximum Registrations"
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:253
+#, python-format
+msgid ""
+"Maximum attendees number should be greater than minimum attendees number."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_min
+msgid "Minimum Attendees"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_default_registration_min
+msgid "Minimum Registrations"
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_unit:0
+#: selection:event.type.mail,interval_unit:0
+msgid "Month(s)"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"More information about our Headquarter office (directions, transports, "
+"parking, hotels, ...), please have a look at"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "My Events"
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:258
+#, python-format
+msgid "No more available seats."
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:357
+#, python-format
+msgid "No more seats available for this event."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_expected
+msgid "Number of Expected Attendees"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_used
+msgid "Number of Participants"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_res_partner_event_count
+#: model:ir.model.fields,help:event.field_res_users_event_count
+msgid "Number of events the partner has participated."
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,help:event.action_event_view
+msgid ""
+"Odoo helps you schedule and efficiently organize your events:\n"
+"    track registrations and participations, automate the confirmation emails,\n"
+"    sell tickets, etc."
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_data_online
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Online"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_is_online
+#: model:ir.model.fields,field_description:event.field_event_type_is_online
+msgid "Online Event"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_res_config_settings_module_website_event_sale
+msgid "Online Ticketing"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid ""
+"Online events like webinars do not require a specific location\n"
+"                                            and are hosted online."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_type_is_online
+msgid ""
+"Online events like webinars do not require a specific location and are "
+"hosted online."
+msgstr ""
+
+#. module: event
+#: model:event.event,name:event.event_0
+msgid "Open Days in Los Angeles"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"OpenElec Applications 23 Rockwell Lane, Los Angeles, CA 90001, United States"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_organizer_id
+msgid "Organizer"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Participant"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"Participants are expected to have some knowledge in programming. A basic "
+"knowledge of the Python programming is recommended."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"Participants preferably have a functional knowledge of our software (see "
+"Functional Training)."
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Partner"
+msgstr "Партньор"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_phone
+msgid "Phone"
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_data_physical
+msgid "Physical Event"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Point of Sale (POS), Introduction to report customization."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Project management, Human resources, Contract management."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Purchase, Sales &amp; Purchase management, Financial accounting."
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_registration_origin
+msgid ""
+"Reference of the document that created the registration, for example a sales"
+" order"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Register with this event"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+#: model:ir.ui.view,arch_db:event.view_event_registration_graph
+#: model:ir.ui.view,arch_db:event.view_event_registration_pivot
+#: model:ir.ui.view,arch_db:event.view_event_registration_tree
+msgid "Registration"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.report,name:event.report_event_registration_badge
+msgid "Registration Badge"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_date_open
+msgid "Registration Date"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Registration Day"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Registration ID"
+msgstr ""
+
+#. module: event
+#: model:ir.model,name:event.model_event_mail_registration
+msgid "Registration Mail Scheduler"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_mail_form
+msgid "Registration Mails"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Registration Month"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_res_config_settings_module_website_event_questions
+msgid "Registration Survey"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_mail_form
+msgid "Registration mail"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.menu,name:event.menu_reporting_events
+msgid "Reporting"
+msgstr "Отчитане"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_reserved
+msgid "Reserved Seats"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_user_id
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Responsible"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Scan badges to confirm attendances"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Schedule & Tracks"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_scheduled_date
+msgid "Scheduled Sent Mail"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_registration_scheduled_date
+msgid "Scheduled Time"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Sell tickets on your website"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.res_config_settings_view_form
+msgid "Sell tickets with sales orders"
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_0
+msgid "Seminar"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Send by Email"
+msgstr "Изпращане по ел. поща"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_done
+msgid "Sent"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_form
+msgid "Set To Draft"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_registration_form
+msgid "Set To Unconfirmed"
+msgstr ""
+
+#. module: event
+#: model:ir.actions.act_window,name:event.action_event_configuration
+#: model:ir.ui.menu,name:event.menu_event_global_settings
+msgid "Settings"
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_3
+msgid "Show"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_registration_origin
+msgid "Source Document"
+msgstr "Изходен документ"
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_date_begin
+msgid "Start Date"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_date_begin_located
+msgid "Start Date Located"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Start Month"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_state
+#: model:ir.model.fields,field_description:event.field_event_registration_state
+#: model:ir.ui.view,arch_db:event.view_event_search
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Status"
+msgstr "Състояние"
+
+#. module: event
+#: model:ir.actions.act_window,name:event.act_register_event_partner
+msgid "Subscribe"
+msgstr ""
+
+#. module: event
+#: model:event.event,name:event.event_3
+msgid "Technical Training"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"The Open Days are preceded by 2 days of optional training sessions for "
+"experts! We propose 3 different training sessions, 2 days each."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"The organization of the training session has related costs. Due to these "
+"costs, cancellations made less than 2 weeks (14 calendar days) prior to the "
+"start of the training session is a subject to a fee. This fee can be up to a"
+" maximum of 1000€ per cancellation request."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"The plenary sessions in the morning will be shorter and we will give more "
+"time for thematical meetings, conferences, workshops and tutorial sessions "
+"in the afternoon."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid ""
+"The whole event is open to all public! We ask a participation fee of 49.50€ "
+"for the costs for the 3 days (morning coffee, coffee breaks, drinks, "
+"sandwiches for lunch and the surprising beer party of Wednesday evening) but"
+" it's optional. For those who do not want to contribute, there is a free "
+"ticket, therefore, catering is not inclued."
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:301
+#, python-format
+msgid ""
+"There are already attendees who attended this event. Please reset it to "
+"draft if you want to cancel this event."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid ""
+"These webinars allow companies interested in our software, to assess whether"
+" the solution meets their needs, and can adapt to the scope of their "
+"project."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"This course is dedicated to partners, integrators and developers who need to"
+" grasp knowledge about the business applications development process and for"
+" new developers or for IT professionals eager to learn more about technical "
+"aspects."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_0
+msgid "This event and all the conferences are in english!"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,help:event.field_event_mail_template_id
+#: model:ir.model.fields,help:event.field_event_type_mail_template_id
+msgid ""
+"This field contains the template of the mail that will be automatically sent"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "This webinar helps participants to:"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_res_config_settings_module_event_sale
+msgid "Tickets"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_date_tz
+#: model:ir.model.fields,field_description:event.field_event_type_default_timezone
+msgid "Timezone"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_res_config_settings_module_website_event_track
+msgid "Tracks and Agenda"
+msgstr ""
+
+#. module: event
+#: model:event.type,name:event.event_type_4
+msgid "Training"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_mail_interval_type
+msgid "Trigger"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_interval_type
+msgid "Trigger "
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_twitter_hashtag
+#: model:ir.model.fields,field_description:event.field_event_type_default_hashtag
+msgid "Twitter Hashtag"
+msgstr ""
+
+#. module: event
+#: selection:event.event,state:0 selection:event.registration,state:0
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Unconfirmed"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_event_seats_unconfirmed
+msgid "Unconfirmed Seat Reservations"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "Understand the development concepts and architecture;"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Understand the various modules;"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_mail_interval_unit
+#: model:ir.model.fields,field_description:event.field_event_type_mail_interval_unit
+msgid "Unit"
+msgstr ""
+
+#. module: event
+#: selection:event.event,seats_availability:0
+msgid "Unlimited"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+#: model:ir.ui.view,arch_db:event.view_registration_search
+msgid "Unread Messages"
+msgstr "Непрочетени съобщения"
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Upcoming"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_search
+msgid "Upcoming events from today"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_use_hashtag
+msgid "Use Default Hashtag"
+msgstr ""
+
+#. module: event
+#: model:ir.model.fields,field_description:event.field_event_type_use_timezone
+msgid "Use Default Timezone"
+msgstr ""
+
+#. module: event
+#: model:res.groups,name:event.group_event_user
+msgid "User"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "View full flow: purchasing, sales, project management, accounting;"
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_type_form
+msgid "Visibility"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_2
+msgid "Warehouse management, Manufacturing (MRP) &amp; Sales, Import/Export."
+msgstr ""
+
+#. module: event
+#: model:ir.ui.view,arch_db:event.view_event_confirm
+msgid ""
+"Warning: This Event has not reached its Minimum Registration Limit. Are you "
+"sure you want to confirm it?"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid "We are looking forward to meeting you online,"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid ""
+"We strongly recommend to book your flight tickets and/or hotel reservations "
+"2 weeks prior to the training. If the training is cancelled 2 weeks in "
+"advance, you'll be notified by email."
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_1
+msgid ""
+"Webinars are online demonstrations where one of our team members explains "
+"the main features and benefits of our online offer through an online "
+"conference. We can therefore directly answer any questions you may have "
+"through a Q&amp;A."
+msgstr ""
+
+#. module: event
+#: selection:event.mail,interval_unit:0
+#: selection:event.type.mail,interval_unit:0
+msgid "Week(s)"
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:414
+#, python-format
+msgid "You must wait the event confirmation before doing this action."
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:416
+#, python-format
+msgid "You must wait the event starting day before doing this action."
+msgstr ""
+
+#. module: event
+#: model:mail.template,subject:event.event_registration_mail_template_badge
+msgid "Your badge for ${object.event_id.name}"
+msgstr ""
+
+#. module: event
+#: model:mail.template,subject:event.event_subscription
+msgid "Your registration at ${object.event_id.name}"
+msgstr ""
+
+#. module: event
+#: model:mail.template,report_name:event.event_registration_mail_template_badge
+msgid "badge_of_${(object.event_id.name or '').replace('/','_')}"
+msgstr ""
+
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "drinks and lunch;"
+msgstr ""
+
+#. module: event
 #: model:ir.model,name:event.model_event_confirm
-msgid "Event Confirmation"
-msgstr "Потвърждение на събитие"
+msgid "event.confirm"
+msgstr ""
 
 #. module: event
-#: view:report.event.registration:0
-#: field:report.event.registration,year:0
-msgid "Year"
-msgstr "Година"
+#: model:event.event,description:event.event_2
+#: model:event.event,description:event.event_3
+msgid "events@odoo.com"
+msgstr ""
 
 #. module: event
-#: field:event.event,speaker_confirmed:0
-msgid "Speaker Confirmed"
-msgstr "Потвърден оратор"
+#: model:event.event,description:event.event_0
+#: model:event.event,description:event.event_1
+#: model:event.event,description:event.event_3
+msgid "events@yourcompany.com"
+msgstr ""
 
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "Невалиден XML за преглед на архитектурата"
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "http://bit.ly/VD8J67."
+msgstr ""
 
-#~ msgid "Reporting"
-#~ msgstr "Справки"
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "https://www.odoo.com/services/technical-training"
+msgstr ""
 
-#~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
-#~ msgstr ""
-#~ "Името на обекта трябва да започва с \"x_\" и да не съдържа никакви специални "
-#~ "символи!"
-
-#~ msgid "Confirmation Email"
-#~ msgstr "E-mail за потвърждение"
-
-#~ msgid "Registration Email"
-#~ msgstr "E-mal за регистрация"
-
-#~ msgid "Ending date"
-#~ msgstr "Крайна дата"
-
-#~ msgid "Ok"
-#~ msgstr "Добре"
-
-#~ msgid "Draft Registration"
-#~ msgstr "Проект на регистрация"
-
-#~ msgid "Extra Info"
-#~ msgstr "Допълнителна информация"
-
-#~ msgid "Create Invoices"
-#~ msgstr "Създаване на фактура"
-
-#~ msgid "Event type"
-#~ msgstr "Вид събитие"
-
-#~ msgid "Ticket for Opera"
-#~ msgstr "Билет за опера"
-
-#~ msgid "All Events"
-#~ msgstr "Всички събития"
-
-#~ msgid "Registration Confirmation"
-#~ msgstr "Потвърждаване на регистрация"
-
-#~ msgid "To be Invoiced"
-#~ msgstr "За фактуриране"
-
-#~ msgid "Confirm Registrations"
-#~ msgstr "Потвърждаване на регистрацията"
-
-#~ msgid "Badge"
-#~ msgstr "Значка"
-
-#~ msgid "Events by Categories"
-#~ msgstr "Събития по категория"
-
-#~ msgid "The event limit is reached. What do you want to do?"
-#~ msgstr "Границата на събитието е достигната. Какво искате да направите?"
-
-#~ msgid "Error: UOS must be in a different category than the UOM"
-#~ msgstr ""
-#~ "Грешка: Продажни Единици трябва да е в различна категория от Мерни Единици"
-
-#~ msgid "References"
-#~ msgstr "Препратки"
-
-#~ msgid "Dates"
-#~ msgstr "Дати"
-
-#~ msgid "Badge Name"
-#~ msgstr "Име на значката"
-
-#~ msgid "Canceled"
-#~ msgstr "Прекратен"
-
-#~ msgid "Ticket for Concert"
-#~ msgstr "Билет за концерт"
-
-#~ msgid "Mailing"
-#~ msgstr "Изпращане на поща"
-
-#~ msgid "Invoice Created"
-#~ msgstr "Фактурата създадена"
-
-#~ msgid "Event description"
-#~ msgstr "Описание на събитие"
-
-#~ msgid "Event Related"
-#~ msgstr "Свързано събитие"
-
-#~ msgid "Events by section"
-#~ msgstr "Събития по секция"
-
-#~ msgid "Statistics"
-#~ msgstr "Статистики"
-
-#~ msgid "History"
-#~ msgstr "История"
-
-#~ msgid "General"
-#~ msgstr "Основни"
-
-#~ msgid "Send Reminder"
-#~ msgstr "Изпращане на напомняне"
-
-#~ msgid "Auto Confirmation Email"
-#~ msgstr "Email за автоматично потвърждаване"
-
-#~ msgid "All Registrations"
-#~ msgstr "Всички регистрации"
-
-#~ msgid "Partner Contact"
-#~ msgstr "Контакт на партньор"
-
-#~ msgid "Beginning date"
-#~ msgstr "Начална дата"
-
-#~ msgid "Conference on ERP Buisness"
-#~ msgstr "Конференция по ERP"
-
-#~ msgid "Unit Price"
-#~ msgstr "Единична цена"
-
+#. module: event
+#: code:addons/event/models/event.py:497
 #, python-format
-#~ msgid "Open"
-#~ msgstr "Отваряне"
+msgid "in %d days"
+msgstr ""
 
-#~ msgid "Invoice"
-#~ msgstr "Фактура"
-
-#~ msgid "New event"
-#~ msgstr "Ново събитие"
-
-#~ msgid "Badge Title"
-#~ msgstr "Име на значка"
-
-#~ msgid "Ticket for Conference"
-#~ msgstr "Билет за конференция"
-
-#~ msgid "Badge Partner"
-#~ msgstr "Значка на партньор"
-
-#~ msgid "Confirmed Events"
-#~ msgstr "Потвърдени събития"
-
-#~ msgid ""
-#~ "This email will be sent when the event gets confimed or when someone "
-#~ "subscribes to a confirmed event. This is also the email sent to remind "
-#~ "someone about the event."
-#~ msgstr ""
-#~ "Този email ще бъде изпратен когото събитието бъде потвърдено или някой се "
-#~ "запише за потвърдено събитие. Също така ще бъде изпратен за помняне за "
-#~ "събитието."
-
-#~ msgid "This email will be sent when someone subscribes to the event."
-#~ msgstr "Този email ще бъде изпратен когато някой се запише за събитието"
-
-#~ msgid ""
-#~ "Check this box if you want ot use the automatic confirmation emailing or the "
-#~ "reminder"
-#~ msgstr "Отметнете ако искате автоматичен email за потвърждение или напомняне"
-
-#~ msgid "Type"
-#~ msgstr "Вид"
-
-#~ msgid "Product"
-#~ msgstr "Продукт"
-
-#~ msgid "Invoice Rejected"
-#~ msgstr "Фактурата отказана"
-
-#~ msgid "Events Organisation"
-#~ msgstr "Отганизация на събития"
-
-#~ msgid "Actions"
-#~ msgstr "Действия"
-
-#~ msgid "Payments"
-#~ msgstr "Плащания"
-
-#~ msgid "Auto Registration Email"
-#~ msgstr "Email за автоматична регистрация"
-
-#~ msgid "List Register Partners"
-#~ msgstr "Списък на регистрираните партньори"
-
-#~ msgid "Registration Invoiced"
-#~ msgstr "Регистрацията фактурирана"
-
-#~ msgid "Registration By Event Types"
-#~ msgstr "Регистрации по видове събития"
-
-#~ msgid "Draft Registrations"
-#~ msgstr "Регистрации в проект"
-
-#~ msgid "Parent Category"
-#~ msgstr "Родителска категория"
-
-#~ msgid "Partner Invoiced"
-#~ msgstr "Партрньора фактуриран"
-
-#~ msgid "Error ! You cannot create recursive sections."
-#~ msgstr "Грешка! Не може да създавате рекурсивни секции."
-
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Невалидно име на модел при задаване на действие"
-
-#~ msgid "Make Invoice"
-#~ msgstr "Създаване на фактура"
-
-#~ msgid ""
-#~ "Organization and management of events.\n"
-#~ "\n"
-#~ "    This module allow you\n"
-#~ "        * to manage your events and their registrations\n"
-#~ "        * to use emails to automatically confirm and send acknowledgements "
-#~ "for any registration to an event\n"
-#~ "        * ...\n"
-#~ "\n"
-#~ "    Note that:\n"
-#~ "    - You can define new types of events in\n"
-#~ "                Events / Configuration / Types of Events\n"
-#~ "    - You can access predefined reports about number of registration per "
-#~ "event or per event category in :\n"
-#~ "                Events / Reporting\n"
-#~ msgstr ""
-#~ "Организация и управление на събития.\n"
-#~ "\n"
-#~ "    Този позволява\n"
-#~ "        *да управлявате събитията си и регистеацията им\n"
-#~ "        *да използвате ел. поща за автоматично потвърждение и изпращане на "
-#~ "потвърждение към всяка регистрация за събитие\n"
-#~ "        * ,,,\n"
-#~ "\n"
-#~ "    Обърнете внимание на:\n"
-#~ "        - Може да задавате нови видове събития чрез\n"
-#~ "                Събития/Конфигурация/Видове събития\n"
-#~ "        - Имате достъп до предварително зададдени справки за броя на "
-#~ "регистрации за събитие или за събитие в категория чрез:\n"
-#~ "                Събития/Справки\n"
-
-#~ msgid "Mail Auto Confirm"
-#~ msgstr "E-mail при автоматично потвърждения"
-
-#~ msgid "Configuration"
-#~ msgstr "Настройки"
-
-#~ msgid "Error Messages"
-#~ msgstr "Съобщение за грешка"
-
-#~ msgid "Event Done"
-#~ msgstr "Събитието приключило"
-
-#~ msgid ""
-#~ "Error: The default UOM and the purchase UOM must be in the same category."
-#~ msgstr ""
-#~ "Грешка: Мер. Ед. по подрабиране и Мер. Ед. на поръчката трябва да са от една "
-#~ "и съща категория"
-
-#~ msgid "Events On Registrations"
-#~ msgstr "Събития в регистрация"
-
-#~ msgid "Communication history"
-#~ msgstr "История на комуникацията"
-
-#~ msgid "Event type on registration"
-#~ msgstr "Вид събитие в регистрация"
-
-#~ msgid "Number of Registration"
-#~ msgstr "Брой регистрации"
-
-#~ msgid ""
-#~ "Check this box if you want to use the automatic mailing for new registration"
-#~ msgstr ""
-#~ "Отметнете ако искате при нови регисрации да използвате автоматично "
-#~ "известяване чрез email"
-
-#~ msgid "Events on registrations"
-#~ msgstr "Събития в регистрация"
-
-#~ msgid "Draft Events"
-#~ msgstr "Събития в проект"
-
-#~ msgid "Error: Invalid ean code"
-#~ msgstr "Грешка: Невалиден бар код"
-
-#~ msgid "Confirmation for Event Registration"
-#~ msgstr "Потвърждение за регистрация за събитие"
-
-#~ msgid "Provide Maximun Number of Registrations"
-#~ msgstr "Определи максимален брой регистрации"
-
-#~ msgid "Invoice Information"
-#~ msgstr "Информация за фактура"
-
-#~ msgid "Speaker who are giving speech on event."
-#~ msgstr "Оратор, който ще държи реч на събитието"
-
-#~ msgid "Make Invoices"
-#~ msgstr "Направи фактури"
-
-#~ msgid "Title"
-#~ msgstr "Заглавие"
-
-#~ msgid "Event Details"
-#~ msgstr "Подробности за събитие"
-
-#~ msgid "Parent Event"
-#~ msgstr "Наследявано събитие"
-
-#~ msgid "Last 7 Days"
-#~ msgstr "Последните 7 дни"
-
-#~ msgid "Current Events"
-#~ msgstr "Текущи събития"
-
-#~ msgid "Subtotal"
-#~ msgstr "Междинна сума"
-
+#. module: event
+#: code:addons/event/models/event.py:501
 #, python-format
-#~ msgid "Registration doesn't have any partner to invoice."
-#~ msgstr "Регистряцията няма партньор за фактуриране"
+msgid "next month"
+msgstr ""
 
-#~ msgid "Invoice Date"
-#~ msgstr "Дата на фактура"
-
-#~ msgid "_Close"
-#~ msgstr "_Затвори"
-
-#~ msgid ""
-#~ "This will be the default price used as registration cost when invoicing this "
-#~ "event. Note that you can specify for each registration a specific amount if "
-#~ "you want to"
-#~ msgstr ""
-#~ "Това ще бъде по подразбиране цена, използвана като раход за регистрация при "
-#~ "фактурирането на това събитие. Имайте предвид, че можете да зададете за "
-#~ "всяка регистрация на определена сума, акожелаете."
-
-#~ msgid "Add Internal Note"
-#~ msgstr "Добавете вътрешна бележка"
-
-#~ msgid "Reply-To"
-#~ msgstr "Отговор-до"
-
-#~ msgid "Event Dashboard"
-#~ msgstr "Табло Събития"
-
-#~ msgid "Pricelist"
-#~ msgstr "Ценова листа"
-
-#~ msgid "event.registration.badge"
-#~ msgstr "event.registration.badge"
-
-#~ msgid "Reference"
-#~ msgstr "Означение"
-
-#~ msgid "Closing Date of Event"
-#~ msgstr "Крайна дата на събитие"
-
+#. module: event
+#: code:addons/event/models/event.py:499
 #, python-format
-#~ msgid "Customer Invoices"
-#~ msgstr "Фактури към клиенти"
+msgid "next week"
+msgstr ""
 
-#~ msgid "Number of Registrations or Tickets"
-#~ msgstr "Брой на регистрирани или билети"
-
-#~ msgid "Other Speakers"
-#~ msgstr "Други оратори"
-
-#~ msgid "Badges"
-#~ msgstr "Баджове"
-
-#~ msgid "Misc"
-#~ msgstr "Разни"
-
-#~ msgid "Pricelist version for current event."
-#~ msgstr "Версия на ценовата листа за текущото събитие"
-
-#~ msgid "Emails"
-#~ msgstr "Имейли"
-
-#~ msgid "Send New Email"
-#~ msgstr "Изпрати нов имейл"
-
+#. module: event
+#: code:addons/event/models/event.py:503
 #, python-format
-#~ msgid "Warning !"
-#~ msgstr "Предупреждение !"
+msgid "on "
+msgstr ""
 
+#. module: event
+#: model:ir.model,name:event.model_res_config_settings
+msgid "res.config.settings"
+msgstr ""
+
+#. module: event
+#: code:addons/event/models/event.py:493
 #, python-format
-#~ msgid "Error !"
-#~ msgstr "Грешка!"
+msgid "today"
+msgstr ""
 
-#~ msgid "Reply"
-#~ msgstr "Отговор"
-
-#~ msgid "Quantity"
-#~ msgstr "Количество"
-
-#~ msgid "History Information"
-#~ msgstr "Информация за история"
-
-#~ msgid "Contact"
-#~ msgstr "За контакт"
-
-#~ msgid "Type of Event like Seminar, Exhibition, Conference, Training."
-#~ msgstr "Тип събитие като семинар, изложба, конференция, обучение."
-
-#~ msgid "Invoice Name"
-#~ msgstr "Име на фактура"
-
-#~ msgid "Speakers"
-#~ msgstr "Оратори"
-
-#~ msgid "Create invoices"
-#~ msgstr "Създаване на фактури"
-
-#~ msgid "Do you really want to create the invoice(s) ?"
-#~ msgstr "Искате ли да създадете фактурата/ите"
-
+#. module: event
+#: code:addons/event/models/event.py:495
 #, python-format
-#~ msgid "Invoiced"
-#~ msgstr "Фактуриран"
+msgid "tomorrow"
+msgstr ""
 
-#~ msgid "Error ! You can not create recursive associated members."
-#~ msgstr "Грешка ! Не може да създадете рекурсивно свързани членове"
-
-#~ msgid "Message"
-#~ msgstr "Съобщение"
-
-#~ msgid "Closed"
-#~ msgstr "Приключено"
-
-#~ msgid "Child Events"
-#~ msgstr "Наследяващи събития"
-
-#~ msgid "Active"
-#~ msgstr "Активен"
-
-#~ msgid "Language"
-#~ msgstr "Език"
-
-#~ msgid "CC"
-#~ msgstr "Копие до"
-
-#~ msgid "These people will receive email."
-#~ msgstr "Тези хора ще получат имейл."
-
-#~ msgid "Confirmation Email Body"
-#~ msgstr "Основен текс на имейл за потвърждение"
-
-#~ msgid "Dashboard"
-#~ msgstr "Табло"
-
-#~ msgid "Close"
-#~ msgstr "Затвори"
-
-#~ msgid "Event by Registration"
-#~ msgstr "Събитие по регистрация"
-
-#~ msgid "Last 365 Days"
-#~ msgstr "Последните 365 дни"
-
-#~ msgid "Attachments"
-#~ msgstr "Прикачени файлове"
-
-#~ msgid "Registration Cost"
-#~ msgstr "Разход за регистрация"
-
-#~ msgid "Current"
-#~ msgstr "Текущ"
-
-#~ msgid "Details"
-#~ msgstr "Подробности"
-
-#~ msgid "Sale Team"
-#~ msgstr "Търговски екип"
-
-#~ msgid "Start date"
-#~ msgstr "Начална дата"
-
-#~ msgid "Closing date"
-#~ msgstr "Крайна дата"
-
-#, python-format
-#~ msgid "Auto Confirmation: [%s] %s"
-#~ msgstr "Автоматично птвърждение:  [%s] %s"
-
-#~ msgid "  event Registration "
-#~ msgstr "  Регистрация за събитие "
-
-#~ msgid "Beginning Date of Event"
-#~ msgstr "Начална дата на събитие"
-
-#~ msgid "Address"
-#~ msgstr "Адрес"
-
-#~ msgid "_Subcribe"
-#~ msgstr "_Записване"
-
-#, python-format
-#~ msgid "Auto Registration: [%s] %s"
-#~ msgstr "Автоматична регистрация: [%s] %s"
-
-#~ msgid "Event For Registration"
-#~ msgstr "Събитие за регистрация"
-
-#, python-format
-#~ msgid "Invoice cannot be created if the registration is in %s state."
-#~ msgstr ""
-#~ "Фактура не може да бъде създадена ако състоянието на регистрацията е %s ."
-
-#~ msgid "Total"
-#~ msgstr "Общо"
-
-#~ msgid "Last 30 Days"
-#~ msgstr "Последни 30 дни"
-
-#~ msgid "Error ! You cannot create recursive event."
-#~ msgstr "Грешка! Не можете да създавата рекурсивно събитие!"
-
-#~ msgid "Beginning Date"
-#~ msgstr "Начална дата"
-
-#~ msgid "Group the invoices"
-#~ msgstr "Групиране на фактури"
-
-#~ msgid "Reference 2"
-#~ msgstr "Отпратка 2"
-
-#~ msgid ""
-#~ "The invoices of this event registration will be created with this Product. "
-#~ "Thus it allows you to set the default label and the accounting info you want "
-#~ "by default on these invoices."
-#~ msgstr ""
-#~ "Фактурите за това събитие ще бъдат създадени с този продукт. Това позволява "
-#~ "да се укаже етикета по подразбиране и счетоводната информация, която искате "
-#~ "по подразбиране за тези фактури."
-
-#, python-format
-#~ msgid "Registered partner doesn't have an address to make the invoice."
-#~ msgstr "Регистрирания контрагент няма адрес за генериране на фактура."
-
-#~ msgid "Total of Open and Done Registrations"
-#~ msgstr "Общо отворени и готови регистрации"
-
-#~ msgid ""
-#~ "These email addresses will be added to the CC field of all inbound and "
-#~ "outbound emails for this record before being sent. Separate multiple email "
-#~ "addresses with a comma"
-#~ msgstr ""
-#~ "Тези имейл адреси ще бъдат добавени към CC полето на всички входящи и "
-#~ "изходящи имейли за този запис преди да бъде изпратено. Повече от един имейл "
-#~ "адрес да се разделят със запетая"
-
-#, python-format
-#~ msgid "Registration is set as Cannot be invoiced"
-#~ msgstr "Регистрацията е настроена да не може да бъде фактурирана"
-
-#, python-format
-#~ msgid "Event related doesn't have any product defined"
-#~ msgstr "Свързаното събитие няма определен продукт"
-
-#~ msgid ""
-#~ "If event is created, the state is 'Draft'.If event is confirmed for the "
-#~ "particular dates the state is set to 'Confirmed'. If the event is over, the "
-#~ "state is set to 'Done'.If event is cancelled the state is set to 'Cancelled'."
-#~ msgstr ""
-#~ "Ако събитието е създадено, състоянието е \"Проект\". Ако събитието е "
-#~ "потвърдено за определените дати, състоянието е \"Потвърдено\". Ако събитието "
-#~ "е приключило, състоянието е настроен на \"Готово\". Ако събитието е отменено "
-#~ "състоянието енастроен на \"Отменено\"."
-
-#~ msgid "Registration Email Body"
-#~ msgstr "Основен текст на съобщението за регистрация"
-
-#~ msgid ""
-#~ "Event is the low level object used by meeting and others documents that "
-#~ "should be synchronized with mobile devices or calendar applications through "
-#~ "caldav. Most of the users should work in the Calendar menu, and not in the "
-#~ "list of events."
-#~ msgstr ""
-#~ "Събитие е обект от ниско ниво, използвано от срещи и другите документи, "
-#~ "които трябва да бъдат синхронизирани с мобилни устройства или календар "
-#~ "приложения чрез CalDAV. Повечето потребители трябва да работят в менюто "
-#~ "Календар, а не в списъка на събитията."
-
-#~ msgid "Providee Minimum Number of Registrations"
-#~ msgstr "Осигуряване на минимален брой на регистрациите"
-
-#~ msgid "The email address put in the 'Reply-To' of all emails sent by OpenERP"
-#~ msgstr ""
-#~ "Имейл адресът поставени в \"Отговор до\" на всички имейли, изпратени от "
-#~ "OpenERP"
-
-#~ msgid "Event Make Invoice"
-#~ msgstr "Събитие за генериране на фактура"
-
-#, python-format
-#~ msgid "Warning: The Event '%s' has reached its Maximum Limit (%s)."
-#~ msgstr "Внимание: За събитието '%s' е достигнат максималния лимит (%s)."
-
-#~ msgid "Provide Minimum Number of Registrations"
-#~ msgstr "Geef het minimum aantal registratie"
-
-#~ msgid "Total of Prospect Registrations"
-#~ msgstr "Geregistreerde prospect totaal"
-
-#~ msgid ""
-#~ "Check this box if you want to use automatic confirmation emailing or "
-#~ "reminder."
-#~ msgstr ""
-#~ "Aanvinken indien u gebruik wenst te maken van automatische bevestiging en "
-#~ "herinnering e-mails."
-
-#~ msgid "Mail Auto Register"
-#~ msgstr "Automatische mail inschrijving"
-
-#~ msgid ""
-#~ "This email will be sent when the event gets confirmed or when someone "
-#~ "subscribes to a confirmed event. This is also the email sent to remind "
-#~ "someone about the event."
-#~ msgstr ""
-#~ "Deze e-mail wordt verzonden wanneer een evenement wordt bevestigd of wanneer "
-#~ "iemand zich aanmeld voor het evenement. Deze e-mail wordt tevens  verstuurt "
-#~ "om iemand aan het evenement te herinneren."
-
-#~ msgid "Events States"
-#~ msgstr "Evenement status"
-
-#~ msgid "My Sales Team(s)"
-#~ msgstr "Mijn verkoop team(s)"
-
-#~ msgid "Events created in last month"
-#~ msgstr "Evenementen aangemaakt in de afgelopen maand"
-
-#~ msgid "Events created in current year"
-#~ msgstr "Evenementen aangemaakt in huidige jaar"
-
-#~ msgid "    Month-1    "
-#~ msgstr "    Maand-1    "
-
-#~ msgid "Provide Maximum Number of Registrations"
-#~ msgstr "Geef maximum aantal registraties op"
+#. module: event
+#: model:event.event,description:event.event_3
+msgid "training material."
+msgstr ""

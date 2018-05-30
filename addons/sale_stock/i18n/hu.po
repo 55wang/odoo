@@ -1,338 +1,192 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#    * sale
-#
+# * sale_stock
+# 
+# Translators:
+# Martin Trigaux, 2016
+# krnkris, 2016
+# gezza <geza.nagy@oregional.hu>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:06+0000\n"
-"PO-Revision-Date: 2013-12-09 19:30+0000\n"
-"Last-Translator: krnkris <Unknown>\n"
-"Language-Team: \n"
+"Project-Id-Version: Odoo Server saas~11.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-22 14:10+0000\n"
+"PO-Revision-Date: 2018-03-22 14:10+0000\n"
+"Last-Translator: gezza <geza.nagy@oregional.hu>, 2017\n"
+"Language-Team: Hungarian (https://www.transifex.com/odoo/teams/41243/hu/)\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=utf-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 07:49+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Language: hu\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: sale_stock
-#: help:sale.config.settings,group_invoice_deli_orders:0
-msgid ""
-"To allow your salesman to make invoices for Delivery Orders using the menu "
-"'Deliveries to Invoice'."
-msgstr ""
-"Engedélyezi az értékesítőnek a kiszállítási kézbesítési bizonylatra történő "
-"számlázást a 'Kiszállítások számlázása' menüben."
-
-#. module: sale_stock
-#: model:process.node,name:sale_stock.process_node_deliveryorder0
-msgid "Delivery Order"
-msgstr "Kiszállítási megbízás"
-
-#. module: sale_stock
-#: model:ir.actions.act_window,name:sale_stock.outgoing_picking_list_to_invoice
-#: model:ir.ui.menu,name:sale_stock.menu_action_picking_list_to_invoice
-msgid "Deliveries to Invoice"
-msgstr "Számlázandó kiszállítások"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:570
-#, python-format
-msgid "Picking Information ! : "
-msgstr "Kiválogatási információ ! : "
-
-#. module: sale_stock
-#: model:process.node,name:sale_stock.process_node_packinglist0
-msgid "Pick List"
-msgstr "Kiszedési lista"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:565
+#: code:addons/sale_stock/models/sale_order.py:247
 #, python-format
 msgid ""
-"You selected a quantity of %d Units.\n"
-"But it's not compatible with the selected packaging.\n"
-"Here is a proposition of quantities according to the packaging:\n"
-"EAN: %s Quantity: %s Type of ul: %s"
+"\n"
+"There are %s %s available across all warehouses.\n"
+"\n"
 msgstr ""
-"Kiválasztott egy mennyiséget ezekben a mértékegységekben %d.\n"
-"De ez nem kompatibilis a kiválasztott csomagolással.\n"
-"Itt van egy javaslat a csomagolás szerinti mennyiségre:\n"
-"Globális szabványalapú azonosító (EAN): %s Mennyiség: %s Csomagolás típusa: "
-"%s"
 
 #. module: sale_stock
-#: model:process.node,note:sale_stock.process_node_packinglist0
-msgid "Document of the move to the output or to the customer."
-msgstr "Dokumentum a gyártásnak vagy a vevőnek irányuló árumozgásról."
-
-#. module: sale_stock
-#: field:sale.config.settings,group_multiple_shops:0
-msgid "Manage multiple shops"
-msgstr "Több eladási hely kezelése"
-
-#. module: sale_stock
-#: model:process.transition.action,name:sale_stock.process_transition_action_validate0
-msgid "Validate"
-msgstr "Érvényesítés"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:209
-#, python-format
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_picking
 msgid ""
-"You must first cancel all delivery order(s) attached to this sales order."
+".\n"
+"                Manual actions may be needed."
 msgstr ""
-"Előszőr a megrendeléshez tartozó összes kiszállítási kézbesítési bizonylatot "
-"törölnie kell."
 
 #. module: sale_stock
-#: model:process.transition,name:sale_stock.process_transition_saleprocurement0
-msgid "Create Procurement Order"
-msgstr "Beszerzési megbízás létrehozása"
-
-#. module: sale_stock
-#: field:stock.picking.out,sale_id:0
-msgid "Sale Order"
-msgstr "Vevői megrendelés"
-
-#. module: sale_stock
-#: model:process.transition,note:sale_stock.process_transition_saleorderprocurement0
+#: model:ir.ui.view,arch_db:sale_stock.portal_order_page_shipping
 msgid ""
-"For every sales order line, a procurement order is created to supply the "
-"sold product."
+"<span class=\"label label-danger label-text-align\"><i class=\"fa fa-fw fa-"
+"times\"/> Cancelled</span>"
 msgstr ""
-"Minden vásárlói megrendelés tételhez, létrehoz egy beszerzési megbízás is az "
-"eladott termék előteremtésére."
+"<span class=\"label label-danger label-text-align\"><i class=\"fa fa-fw fa-"
+"times\"/> Törölt</span>"
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:615
-#, python-format
-msgid "Error!"
-msgstr "Hiba!"
-
-#. module: sale_stock
-#: field:sale.order,picking_policy:0
-msgid "Shipping Policy"
-msgstr "Szállítási szabályok"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:616
-#, python-format
+#: model:ir.ui.view,arch_db:sale_stock.portal_order_page_shipping
 msgid ""
-"You cannot make an advance on a sales order                      that is "
-"defined as 'Automatic Invoice after delivery'."
+"<span class=\"label label-info label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Preparation</span>"
 msgstr ""
-"Nem végezhet díjbekérést egy olyan vásárlói megrendelésen ami úgy van "
-"meghatározva, hogy 'Szállítás után automatikus számlázás'."
 
 #. module: sale_stock
-#: model:ir.ui.menu,name:sale_stock.menu_action_shop_form
-msgid "Shop"
-msgstr "Üzlet"
-
-#. module: sale_stock
-#: model:process.node,note:sale_stock.process_node_saleorderprocurement0
-msgid "Drives procurement orders for every sales order line."
+#: model:ir.ui.view,arch_db:sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-success label-text-align\"><i class=\"fa fa-fw fa-"
+"truck\"/> Shipped</span>"
 msgstr ""
-"Beszerzési megbízást generál minden vásárlói megrendelési tétel sorhoz."
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_stock_move
-msgid "Stock Move"
-msgstr "Készletmozgás"
+#: model:ir.ui.view,arch_db:sale_stock.portal_order_page_shipping
+msgid ""
+"<span class=\"label label-warning label-text-align\"><i class=\"fa fa-fw fa-"
+"clock-o\"/> Partially Available</span>"
+msgstr ""
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:163
-#, python-format
-msgid "Invalid Action!"
-msgstr "Érvénytelen lépés!"
+#: model:ir.ui.view,arch_db:sale_stock.report_delivery_document_inherit_sale_stock
+msgid "<strong>Customer Reference:</strong>"
+msgstr "<strong>Vásárló hivatkozása:</strong>"
 
 #. module: sale_stock
-#: field:sale.config.settings,module_project_timesheet:0
-msgid "Project Timesheet"
-msgstr "Projekt időbeosztás-kimutatása"
+#: model:ir.ui.view,arch_db:sale_stock.portal_order_page_shipping
+msgid "<strong>Delivery Orders</strong>"
+msgstr ""
 
 #. module: sale_stock
-#: field:sale.config.settings,group_sale_delivery_address:0
-msgid "Allow a different address for delivery and invoicing "
-msgstr "Engedélyezze a szállításhoz és a számlázáshoz a különböző címeket "
+#: model:ir.ui.view,arch_db:sale_stock.report_invoice_document_inherit_sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.report_saleorder_document_inherit_sale_stock
+msgid "<strong>Incoterms:</strong>"
+msgstr "<strong>Incoterms:</strong>"
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:572
-#: code:addons/sale_stock/sale_stock.py:623
-#, python-format
-msgid "Configuration Error!"
-msgstr "Beállítási hiba!"
+#: model:ir.ui.menu,name:sale_stock.menu_aftersale
+msgid "After-Sale"
+msgstr "Értékesítés utáni"
 
 #. module: sale_stock
-#: model:process.node,name:sale_stock.process_node_saleprocurement0
-msgid "Procurement Order"
-msgstr "Beszerzési megbízás"
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid "Apply special routes from orders (e.g. dropshipping, MTO)"
+msgstr ""
 
 #. module: sale_stock
-#: selection:sale.config.settings,default_order_policy:0
-msgid "Invoice based on deliveries"
-msgstr "Számla a szállítások alapján"
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid ""
+"By default Odoo computes the expected delivery date this way: order date + "
+"highest customer lead time of products. With this option, you can set a "
+"specific delivery date on orders rather than setting lead times on products."
+msgstr ""
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_sale_order
-#: field:stock.picking,sale_id:0
-msgid "Sales Order"
-msgstr "Vevői megrendelés"
+#: model:ir.model,name:sale_stock.model_res_company
+msgid "Companies"
+msgstr "Vállalatok"
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_stock_picking_out
+#: selection:sale.order,picking_policy:0
+msgid "Deliver all products at once"
+msgstr "Minden termék egyszerre történő szállítása"
+
+#. module: sale_stock
+#: selection:sale.order,picking_policy:0
+msgid "Deliver each product when available"
+msgstr "Mindegyik terméket akkor szállítsa, ha azok elérhetőek"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
+msgid "Delivery"
+msgstr "Szállítás"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__module_sale_order_dates
+msgid "Delivery Date"
+msgstr "Szállítás dátuma"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__delivery_count
 msgid "Delivery Orders"
-msgstr "Kiszállítások kézbesítési bizonylatai"
+msgstr "Szállítólevelek / Szállítási rendelések"
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_sale_order_line
-#: field:stock.move,sale_line_id:0
-msgid "Sales Order Line"
-msgstr "Vevői megrendelési tétel sor"
+#: model:res.groups,name:sale_stock.group_display_incoterm
+msgid "Display incoterms on Sales Order and related invoices"
+msgstr "Vásárlói megrendelések kapcsolódó számláin az Incoterms megjelenítése"
 
 #. module: sale_stock
-#: model:process.transition,note:sale_stock.process_transition_packing0
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid "Display incoterms on orders &amp; invoices"
+msgstr ""
+
+#. module: sale_stock
+#: model:res.groups,name:sale_stock.group_route_so_lines
+msgid "Enable Route on Sales Order Line"
+msgstr "Útvonal bekapcsolás a vásárlói megrendelés tétel sorain"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_picking
+msgid "Exception(s) occurred on the picking:"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "Exception(s) occurred on the sale order(s):"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_picking
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "Exception(s):"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "Impacted Transfer(s):"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_account_invoice__incoterms_id
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__group_display_incoterm
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__incoterm
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid "Incoterms"
+msgstr "Nemzetközi Kereskedelmi Feltételek INCOTERMS"
+
+#. module: sale_stock
+#: model:ir.model.fields,help:sale_stock.field_account_invoice__incoterms_id
 msgid ""
-"The Pick List form is created as soon as the sales order is confirmed, in "
-"the same time as the procurement order. It represents the assignment of "
-"parts to the sales order. There is 1 pick list by sales order line which "
-"evolves with the availability of parts."
+"Incoterms are series of sales terms. They are used to divide transaction "
+"costs and responsibilities between buyer and seller and reflect state-of-"
+"the-art transportation practices."
 msgstr ""
-"A kiválogatási lista adatlapját a vevői megrendelés visszaigazolásakor "
-"azonnal létrehozza, ugyanakkor amikor a beszerzési megbízást. Ez képviseli a "
-"vevői megrendelés tételeit. Itt  a vevői megrendelés tételekként  1 "
-"kiválogatási lista van, ami mindjárt megmutatja a tételek hozzáférhetőségét "
-"is."
+"Incoterm az értékesítés kifejezési fogalmai. Arra használják, hogy "
+"elválassza az ügyleteket költségeit és a szállítási felelősségeket a vevő és"
+" az eladó közt és tükrözze a legkorszerűbb szállítási gyakorlatokat."
 
 #. module: sale_stock
-#: help:res.company,security_lead:0
-msgid ""
-"This is the days added to what you promise to customers for security purpose"
-msgstr "A vevőknek megígért, biztonsági okokból hozzáadott, napok száma."
-
-#. module: sale_stock
-#: model:ir.model,name:sale_stock.model_stock_picking
-msgid "Picking List"
-msgstr "Kiválogatási lista"
-
-#. module: sale_stock
-#: field:sale.shop,warehouse_id:0
-msgid "Warehouse"
-msgstr "Raktár"
-
-#. module: sale_stock
-#: model:process.transition.action,name:sale_stock.process_transition_action_forceassignation0
-msgid "Force Assignation"
-msgstr "Hozzárendelés eröltetése"
-
-#. module: sale_stock
-#: field:sale.config.settings,default_order_policy:0
-msgid "The default invoicing method is"
-msgstr "Az alapértelmezett számlázási módszer a következő"
-
-#. module: sale_stock
-#: field:sale.order.line,delay:0
-msgid "Delivery Lead Time"
-msgstr "Kiszállítás átfutási idő"
-
-#. module: sale_stock
-#: model:process.node,note:sale_stock.process_node_deliveryorder0
-msgid "Document of the move to the customer."
-msgstr "Dokumentum a vevőhöz történő mozgatásról."
-
-#. module: sale_stock
-#: view:sale.order:0
-msgid "View Delivery Order"
-msgstr "Kiszállítási kézbesítési bizonylatok áttekintése"
-
-#. module: sale_stock
-#: field:sale.order.line,move_ids:0
-msgid "Inventory Moves"
-msgstr "Leltárkészlet mozgás"
-
-#. module: sale_stock
-#: view:sale.config.settings:0
-msgid "Default Options"
-msgstr "Alapértelmezett lehetőségek"
-
-#. module: sale_stock
-#: field:sale.config.settings,module_project_mrp:0
-msgid "Project MRP"
-msgstr "MRP Gyártás tervezési project"
-
-#. module: sale_stock
-#: model:process.transition,note:sale_stock.process_transition_invoiceafterdelivery0
-msgid ""
-"The invoice is created automatically if the shipping policy is 'Invoice from "
-"pick' or 'Invoice on order after delivery'."
-msgstr ""
-"A számla automatikusan létrejön, ha a kiszállítási szabály: 'számlázás "
-"kiszedésből' vagy 'számlázás kiszállítás után'."
-
-#. module: sale_stock
-#: field:sale.order.line,procurement_id:0
-msgid "Procurement"
-msgstr "Beszerzés"
-
-#. module: sale_stock
-#: view:sale.report:0
-#: field:sale.report,shipped:0
-#: field:sale.report,shipped_qty_1:0
-msgid "Shipped"
-msgstr "Kiszállított"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:265
-#, python-format
-msgid "invalid mode for test_state"
-msgstr "érvénytelen mód a teszt_állapotban"
-
-#. module: sale_stock
-#: model:process.transition,note:sale_stock.process_transition_saleprocurement0
-msgid ""
-"A procurement order is automatically created as soon as a sales order is "
-"confirmed or as the invoice is paid. It drives the purchasing and the "
-"production of products regarding to the rules and to the sales order's "
-"parameters. "
-msgstr ""
-"A rendszer automatikusan egy beszerzési megbízást hoz létre, amint "
-"megerősítettük a vevői megrendelést, vagy a számlát kifizették. A rendszer "
-"az értékesítési megbízásokon keresztül irányítja a szállítói megrendeléseket "
-"és a termékek gyártását is a beállított szabályoknak és a vevői megrendelés "
-"paramétereinek megfelelően. "
-
-#. module: sale_stock
-#: help:sale.config.settings,group_mrp_properties:0
-msgid "Allows you to tag sales order lines with properties."
-msgstr ""
-"Lehetővé teszi a vásárlói megrendelési tételek tulajdonságokkal való "
-"címkézését"
-
-#. module: sale_stock
-#: field:sale.config.settings,group_invoice_deli_orders:0
-msgid "Generate invoices after and based on delivery orders"
-msgstr ""
-"Számla generálása a kiszállítási kézbesítési bizonylatok alapján és után"
-
-#. module: sale_stock
-#: field:sale.config.settings,module_delivery:0
-msgid "Allow adding shipping costs"
-msgstr "Szállítási ár hozzáadásának engedélyezése"
-
-#. module: sale_stock
-#: view:sale.order:0
-msgid "days"
-msgstr "napok"
-
-#. module: sale_stock
-#: field:sale.order.line,product_packaging:0
-msgid "Packaging"
-msgstr "Csomagolás"
-
-#. module: sale_stock
-#: help:sale.order,incoterm:0
+#: model:ir.model.fields,help:sale_stock.field_sale_order__incoterm
 msgid ""
 "International Commercial Terms are a series of predefined commercial terms "
 "used in international transactions."
@@ -341,82 +195,161 @@ msgstr ""
 "melyeket nemzetközi ügyleteknél használnak."
 
 #. module: sale_stock
-#: help:sale.config.settings,module_delivery:0
-msgid ""
-"Allows you to add delivery methods in sales orders and delivery orders.\n"
-"                You can define your own carrier and delivery grids for "
-"prices.\n"
-"                This installs the module delivery."
+#: model:ir.model,name:sale_stock.model_stock_location_route
+msgid "Inventory Routes"
+msgstr "Készletek útvonalai"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_account_invoice
+msgid "Invoice"
+msgstr "Számla"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_account_invoice_line
+msgid "Invoice Line"
+msgstr "Számla tételsor"
+
+#. module: sale_stock
+#: model:ir.ui.menu,name:sale_stock.menu_invoiced
+msgid "Invoicing"
+msgstr "Számlázás"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "Manual actions may be needed."
 msgstr ""
-"Lehetővé teszi szállítási mód hozzáadását a megrendelésekhez és a "
-"kiszállítási kézbesítési bizonylatokhoz.\n"
-"                Meghatározhatja a saját szállítóját és szállítási hálózat "
-"külön árát.\n"
-"                Ez a delivery (szállítás) modult telepíti."
 
 #. module: sale_stock
-#: field:sale.config.settings,default_picking_policy:0
-msgid "Deliver all at once when all products are available."
-msgstr "Egyszerre szállítsa, ha az összes termék rendelkezésre áll."
-
-#. module: sale_stock
-#: model:res.groups,name:sale_stock.group_invoice_deli_orders
-msgid "Enable Invoicing Delivery orders"
-msgstr "Kiszállítási kézbesítési bizonylatok számlázásának bekapcsolása"
-
-#. module: sale_stock
-#: field:res.company,security_lead:0
-msgid "Security Days"
-msgstr "Biztonsági napok"
-
-#. module: sale_stock
-#: model:process.transition,name:sale_stock.process_transition_saleorderprocurement0
-msgid "Procurement of sold material"
-msgstr "Az eladott anyagok beszerzése"
-
-#. module: sale_stock
-#: help:sale.order,picking_policy:0
+#: model:ir.model.fields,help:sale_stock.field_res_config_settings__use_security_lead
 msgid ""
-"Pick 'Deliver each product when available' if you allow partial delivery."
+"Margin of error for dates promised to customers. Products will be scheduled "
+"for delivery that many days earlier than the actual promised date, to cope "
+"with unexpected delays in the supply chain."
 msgstr ""
-"Válasszon ki 'Szállítson ki egyesével terméket, amint az elérhető' ha rész "
-"szállítmányt akar megengedni."
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:208
+#: model:ir.model.fields,help:sale_stock.field_res_company__security_lead
+#: model:ir.model.fields,help:sale_stock.field_res_config_settings__security_lead
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid ""
+"Margin of error for dates promised to customers. Products will be scheduled "
+"for procurement and delivery that many days earlier than the actual promised"
+" date, to cope with unexpected delays in the supply chain."
+msgstr ""
+"Megígért határidő dátum hiba a Vevők felé. Termék beszerzési és szállítási "
+"ütemterv  a megígért dátumnál egy pár nappal előbbre, a beszállítási lánc "
+"előre nem látható késésével számítva."
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid "Move forward expected delivery dates by"
+msgstr ""
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:254
 #, python-format
-msgid "Cannot cancel sales order!"
-msgstr "Megrendelést nem tudja törölni!"
+msgid "Not enough inventory!"
+msgstr "Nincs elég raktárkészlet!"
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_sale_shop
-msgid "Sales Shop"
-msgstr "Értékesítési bolt"
-
-#. module: sale_stock
-#: help:sale.order,shipped:0
-msgid ""
-"It indicates that the sales order has been delivered. This field is updated "
-"only after the scheduler(s) have been launched."
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__group_route_so_lines
+msgid "Order-Specific Routes"
 msgstr ""
-"Jelzi, hogy a vásárlói megrendelés kiszállításra került. Ez a mező csak "
-"akkor frissül, ha az ütemező(k) elindult(ak)."
 
 #. module: sale_stock
-#: field:sale.order.line,property_ids:0
-msgid "Properties"
-msgstr "Tulajdonságok"
+#: code:addons/sale_stock/models/sale_order.py:268
+#, python-format
+msgid "Ordered quantity decreased!"
+msgstr "Megrendelt mennyiség csökkent!"
 
 #. module: sale_stock
-#: field:sale.config.settings,group_mrp_properties:0
-msgid "Product properties on order lines"
-msgstr "Termék tulajdonságok a megrendelés tétel sorain"
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__product_packaging
+msgid "Package"
+msgstr "Csomag"
 
 #. module: sale_stock
-#: help:sale.config.settings,default_order_policy:0
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__default_picking_policy
+msgid "Picking Policy"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_ids
+msgid "Pickings"
+msgstr "Kiválogatások"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__procurement_group_id
+msgid "Procurement Group"
+msgstr "Beszerzési Csoport"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_procurement_group
+msgid "Procurement Requisition"
+msgstr "Beszerzési hivatkozás"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_procurement_rule
+msgid "Procurement Rule"
+msgstr "Beszerzési szabály"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_product_template
+msgid "Product Template"
+msgstr "Terméksablon"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_order
+msgid "Quotation"
+msgstr "Árajánlat"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
 msgid ""
-"You can generate invoices based on sales orders or based on shippings."
-msgstr "Létrehozhat számlát vásárlói megrendelés vagy kiszállítások alapján."
+"Reserving products manually in delivery orders or by running the scheduler "
+"is advised to better manage priorities in case of long customer lead times "
+"or/and frequent stock-outs. By default, the scheduler runs automatically "
+"every 24 hours."
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__route_id
+msgid "Route"
+msgstr "Útvonal"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid "Routes for Sales Order Lines"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_stock_move__sale_line_id
+msgid "Sale Line"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_procurement_group__sale_id
+msgid "Sale Order"
+msgstr "Vásárlói megrendelés"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.product_template_view_form_inherit_stock
+msgid "Sales"
+msgstr "Értékesítés"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_stock_picking__sale_id
+msgid "Sales Order"
+msgstr "Vásárlói megrendelés"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Vásárlói megrendelés tételsor"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.stock_location_route_view_form_inherit_sale_stock
+msgid "Sales Order Lines"
+msgstr "Vevői megrendelési tételek"
 
 #. module: sale_stock
 #: model:ir.model,name:sale_stock.model_sale_report
@@ -424,249 +357,159 @@ msgid "Sales Orders Statistics"
 msgstr "Vevői megrendelési statisztikák"
 
 #. module: sale_stock
-#: model:ir.model,name:sale_stock.model_res_company
-msgid "Companies"
-msgstr "Vállalatok"
+#: model:ir.model.fields,field_description:sale_stock.field_res_company__security_lead
+msgid "Sales Safety Days"
+msgstr "Értékesítések Biztonsági napszámok"
 
 #. module: sale_stock
-#: help:sale.config.settings,task_work:0
-msgid ""
-"Lets you transfer the entries under tasks defined for Project Management to\n"
-"                the Timesheet line entries for particular date and "
-"particular user  with the effect of creating, editing and deleting either "
-"ways\n"
-"                and to automatically creates project tasks from procurement "
-"lines.\n"
-"                This installs the modules project_timesheet and project_mrp."
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid "Schedule deliveries earlier to avoid delays"
 msgstr ""
-"Lehetővé teszi a Terv szervezése alatt álló bevitt feladatok átmozgatását "
-"egy\n"
-"                kiválasztott felhasználó és kiválasztott dátum időkimutatás "
-"sor tételeibe, ennek értelmében  bármilyen módon létrehozhat, szerkeszthet "
-"és törölhet \n"
-"                és automatikusan létrehozhat terv feladatokat a beszerzés "
-"tétel soraiból.\n"
-"                Ez a project_timesheet és project_mrp modult telepíti."
 
 #. module: sale_stock
-#: help:sale.config.settings,group_sale_delivery_address:0
-msgid ""
-"Allows you to specify different delivery and invoice addresses on a sales "
-"order."
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__security_lead
+msgid "Security Lead Time"
 msgstr ""
-"Lehetővé teszi különböző szállítási és számlázási cím meghatározását a "
-"vásárlói megrendelésekhez."
 
 #. module: sale_stock
-#: model:process.node,note:sale_stock.process_node_saleprocurement0
-msgid ""
-"One Procurement order for each sales order line and for each of the "
-"components."
+#: model:ir.model.fields,field_description:sale_stock.field_res_config_settings__use_security_lead
+msgid "Security Lead Time for Sales"
 msgstr ""
-"Egy beszerzési megbízás minden egyes vásárlói megrendelés tétel sorhoz és "
-"minden egyes alkotóelemhez."
 
 #. module: sale_stock
-#: model:process.transition.action,name:sale_stock.process_transition_action_assign0
-msgid "Assign"
-msgstr "Hozzárendelés"
+#: model:ir.model.fields,field_description:sale_stock.field_stock_location_route__sale_selectable
+msgid "Selectable on Sales Order Line"
+msgstr "Kiválasztható a vásárlói megrendelési soron"
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:618
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid "Set a delivery date on orders"
+msgstr ""
+
+#. module: sale_stock
+#: selection:res.config.settings,default_picking_policy:0
+msgid "Ship all products at once"
+msgstr ""
+
+#. module: sale_stock
+#: selection:res.config.settings,default_picking_policy:0
+msgid "Ship products as soon as available, with back orders"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.view_order_form_inherit_sale_stock
+msgid "Shipping Information"
+msgstr "Szállítási információ"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__picking_policy
+msgid "Shipping Policy"
+msgstr "Szállítási szabályok"
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_stock_move
+msgid "Stock Move"
+msgstr "Készletmozgás"
+
+#. module: sale_stock
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order_line__move_ids
+msgid "Stock Moves"
+msgstr "Készletmozgások"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_sale
+msgid ""
+"This allows to apply a special route on sales order lines (e.g. "
+"dropshipping, make-to-order) in case of unusual order scenario. To be "
+"available in sales orders, routes must have 'Sales Order Line' option "
+"checked in their setup form."
+msgstr ""
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:361
 #, python-format
-msgid "Not enough stock ! : "
-msgstr "Nincs elég raktárkészlet!: "
+msgid "This product is packaged by %.2f %s. You should sell %.2f %s."
+msgstr "Ezt a terméket csomagolta %.2f %s. Értékesíteni kell %.2f %s."
 
 #. module: sale_stock
-#: help:sale.order.line,delay:0
-msgid ""
-"Number of days between the order confirmation and the shipping of the "
-"products to the customer"
-msgstr ""
-"A megrendelése visszaigazolás és a termék megrendelőhöz való kiszállítása "
-"közti napok száma."
+#: model:ir.model,name:sale_stock.model_stock_picking
+msgid "Transfer"
+msgstr "Átvitel"
 
 #. module: sale_stock
-#: help:sale.config.settings,default_picking_policy:0
-msgid ""
-"Sales order by default will be configured to deliver all products at once "
-"instead of delivering each product when it is available. This may have an "
-"impact on the shipping price."
-msgstr ""
-"A vásárlói megrendelések alapértelmezetten az összes termék egyszerre "
-"történő kiszállítására van beállítva, nem pedig az egyes termékek "
-"elérhetőségétől függően. Ez befolyással lehet a szállítási árra."
+#: model:ir.model.fields,field_description:sale_stock.field_sale_order__warehouse_id
+#: model:ir.model.fields,field_description:sale_stock.field_sale_report__warehouse_id
+msgid "Warehouse"
+msgstr "Raktár"
 
 #. module: sale_stock
-#: selection:sale.config.settings,default_order_policy:0
-msgid "Invoice based on sales orders"
-msgstr "Vásárlói megrendeléseken alapuló számla"
-
-#. module: sale_stock
-#: model:process.node,name:sale_stock.process_node_invoiceafterdelivery0
-msgid "Invoice"
-msgstr "Számla"
-
-#. module: sale_stock
-#: model:process.transition.action,name:sale_stock.process_transition_action_cancel1
-#: model:process.transition.action,name:sale_stock.process_transition_action_cancel2
-msgid "Cancel"
-msgstr "Mégsem"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:163
+#: code:addons/sale_stock/models/sale_order.py:360
 #, python-format
-msgid ""
-"In order to delete a confirmed sales order, you must cancel it.\n"
-"To do so, you must first cancel related picking for delivery orders."
+msgid "Warning"
+msgstr "Figyelmeztetés"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid "When to reserve sold products"
 msgstr ""
-"Egy visszaigazolt vásárlói megrendelés törléséhez, először vissza kell azt "
-"vonni.\n"
-"Ehhez, először az ide tartozó megrendelési kiválogatási listákat kell "
-"törölni."
 
 #. module: sale_stock
-#: field:sale.order.line,number_packages:0
-msgid "Number Packages"
-msgstr "Csomagok száma"
-
-#. module: sale_stock
-#: field:sale.order,shipped:0
-msgid "Delivered"
-msgstr "Kiszállított"
-
-#. module: sale_stock
-#: model:process.transition,name:sale_stock.process_transition_invoiceafterdelivery0
-msgid "Create Invoice"
-msgstr "Számla létrehozás"
-
-#. module: sale_stock
-#: field:sale.config.settings,task_work:0
-msgid "Prepare invoices based on task's activities"
-msgstr "Számlák készítése a feladat tevékenységek alapján"
-
-#. module: sale_stock
-#: model:ir.model,name:sale_stock.model_sale_advance_payment_inv
-msgid "Sales Advance Payment Invoice"
-msgstr "Vevői díjbekérő előlegszámla"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:523
-#, python-format
-msgid "You must first cancel stock moves attached to this sales order line."
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid "When to start shipping"
 msgstr ""
-"Először érvénytelenítenie kell az ehhez a vásárlói megrendelési tétel sorhoz "
-"tartozó készletmozgásokat."
 
 #. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:561
-#, python-format
-msgid "(n/a)"
-msgstr "(nem alkalmazható)"
-
-#. module: sale_stock
-#: field:sale.order,incoterm:0
-msgid "Incoterm"
-msgstr "Nemzetközi Kereskedelmi Feltételek"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:522
-#, python-format
-msgid "Cannot cancel sales order line!"
-msgstr "A vásárlói megrendelés tétel sorát nem tudja visszavonni!"
-
-#. module: sale_stock
-#: model:process.transition.action,name:sale_stock.process_transition_action_cancelassignation0
-msgid "Cancel Assignation"
-msgstr "Hozzárendelés megszüntetése"
-
-#. module: sale_stock
-#: model:process.node,note:sale_stock.process_node_invoiceafterdelivery0
-msgid "Based on the shipped or on the ordered quantities."
-msgstr "A kiszálított vagy a megrendelt mennyiség alapján."
-
-#. module: sale_stock
-#: selection:sale.order,picking_policy:0
-msgid "Deliver all products at once"
-msgstr "Minden termék egyszerre történő szállítása"
-
-#. module: sale_stock
-#: field:sale.order,picking_ids:0
-msgid "Related Picking"
-msgstr "Kapcsolódó kiszedések"
-
-#. module: sale_stock
-#: model:ir.model,name:sale_stock.model_sale_config_settings
-msgid "sale.config.settings"
-msgstr "sale.config.settings"
-
-#. module: sale_stock
-#: help:sale.order,picking_ids:0
-msgid ""
-"This is a list of delivery orders that has been generated for this sales "
-"order."
-msgstr ""
-"Ez az ehhez a megrendeléshez létrehozott kiszállítási Kiszolgáltatási jegyek "
-"listája."
-
-#. module: sale_stock
-#: model:process.node,name:sale_stock.process_node_saleorderprocurement0
-msgid "Sales Order Requisition"
-msgstr "Vásárlói megrendelés igény"
-
-#. module: sale_stock
-#: model:process.transition,name:sale_stock.process_transition_deliver0
-msgid "Create Delivery Order"
-msgstr "Kiszállítási megbízás létrehozása"
-
-#. module: sale_stock
-#: view:sale.order:0
-msgid "Ignore Exception"
-msgstr "Hiba figyelmen kívül hagyása"
-
-#. module: sale_stock
-#: code:addons/sale_stock/sale_stock.py:614
+#: code:addons/sale_stock/models/sale_order.py:269
 #, python-format
 msgid ""
-"You plan to sell %.2f %s but you only have %.2f %s available !\n"
-"The real stock is %.2f %s. (without reservations)"
+"You are decreasing the ordered quantity! Do not forget to manually update "
+"the delivery order if needed."
 msgstr ""
-"El szertné adni a következő mennyiséget: %.2f %s, de csak a következő "
-"mennyiség érhető el a raktáron: %.2f %s!\n"
-"A valós készlet: %.2f %s. (foglalások nélkül)"
+"Lecsökkenti a megrendelt mennyiséget! Ne felejtse el kézzel frissíteni  a "
+"szállítási megbízást, szállítólevelet ha szükséges."
 
 #. module: sale_stock
-#: view:sale.order:0
-msgid "Recreate Delivery Order"
-msgstr "Kiszállítási Kiszolgáltatási jegy létrehozása"
-
-#. module: sale_stock
-#: help:sale.config.settings,group_multiple_shops:0
-msgid "This allows to configure and use multiple shops."
-msgstr "Ez lehetővé teszi a többes eladóhelyek beállítását."
-
-#. module: sale_stock
-#: field:sale.order,picked_rate:0
-msgid "Picked"
-msgstr "Kiszedve"
-
-#. module: sale_stock
-#: selection:sale.order,picking_policy:0
-msgid "Deliver each product when available"
-msgstr "Mindegyik terméket akkor szállítsa, ha azok elérhetőek"
-
-#. module: sale_stock
-#: model:process.transition,name:sale_stock.process_transition_packing0
-msgid "Create Pick List"
-msgstr "Kiszedési lista létrehozása"
-
-#. module: sale_stock
-#: model:process.transition,note:sale_stock.process_transition_deliver0
+#: code:addons/sale_stock/models/sale_order.py:401
+#, python-format
 msgid ""
-"Depending on the configuration of the location Output, the move between the "
-"output area and the customer is done through the Delivery Order manually or "
-"automatically."
+"You cannot decrease the ordered quantity below the delivered quantity.\n"
+"Create a return first."
 msgstr ""
-"A kiadási hely beállításától függően a kiadási terület és a vevő telephelye "
-"közötti árumozgás manuális vagy automatikus kiszállítási megbízással "
-"kezelhető."
+
+#. module: sale_stock
+#: code:addons/sale_stock/models/sale_order.py:243
+#, python-format
+msgid ""
+"You plan to sell %s %s but you only have %s %s available in %s warehouse."
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "cancelled"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.res_config_settings_view_form_stock
+msgid "days"
+msgstr "nap"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_picking
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "of"
+msgstr "ebből"
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_so
+msgid "ordered instead of"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.ui.view,arch_db:sale_stock.exception_on_picking
+msgid "processed instead of"
+msgstr ""
+
+#. module: sale_stock
+#: model:ir.model,name:sale_stock.model_res_config_settings
+msgid "res.config.settings"
+msgstr "res.config.settings"

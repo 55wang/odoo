@@ -1,377 +1,324 @@
-# Translation of OpenERP Server.
+# Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#	* report_intrastat
-#
+# * report_intrastat
+# 
+# Translators:
+# Quim - eccit <quim@eccit.com>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: OpenERP Server 6.0dev\n"
-"Report-Msgid-Bugs-To: support@openerp.com\n"
-"POT-Creation-Date: 2012-12-21 17:06+0000\n"
-"PO-Revision-Date: 2010-10-30 14:42+0000\n"
-"Last-Translator: Raimon Esteve (www.zikzakmedia.com) "
-"<resteve@zikzakmedia.com>\n"
-"Language-Team: \n"
+"Project-Id-Version: Odoo Server 10.saas~18\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-09-20 09:53+0000\n"
+"PO-Revision-Date: 2017-09-20 09:53+0000\n"
+"Last-Translator: Quim - eccit <quim@eccit.com>, 2017\n"
+"Language-Team: Catalan (https://www.transifex.com/odoo/teams/41243/ca/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 06:49+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Transfer-Encoding: \n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Cancelled Invoice"
-msgstr "Factura cancel·lada"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Comment:</strong>"
+msgstr "<strong>Comentari:</strong>"
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Total (inclu. taxes):"
-msgstr "Total (amb impostos):"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Document:</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Disc. (%)"
-msgstr "Desc. (%)"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Fiscal Position Remark:</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Supplier Invoice"
-msgstr "Factura de proveïdor"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Fiscal Position:</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Unit Price"
-msgstr "Preu unitat"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Invoice Date:</strong>"
+msgstr "<strong>Data Factura:</strong>"
 
 #. module: report_intrastat
-#: selection:report.intrastat,type:0
-msgid "Import"
-msgstr "Importació"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Partner Ref.:</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-#: field:report.intrastat.code,description:0
-msgid "Description"
-msgstr "Descripció"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Payment Terms:</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "VAT :"
-msgstr "CIF/NIF:"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Subtotal</strong>"
+msgstr "<strong>Subtotal</strong>"
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Document"
-msgstr "Document"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "<strong>Total</strong>"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "PRO-FORMA"
-msgstr "PRO-FORMA"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Taxes:"
-msgstr "Impostos:"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "March"
-msgstr "Març"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "August"
-msgstr "Agost"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "May"
-msgstr "Maig"
-
-#. module: report_intrastat
-#: field:report.intrastat,type:0
-msgid "Type"
-msgstr "Tipus"
-
-#. module: report_intrastat
-#: model:ir.actions.report.xml,name:report_intrastat.invoice_intrastat_id
-msgid "Invoice Intrastat"
-msgstr "Factura Intrastat"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Invoice Date"
-msgstr "Data factura"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "June"
-msgstr "Juny"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Tel. :"
-msgstr "Tel. :"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Base"
-msgstr "Base"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "January"
-msgstr "Gener"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "July"
-msgstr "Juliol"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Quantity"
-msgstr "Quantitat"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Partner Ref."
-msgstr "Ref. empresa"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "February"
-msgstr "Febrer"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "October"
-msgstr "Octubre"
-
-#. module: report_intrastat
-#: model:ir.model,name:report_intrastat.model_report_intrastat
-msgid "Intrastat report"
-msgstr "Informe Intrastat"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Invoice"
-msgstr "Factura"
-
-#. module: report_intrastat
-#: model:ir.model,name:report_intrastat.model_res_country
-msgid "Country"
-msgstr "País"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "September"
-msgstr "Setembre"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Taxes"
-msgstr "Impostos"
-
-#. module: report_intrastat
-#: selection:report.intrastat,month:0
-msgid "April"
-msgstr "Abril"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
 msgid "Amount"
 msgstr "Import"
 
 #. module: report_intrastat
-#: view:report.intrastat:0
-msgid "Intrastat Data"
-msgstr "Dades Intrastat"
-
-#. module: report_intrastat
-#: field:report.intrastat,value:0
-msgid "Value"
-msgstr "Valor"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-#: model:ir.actions.act_window,name:report_intrastat.action_report_intrastat_tree_all
-#: model:ir.ui.menu,name:report_intrastat.menu_report_intrastat_all
-msgid "Intrastat"
-msgstr "Intrastat"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Draft Invoice"
-msgstr "Factura esborrany"
-
-#. module: report_intrastat
-#: field:report.intrastat,supply_units:0
-msgid "Supply Units"
-msgstr "Unitats subministrades"
+#: selection:report.intrastat,month:0
+msgid "April"
+msgstr ""
 
 #. module: report_intrastat
 #: selection:report.intrastat,month:0
-msgid "November"
-msgstr "Novembre"
+msgid "August"
+msgstr ""
 
 #. module: report_intrastat
-#: model:ir.model,name:report_intrastat.model_report_intrastat_code
-#: field:product.template,intrastat_id:0
-#: field:report.intrastat,intrastat_id:0
-#: view:report.intrastat.code:0
-msgid "Intrastat code"
-msgstr "Codi Intrastat"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Cancelled Invoice"
+msgstr "Factura cancel·lada"
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Refund"
-msgstr "Factura d'abonament"
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_company_id
+msgid "Company"
+msgstr ""
 
 #. module: report_intrastat
-#: field:report.intrastat,ref:0
-msgid "Source document"
-msgstr "Origen del document"
+#: model:ir.model,name:report_intrastat.model_res_country
+msgid "Country"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Fiscal Position Remark :"
-msgstr "Observació posició fiscal :"
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_code
+msgid "Country code"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-#: field:report.intrastat,weight:0
-msgid "Weight"
-msgstr "Pes"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Credit Note"
+msgstr ""
 
 #. module: report_intrastat
-#: model:ir.model,name:report_intrastat.model_product_template
-msgid "Product Template"
-msgstr "Plantilla del producte"
-
-#. module: report_intrastat
-#: field:res.country,intrastat:0
-msgid "Intrastat member"
-msgstr "Membre Intrastat"
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_currency_id
+msgid "Currency"
+msgstr ""
 
 #. module: report_intrastat
 #: selection:report.intrastat,month:0
 msgid "December"
-msgstr "Desembre"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Tax"
-msgstr "Impost"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Description"
+msgstr "Descripció"
 
 #. module: report_intrastat
-#: field:report.intrastat,code:0
-msgid "Country code"
-msgstr "Codi del pais"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Discount (%)"
+msgstr "Descompte (%)"
 
 #. module: report_intrastat
-#: field:report.intrastat,month:0
-msgid "Month"
-msgstr "Mes"
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_display_name
+msgid "Display Name"
+msgstr "Mostrar Nom"
 
 #. module: report_intrastat
-#: field:report.intrastat,currency_id:0
-msgid "Currency"
-msgstr "Moneda"
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Draft Invoice"
+msgstr "Factura esborrany"
 
 #. module: report_intrastat
 #: selection:report.intrastat,type:0
 msgid "Export"
-msgstr "Exportació"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Fax :"
-msgstr "Fax :"
+#: selection:report.intrastat,month:0
+msgid "February"
+msgstr ""
 
 #. module: report_intrastat
-#: field:report.intrastat,name:0
-msgid "Year"
-msgstr "Any"
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_id
+msgid "ID"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Supplier Refund"
-msgstr "Factura d'abonament de proveïdor"
+#: selection:report.intrastat,type:0
+msgid "Import"
+msgstr ""
 
 #. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Total (excl. taxes):"
-msgstr "Total (sense impostos):"
-
-#. module: report_intrastat
-#: report:account.invoice.intrastat:0
-msgid "Price"
-msgstr "Preu"
+#: model:ir.actions.act_window,name:report_intrastat.action_report_intrastat_tree_all
+#: model:ir.ui.menu,name:report_intrastat.menu_report_intrastat_all
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Intrastat"
+msgstr ""
 
 #. module: report_intrastat
 #: model:ir.actions.act_window,name:report_intrastat.action_report_intrastat_code_tree
+#: model:ir.model.fields,field_description:report_intrastat.field_product_product_intrastat_id
+#: model:ir.model.fields,field_description:report_intrastat.field_product_template_intrastat_id
 #: model:ir.ui.menu,name:report_intrastat.menu_report_intrastat_code
-#: view:report.intrastat.code:0
-#: field:report.intrastat.code,name:0
+#: model:ir.ui.view,arch_db:report_intrastat.view_report_intrastat_code_form
 msgid "Intrastat Code"
-msgstr "Codi Intrastat"
+msgstr ""
 
-#~ msgid ""
-#~ "The Object name must start with x_ and not contain any special character !"
-#~ msgstr ""
-#~ "El nom de l'objecte ha de començar amb x_ i no contenir cap caràcter "
-#~ "especial!"
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.view_report_intrastat_search
+#: model:ir.ui.view,arch_db:report_intrastat.view_report_intrastat_tree
+msgid "Intrastat Data"
+msgstr ""
 
-#~ msgid "Canceled Invoice"
-#~ msgstr "Factura cancel·lada"
+#. module: report_intrastat
+#: model:ir.actions.report,name:report_intrastat.account_intrastatinvoices
+msgid "Intrastat Invoices"
+msgstr "Factures Intrastat "
 
-#~ msgid "Intrastat (this month)"
-#~ msgstr "Intrastat (aquest mes)"
+#. module: report_intrastat
+#: model:ir.model,name:report_intrastat.model_report_intrastat_code
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_intrastat_id
+#: model:ir.ui.view,arch_db:report_intrastat.view_report_intrastat_code_tree
+msgid "Intrastat code"
+msgstr ""
 
-#~ msgid "All Months"
-#~ msgstr "Tots els mesos"
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_res_country_intrastat
+msgid "Intrastat member"
+msgstr ""
 
-#~ msgid "This Month"
-#~ msgstr "Aquest mes"
+#. module: report_intrastat
+#: model:ir.model,name:report_intrastat.model_report_intrastat
+msgid "Intrastat report"
+msgstr ""
 
-#~ msgid "Invalid XML for View Architecture!"
-#~ msgstr "﻿XML invàlid per a la definició de la vista!"
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Invoice"
+msgstr "Factura"
 
-#~ msgid "Intrastat Reporting - Reporting"
-#~ msgstr "Informes - Informes Intrastat"
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "January"
+msgstr ""
 
-#~ msgid "Period"
-#~ msgstr "Període"
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "July"
+msgstr ""
 
-#~ msgid "Invalid model name in the action definition."
-#~ msgstr "Nom de model no vàlid en la definició de l'acció."
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "June"
+msgstr ""
 
-#~ msgid "Origin"
-#~ msgstr "Origen"
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat___last_update
+msgid "Last Modified on"
+msgstr ""
 
-#~ msgid "The code of the country must be unique !"
-#~ msgstr "El codi de país ha de ser únic!"
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "March"
+msgstr ""
 
-#~ msgid ""
-#~ "Error: The default UOM and the purchase UOM must be in the same category."
-#~ msgstr ""
-#~ "Error: La UdM per defecte i la UdM de compra han d'estar en la mateixa "
-#~ "categoria."
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "May"
+msgstr ""
 
-#~ msgid "This Year"
-#~ msgstr "Aquest any"
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_month
+msgid "Month"
+msgstr ""
 
-#~ msgid "The name of the country must be unique !"
-#~ msgstr "El nom del país ha de ser únic!"
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "November"
+msgstr ""
 
-#~ msgid ""
-#~ "\n"
-#~ "    A module that adds intrastat reports.\n"
-#~ "    This module gives the details of the goods traded between the countries "
-#~ "of European Union "
-#~ msgstr ""
-#~ "\n"
-#~ "    Un mòdul que afegeix informes intrastat.\n"
-#~ "    Aquest mòdul proporciona informació de les mercaderies comercialitzades "
-#~ "entre els països de la Unió Europea. "
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "October"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model,name:report_intrastat.model_product_template
+msgid "Product Template"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Quantity"
+msgstr ""
+
+#. module: report_intrastat
+#: selection:report.intrastat,month:0
+msgid "September"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_ref
+msgid "Source document"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_supply_units
+msgid "Supply Units"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Tax"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Taxes"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_type
+msgid "Type"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Unit Price"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Unit of measure"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_value
+msgid "Value"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Vendor Bill"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Vendor Credit Note"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_weight
+#: model:ir.ui.view,arch_db:report_intrastat.report_intrastatinvoice_document
+msgid "Weight"
+msgstr ""
+
+#. module: report_intrastat
+#: model:ir.model.fields,field_description:report_intrastat.field_report_intrastat_name
+msgid "Year"
+msgstr ""

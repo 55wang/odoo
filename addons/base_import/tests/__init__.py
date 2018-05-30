@@ -1,3 +1,4 @@
-from . import test_cases
+# -*- coding: utf-8 -*-
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-checks = [test_cases]
+from . import test_base_import

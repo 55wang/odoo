@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-<data>
-    <record id="view_hr_job_form" model="ir.ui.view">
+<odoo>
+    <record id="hr_job_website_inherit" model="ir.ui.view">
         <field name="name">hr.job.form.inherit</field>
         <field name="model">hr.job</field>
-        <field name="inherit_id" ref="hr.view_hr_job_form"/>
+        <field name="inherit_id" ref="hr_recruitment.view_hr_job_kanban"/>
         <field name="arch" type="xml">
-            <!-- add state field in header -->
-            <xpath expr="//sheet/div" position="before">
+            <xpath expr="//div[@name='kanban_boxes']" position="inside">
                 <field name="website_url" invisible="1"/>
-                <field name="website_published" class="pull-right" widget="website_button"/>
+                <div class="o_recruitment_kanban_box o_kanban_primary_bottom bottom_block" style="padding-left:8px; text-align:right">
+                    <span>
+                        <a t-attf-href="#{record.website_url.raw_value}">Website Editor</a>
+                    </span>
+                </div>
             </xpath>
         </field>
     </record>
-</data>
-</openerp>
+</odoo>

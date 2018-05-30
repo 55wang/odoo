@@ -1,42 +1,35 @@
 # -*- coding: utf-8 -*-
-'''
-@author: Manuel F Martinez <manpaz@bashlinux.com>
-@organization: Bashlinux
-@copyright: Copyright (c) 2012 Bashlinux
-@license: GPL
-'''
+
+from __future__ import print_function
+import base64
+import copy
+import io
+import math
+import re
+import traceback
+from hashlib import md5
+
+from PIL import Image
+from xml.etree import ElementTree as ET
+
+from odoo.tools import pycompat
+
+try:
+    import jcconv
+except ImportError:
+    jcconv = None
 
 try: 
     import qrcode
 except ImportError:
     qrcode = None
 
-import time
-import copy
-import io
-import base64
-import math
-import md5
-import re
-import traceback
-import xml.etree.ElementTree as ET
-import xml.dom.minidom as minidom
-
-from PIL import Image
-
-try:
-    import jcconv
-except ImportError:
-    jcconv = None
-    print 'ESC/POS: please install jcconv for improved Japanese receipt printing:'
-    print ' # pip install jcconv'
-
-from constants import *
-from exceptions import *
+from .constants import *
+from .exceptions import *
 
 def utfstr(stuff):
     """ converts stuff to string and does without failing if stuff is a utf8 string """
-    if isinstance(stuff,basestring):
+    if isinstance(stuff,pycompat.string_types):
         return stuff
     else:
         return str(stuff)
@@ -89,29 +82,41 @@ class StyleStack:
                 'left':     TXT_ALIGN_LT,
                 'right':    TXT_ALIGN_RT,
                 'center':   TXT_ALIGN_CT,
+                '_order':   1,
             },
             'underline': {
                 'off':      TXT_UNDERL_OFF,
                 'on':       TXT_UNDERL_ON,
                 'double':   TXT_UNDERL2_ON,
+                # must be issued after 'size' command
+                # because ESC ! resets ESC -
+                '_order':   10,
             },
             'bold': {
                 'off':      TXT_BOLD_OFF,
                 'on':       TXT_BOLD_ON,
+                # must be issued after 'size' command
+                # because ESC ! resets ESC -
+                '_order':   10,
             },
             'font': {
                 'a':        TXT_FONT_A,
                 'b':        TXT_FONT_B,
+                # must be issued after 'size' command
+                # because ESC ! resets ESC -
+                '_order':   10,
             },
             'size': {
                 'normal':           TXT_NORMAL,
                 'double-height':    TXT_2HEIGHT,
                 'double-width':     TXT_2WIDTH,
                 'double':           TXT_DOUBLE,
+                '_order':   1,
             },
             'color': {
                 'black':    TXT_COLOR_BLACK,
                 'red':      TXT_COLOR_RED,
+                '_order':   1,
             },
         }
 
@@ -143,7 +148,7 @@ class StyleStack:
         _style = {}
         for attr in style:
             if attr in self.cmds and not style[attr] in self.cmds[attr]:
-                print 'WARNING: ESC/POS PRINTING: ignoring invalid value: '+utfstr(style[attr])+' for style: '+utfstr(attr)
+                print('WARNING: ESC/POS PRINTING: ignoring invalid value: %s for style %s' % (style[attr], utfstr(attr)))
             else:
                 _style[attr] = self.enforce_type(attr, style[attr])
         self.stack.append(_style)
@@ -153,7 +158,7 @@ class StyleStack:
         _style = {}
         for attr in style:
             if attr in self.cmds and not style[attr] in self.cmds[attr]:
-                print 'WARNING: ESC/POS PRINTING: ignoring invalid value: '+utfstr(style[attr])+' for style: '+utfstr(attr)
+                print('WARNING: ESC/POS PRINTING: ignoring invalid value: %s for style %s' % (style[attr], attr))
             else:
                 self.stack[-1][attr] = self.enforce_type(attr, style[attr])
 
@@ -165,7 +170,8 @@ class StyleStack:
     def to_escpos(self):
         """ converts the current style to an escpos command string """
         cmd = ''
-        for style in self.cmds:
+        ordered_cmds = sorted(self.cmds, key=lambda x: self.cmds[x]['_order'])
+        for style in ordered_cmds:
             cmd += self.cmds[style][self.get(style)]
         return cmd
 
@@ -379,7 +385,7 @@ class Escpos:
 
 
         if im.size[0] > 512:
-            print  "WARNING: Image is wider than 512 and could be truncated at print time "
+            print("WARNING: Image is wider than 512 and could be truncated at print time ")
         if im.size[1] > 255:
             raise ImageSizeError()
 
@@ -425,12 +431,12 @@ class Escpos:
 
     def print_base64_image(self,img):
 
-        print 'print_b64_img'
+        print('print_b64_img')
 
-        id = md5.new(img).digest()
+        id = md5(img.encode('utf-8')).digest()
 
         if id not in self.img_cache:
-            print 'not in cache'
+            print('not in cache')
 
             img = img[img.find(',')+1:]
             f = io.BytesIO('img')
@@ -438,18 +444,23 @@ class Escpos:
             f.seek(0)
             img_rgba = Image.open(f)
             img = Image.new('RGB', img_rgba.size, (255,255,255))
-            img.paste(img_rgba, mask=img_rgba.split()[3]) 
+            channels = img_rgba.split()
+            if len(channels) > 3:
+                # use alpha channel as mask
+                img.paste(img_rgba, mask=channels[3])
+            else:
+                img.paste(img_rgba)
 
-            print 'convert image'
+            print('convert image')
         
             pix_line, img_size = self._convert_image(img)
 
-            print 'print image'
+            print('print image')
 
             buffer = self._raw_print_image(pix_line, img_size)
             self.img_cache[id] = buffer
 
-        print 'raw image'
+        print('raw image')
 
         self._raw(self.img_cache[id])
 
@@ -512,7 +523,7 @@ class Escpos:
         if code:
             self._raw(code)
         else:
-            raise exception.BarcodeCodeError()
+            raise BarcodeCodeError()
 
     def receipt(self,xml):
         """
@@ -737,6 +748,7 @@ class Escpos:
                     'cp866': TXT_ENC_PC866,
                     'cp862': TXT_ENC_PC862,
                     'cp720': TXT_ENC_PC720,
+                    'cp936': TXT_ENC_PC936,
                     'iso8859_2': TXT_ENC_8859_2,
                     'iso8859_7': TXT_ENC_8859_7,
                     'iso8859_9': TXT_ENC_8859_9,
@@ -778,7 +790,7 @@ class Escpos:
                     if encoding in remaining:
                         del remaining[encoding]
                     if len(remaining) >= 1:
-                        encoding = remaining.items()[0][0]
+                        (encoding, _) = remaining.popitem()
                     else:
                         encoding = 'cp437'
                         encoded  = '\xb1'    # could not encode, output error character

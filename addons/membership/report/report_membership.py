@@ -1,27 +1,7 @@
 # -*- coding: utf-8 -*-
-##############################################################################
-#
-#    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2010 Tiny SPRL (<http://tiny.be>).
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as
-#    published by the Free Software Foundation, either version 3 of the
-#    License, or (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU Affero General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see <http://www.gnu.org/licenses/>.
-#
-##############################################################################
+# Part of Odoo. See LICENSE file for full copyright and licensing details.
 
-from openerp.osv import fields, osv
-from openerp import tools
-import openerp.addons.decimal_precision as dp
+from odoo import api, fields, models, tools
 
 STATE = [
     ('none', 'Non Member'),
@@ -33,52 +13,46 @@ STATE = [
     ('paid', 'Paid Member'),
 ]
 
-class report_membership(osv.osv):
+
+class ReportMembership(models.Model):
     '''Membership Analysis'''
 
     _name = 'report.membership'
     _description = __doc__
     _auto = False
-    _rec_name = 'year'
-    _columns = {
-        'year': fields.char('Year', size=4, readonly=True, select=1),
-        'month': fields.selection([('01', 'January'), ('02', 'February'), \
-                                  ('03', 'March'), ('04', 'April'),\
-                                  ('05', 'May'), ('06', 'June'), \
-                                  ('07', 'July'), ('08', 'August'),\
-                                  ('09', 'September'), ('10', 'October'),\
-                                  ('11', 'November'), ('12', 'December')], 'Month', readonly=True),
-        'date_from': fields.datetime('Start Date', readonly=True, help="Start membership date"),
-        'date_to': fields.datetime('End Date', readonly=True, help="End membership date"),
-        'num_waiting': fields.integer('# Waiting', readonly=True),
-        'num_invoiced': fields.integer('# Invoiced', readonly=True),
-        'num_paid': fields.integer('# Paid', readonly=True),
-        'tot_pending': fields.float('Pending Amount', digits_compute= dp.get_precision('Account'), readonly=True),
-        'tot_earned': fields.float('Earned Amount', digits_compute= dp.get_precision('Account'), readonly=True),
-        'partner_id': fields.many2one('res.partner', 'Member', readonly=True),
-        'associate_member_id': fields.many2one('res.partner', 'Associate Member', readonly=True),
-        'membership_id': fields.many2one('product.product', 'Membership Product', readonly=True),
-        'membership_state': fields.selection(STATE, 'Current Membership State', readonly=True),
-        'user_id': fields.many2one('res.users', 'Salesperson', readonly=True),
-        'company_id': fields.many2one('res.company', 'Company', readonly=True)
-        }
+    _rec_name = 'start_date'
 
-    def init(self, cr):
+    start_date = fields.Date(string='Start Date', readonly=True)
+    date_to = fields.Date(string='End Date', readonly=True, help="End membership date")
+    num_waiting = fields.Integer(string='# Waiting', readonly=True)
+    num_invoiced = fields.Integer(string='# Invoiced', readonly=True)
+    num_paid = fields.Integer(string='# Paid', readonly=True)
+    tot_pending = fields.Float(string='Pending Amount', digits=0, readonly=True)
+    tot_earned = fields.Float(string='Earned Amount', digits=0, readonly=True)
+    partner_id = fields.Many2one('res.partner', string='Member', readonly=True)
+    associate_member_id = fields.Many2one('res.partner', string='Associate Member', readonly=True)
+    membership_id = fields.Many2one('product.product', string='Membership Product', readonly=True)
+    membership_state = fields.Selection(STATE, string='Current Membership State', readonly=True)
+    user_id = fields.Many2one('res.users', string='Salesperson', readonly=True)
+    company_id = fields.Many2one('res.company', string='Company', readonly=True)
+    quantity = fields.Integer(readonly=True)
+
+    @api.model_cr
+    def init(self):
         '''Create the view'''
-        tools.drop_view_if_exists(cr, 'report_membership')
-        cr.execute("""
-        CREATE OR REPLACE VIEW report_membership AS (
+        tools.drop_view_if_exists(self._cr, self._table)
+        self._cr.execute("""
+        CREATE OR REPLACE VIEW %s AS (
         SELECT
         MIN(id) AS id,
         partner_id,
+        count(membership_id) as quantity,
         user_id,
         membership_state,
         associate_member_id,
         membership_amount,
-        date_from,
         date_to,
-        year,
-        month,
+        start_date,
         COUNT(num_waiting) AS num_waiting,
         COUNT(num_invoiced) AS num_invoiced,
         COUNT(num_paid) AS num_paid,
@@ -94,10 +68,8 @@ class report_membership(osv.osv):
             p.membership_state AS membership_state,
             p.associate_member AS associate_member_id,
             p.membership_amount AS membership_amount,
-            TO_CHAR(p.membership_start, 'YYYY-MM-DD') AS date_from,
-            TO_CHAR(p.membership_stop, 'YYYY-MM-DD') AS date_to,
-            TO_CHAR(p.membership_start, 'YYYY') AS year,
-            TO_CHAR(p.membership_start,'MM') AS month,
+            p.membership_stop AS date_to,
+            p.membership_start AS start_date,
             CASE WHEN ml.state = 'waiting'  THEN ml.id END AS num_waiting,
             CASE WHEN ml.state = 'invoiced' THEN ml.id END AS num_invoiced,
             CASE WHEN ml.state = 'paid'     THEN ml.id END AS num_paid,
@@ -116,19 +88,14 @@ class report_membership(osv.osv):
               p.membership_state,
               p.associate_member,
               p.membership_amount,
-              TO_CHAR(p.membership_start, 'YYYY-MM-DD'),
-              TO_CHAR(p.membership_stop, 'YYYY-MM-DD'),
-              TO_CHAR(p.membership_start, 'YYYY'),
-              TO_CHAR(p.membership_start,'MM'),
+              p.membership_start,
               ml.membership_id,
               p.company_id,
               ml.state,
               ml.id
         ) AS foo
         GROUP BY
-            year,
-            month,
-            date_from,
+            start_date,
             date_to,
             partner_id,
             user_id,
@@ -137,7 +104,4 @@ class report_membership(osv.osv):
             membership_state,
             associate_member_id,
             membership_amount
-        )""")
-
-
-# vim:expandtab:smartindent:tabstop=4:softtabstop=4:shiftwidth=4:
+        )""" % (self._table,))

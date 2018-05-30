@@ -1,44 +1,90 @@
-# Croatian translation for openobject-addons
-# Copyright (c) 2012 Rosetta Contributors and Canonical Ltd 2012
-# This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
-#
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * contacts
+# 
+# Translators:
+# Martin Trigaux, 2017
+# Karolina Tonković <karolina.tonkovic@storm.hr>, 2017
+# Bole <bole@dajmi5.com>, 2017
+# Đurđica Žarković <durdica.zarkovic@storm.hr>, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-12-09 19:40+0000\n"
-"Last-Translator: Goran Kliska <gkliska@gmail.com>\n"
-"Language-Team: Croatian <hr@li.org>\n"
+"Project-Id-Version: Odoo Server saas~11.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-22 14:10+0000\n"
+"PO-Revision-Date: 2018-03-22 14:10+0000\n"
+"Last-Translator: Đurđica Žarković <durdica.zarkovic@storm.hr>, 2017\n"
+"Language-Team: Croatian (https://www.transifex.com/odoo/teams/41243/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 07:52+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: contacts
-#: model:ir.actions.act_window,help:contacts.action_contacts
-msgid ""
-"<p class=\"oe_view_nocontent_create\">\n"
-"            Click to add a contact in your address book.\n"
-"          </p><p>\n"
-"            OpenERP helps you easily track all activities related to\n"
-"            a customer; discussions, history of business opportunities,\n"
-"            documents, etc.\n"
-"          </p>\n"
-"        "
-msgstr ""
-"Click to add a contact in your address book.\n"
-"           </p><p>\n"
-"             OpenERP omogućavajednostavno praćenje svih aktivnosti vezanih "
-"uz vaše partnere; rasprave i razgovori, povijest međusobnih poslova, "
-"razmjenjene dokumente i slično...\n"
-"           </p>\n"
-"        "
+#: model:ir.ui.menu,name:contacts.menu_action_res_partner_bank_form
+#: model:ir.ui.menu,name:contacts.menu_config_bank_accounts
+msgid "Bank Accounts"
+msgstr "Bankovni računi"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_action_res_bank_form
+msgid "Banks"
+msgstr "Banke"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.res_partner_menu_config
+msgid "Configuration"
+msgstr "Postava"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_partner_category_form
+msgid "Contact Tags"
+msgstr "Oznake kontakata"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_partner_title_contact
+msgid "Contact Titles"
+msgstr "Titule kontakta"
 
 #. module: contacts
 #: model:ir.actions.act_window,name:contacts.action_contacts
 #: model:ir.ui.menu,name:contacts.menu_contacts
+#: model:ir.ui.menu,name:contacts.res_partner_menu_contacts
 msgid "Contacts"
 msgstr "Kontakti"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_country_partner
+msgid "Countries"
+msgstr "Države"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_country_group
+msgid "Country Group"
+msgstr "Grupa država"
+
+#. module: contacts
+#: model:ir.actions.act_window,help:contacts.action_contacts
+msgid "Create a contact in your address book"
+msgstr ""
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_country_state_partner
+msgid "Fed. States"
+msgstr "Država/Pokrajina/Županija"
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.menu_localisation
+msgid "Localization"
+msgstr "Lokalizacija"
+
+#. module: contacts
+#: model:ir.actions.act_window,help:contacts.action_contacts
+msgid "Odoo helps you to easily track all activities related to a customer."
+msgstr ""
+
+#. module: contacts
+#: model:ir.ui.menu,name:contacts.res_partner_industry_menu
+msgid "Sectors of Activity"
+msgstr "Ppodručja aktivnosti"

@@ -1,480 +1,284 @@
-# Croatian translation for openobject-addons
-# Copyright (c) 2011 Rosetta Contributors and Canonical Ltd 2011
-# This file is distributed under the same license as the openobject-addons package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2011.
-#
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# * portal
+# 
+# Translators:
+# Martin Trigaux, 2017
+# Karolina Tonković <karolina.tonkovic@storm.hr>, 2017
+# Bole <bole@dajmi5.com>, 2017
+# Vladimir Olujić <olujic.vladimir@storm.hr>, 2017
+# Ivica Dimjašević <ivica.dimjasevic@storm.hr>, 2017
+# Đurđica Žarković <durdica.zarkovic@storm.hr>, 2017
+# Tina Milas, 2017
 msgid ""
 msgstr ""
-"Project-Id-Version: openobject-addons\n"
-"Report-Msgid-Bugs-To: FULL NAME <EMAIL@ADDRESS>\n"
-"POT-Creation-Date: 2012-12-21 17:05+0000\n"
-"PO-Revision-Date: 2012-12-09 20:50+0000\n"
-"Last-Translator: Goran Kliska <gkliska@gmail.com>\n"
-"Language-Team: Croatian <hr@li.org>\n"
+"Project-Id-Version: Odoo Server saas~11.2\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-03-22 14:11+0000\n"
+"PO-Revision-Date: 2018-03-22 14:11+0000\n"
+"Last-Translator: Tina Milas, 2017\n"
+"Language-Team: Croatian (https://www.transifex.com/odoo/teams/41243/hr/)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"X-Launchpad-Export-Date: 2014-04-22 07:45+0000\n"
-"X-Generator: Launchpad (build 16985)\n"
+"Content-Transfer-Encoding: \n"
+"Language: hr\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Mako"
-msgstr ""
-
-#. module: portal
-#: code:addons/portal/wizard/share_wizard.py:50
-#, python-format
-msgid "Please select at least one user to share with"
-msgstr "Odaberite barem jednog korisnika za djeljenje"
-
-#. module: portal
-#: view:portal.wizard:0
+#: model:mail.template,body_html:portal.mail_template_data_portal_welcome
 msgid ""
-"Select which contacts should belong to the portal in the list below.\n"
-"                        The email address of each selected contact must be "
-"valid and unique.\n"
-"                        If necessary, you can fix any contact's email "
-"address directly in the list."
+"\n"
+"<p>\n"
+"    Dear ${object.user_id.name or ''},\n"
+"</p>\n"
+"<p>\n"
+"    You have been given access to ${user.company_id.name}'s portal.\n"
+"</p>\n"
+"<p>\n"
+"    Your login account data is:\n"
+"</p>\n"
+"<ul>\n"
+"    <li>Username: ${object.user_id.login or ''}</li>\n"
+"    <li>Portal: <a href=\"${'portal_url' in ctx and ctx['portal_url'] or ''}\">${'portal_url' in ctx and ctx['portal_url'] or ''}</a></li>\n"
+"    <li>Database: ${'dbname' in ctx and ctx['dbname'] or ''}</li>\n"
+"</ul>\n"
+"<p>\n"
+"    You can set or change your password via the following url:\n"
+"</p>\n"
+"<ul>\n"
+"    <li><a href=\"${object.user_id.signup_url}\">${object.user_id.signup_url}</a></li>\n"
+"</ul>\n"
+"<p>\n"
+"${object.wizard_id.welcome_message or ''}"
 msgstr ""
-"Na donjoj listi odaberite kontakte koji bi trebali pripadati portalu.\n"
-"                        E-mail adresa svakog odabranog kontakta mora biti "
-"ispravna i jedinstvena.\n"
-"                        Ako je potrebno možete popraviti e-mail adresu "
-"izravno na listi."
 
 #. module: portal
-#: model:mail.group,name:portal.company_jobs
-msgid "Company Jobs"
-msgstr "Poslovi u tvrtci"
+#: model:ir.ui.view,arch_db:portal.portal_show_sign_in
+msgid "<b>Sign in</b>"
+msgstr "<b>Prijavi se</b>"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "amount: the total amount to pay, as a float"
+#: model:ir.ui.view,arch_db:portal.portal_searchbar
+msgid "<span id=\"search_label\">Search</span> <span class=\"caret\"/>"
 msgstr ""
 
 #. module: portal
-#: view:portal.wizard.user:0
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Apply"
+msgstr "Primjeni"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_archive_groups
+msgid "Archives"
+msgstr "Arhive"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Cancel"
+msgstr "Odustani"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_layout
+msgid "Change"
+msgstr "Promjeni"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "City"
+msgstr "Grad"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:12
+#, python-format
+msgid "Clear"
+msgstr "Očisti"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:27
+#, python-format
+msgid "Click here to see your document."
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Company Name"
+msgstr "Tvrtka"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid ""
+"Confirm\n"
+"                                <span class=\"fa fa-long-arrow-right\"/>"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__partner_id
+msgid "Contact"
+msgstr "Kontakt"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.wizard_view
 msgid "Contacts"
 msgstr "Kontakti"
 
 #. module: portal
-#: view:share.wizard:0
-#: field:share.wizard,group_ids:0
-msgid "Existing groups"
-msgstr "Postojeće grupe"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Country"
+msgstr "Država"
 
 #. module: portal
-#: view:res.groups:0
-msgid "Portal Groups"
-msgstr "Grupe portala"
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Country..."
+msgstr "Država..."
 
 #. module: portal
-#: field:portal.wizard,welcome_message:0
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__create_uid
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__create_uid
+msgid "Created by"
+msgstr "Kreirao"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__create_date
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__create_date
+msgid "Created on"
+msgstr "Datum kreiranja"
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_account_invoice__portal_url
+#: model:ir.model.fields,help:portal.field_portal_mixin__portal_url
+#: model:ir.model.fields,help:portal.field_project_project__portal_url
+#: model:ir.model.fields,help:portal.field_project_task__portal_url
+#: model:ir.model.fields,help:portal.field_sale_order__portal_url
+msgid "Customer Portal URL"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_mixin__display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__display_name
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__display_name
+msgid "Display Name"
+msgstr "Naziv za prikaz"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:14
+#, python-format
+msgid "Draw your signature"
+msgstr ""
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__email
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Email"
+msgstr "E-pošta"
+
+#. module: portal
+#: model:ir.model,name:portal.model_mail_thread
+msgid "Email Thread"
+msgstr "Nit e-pošte"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_mixin__id
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__id
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__id
+msgid "ID"
+msgstr "ID"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__in_portal
+msgid "In Portal"
+msgstr "U portalu"
+
+#. module: portal
+#: code:addons/portal/controllers/portal.py:198
+#, python-format
+msgid "Invalid Email! Please enter a valid email address."
+msgstr "Nevažeći e-mail! Unesite valjanu adresu e-pošte!"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__welcome_message
 msgid "Invitation Message"
 msgstr "Pozivnica"
 
 #. module: portal
-#: view:res.groups:0
-msgid "Non-Portal Groups"
-msgstr ""
+#: model:ir.model.fields,field_description:portal.field_portal_mixin____last_update
+#: model:ir.model.fields,field_description:portal.field_portal_wizard____last_update
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user____last_update
+msgid "Last Modified on"
+msgstr "Zadnja promjena"
 
 #. module: portal
-#: code:addons/portal/wizard/share_wizard.py:54
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__write_uid
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__write_uid
+msgid "Last Updated by"
+msgstr "Promijenio"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__write_date
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__write_date
+msgid "Last Updated on"
+msgstr "Vrijeme promjene"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:20
 #, python-format
-msgid "Please select at least one group to share with"
-msgstr "Odaberite barem jednu grupu za dijeljenje"
+msgid "Leave a comment"
+msgstr "Ostavi komentar"
 
 #. module: portal
-#: view:share.wizard:0
-msgid "Details"
-msgstr "Detalji"
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__user_id
+msgid "Login User"
+msgstr "Korisnička prijava"
 
 #. module: portal
-#: model:ir.ui.menu,name:portal.portal_orders
-msgid "Quotations and Sales Orders"
-msgstr "Ponude i prodajni nalozi"
+#: model:ir.ui.view,arch_db:portal.frontend_layout
+msgid "Logout"
+msgstr "Odjava"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "reference: the reference number of the document to pay"
-msgstr "referenca: referentni broj dokumenta za plaćanje"
+#: model:ir.model,name:portal.model_mail_message
+msgid "Message"
+msgstr "Poruka"
 
 #. module: portal
-#: help:portal.payment.acquirer,visible:0
-msgid ""
-"Make this payment acquirer available in portal forms (Customer invoices, "
-"etc.)"
-msgstr ""
+#: model:ir.ui.view,arch_db:portal.my_account_link
+msgid "My Account"
+msgstr "Moj korisnički račun"
 
 #. module: portal
-#: model:ir.model,name:portal.model_share_wizard
-msgid "Share Wizard"
-msgstr "Asistent dijeljenja"
+#: model:ir.ui.view,arch_db:portal.pager
+msgid "Next"
+msgstr "Sljedeći"
 
 #. module: portal
-#: field:portal.wizard.user,email:0
-msgid "Email"
-msgstr "E-mail"
-
-#. module: portal
-#: model:ir.actions.client,help:portal.action_news
-msgid ""
-"<p>\n"
-"                    Youd don't have unread company's news.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    Nemate ne pročitanih <i> Novosti iz firme </i>.\n"
-"                </p>\n"
-"            "
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:194
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:38
 #, python-format
-msgid ""
-"You must have an email address in your User Preferences to send emails."
-msgstr ""
-"Za slanje e-mailova morate imati upisanu e-mail adresu u korisničkim "
-"postavkama."
-
-#. module: portal
-#: model:ir.actions.client,name:portal.action_jobs
-#: model:ir.ui.menu,name:portal.portal_jobs
-msgid "Jobs"
-msgstr "Radna mjesta"
-
-#. module: portal
-#: field:portal.wizard,user_ids:0
-msgid "Users"
-msgstr "Korisnici"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:82
-#, python-format
-msgid "Pay safely online"
-msgstr "Sigurno online plaćanje"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:77
-#, python-format
-msgid "No online payment acquirers configured"
+msgid "Oops! Something went wrong. Try to reload the page and log in."
 msgstr ""
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"kind: the kind of document on which the payment form is rendered (translated "
-"to user language, e.g. \"Invoice\")"
-msgstr ""
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Phone"
+msgstr "Telefon"
 
 #. module: portal
-#: help:portal.wizard,portal_id:0
-msgid "The portal that users can be added in or removed from."
-msgstr "Portal na kojem je korisnike moguće dodati ili maknuti."
+#: model:ir.actions.act_window,name:portal.partner_wizard_action
+#: model:ir.model,name:portal.model_portal_wizard
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "Portal Access Management"
+msgstr "Upravljanje pristupm portalu"
 
 #. module: portal
-#: code:addons/portal/wizard/share_wizard.py:38
-#, python-format
-msgid "Users you already shared with"
-msgstr "Sa ovim korisnicima već dijelite"
-
-#. module: portal
-#: model:ir.actions.client,help:portal.action_jobs
-msgid ""
-"<p>\n"
-"                    Youd don't have unread job offers.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    Nemate nepročitanih ponuda za posao.\n"
-"                </p>\n"
-"            "
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-", so it may use Mako expressions.\n"
-"                                The Mako evaluation context provides:"
-msgstr ""
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_menu
-#: field:portal.wizard,portal_id:0
-#: field:res.groups,is_portal:0
-#: model:res.groups,name:portal.group_portal
-msgid "Portal"
-msgstr "Portal"
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:34
-#, python-format
-msgid "Your OpenERP account at %(company)s"
-msgstr ""
-
-#. module: portal
-#: model:res.groups,name:portal.group_anonymous
-msgid "Anonymous"
-msgstr "Anoniman"
-
-#. module: portal
-#: field:portal.wizard.user,in_portal:0
-msgid "In Portal"
-msgstr ""
-
-#. module: portal
-#: model:ir.actions.client,name:portal.action_news
-#: model:ir.ui.menu,name:portal.portal_company_news
-msgid "News"
-msgstr "Novosti"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_after_sales
-msgid "After Sale Services"
-msgstr "Postprodaja"
-
-#. module: portal
-#: model:res.groups,comment:portal.group_portal
-msgid ""
-"Portal members have specific access rights (such as record rules and "
-"restricted menus).\n"
-"                They usually do not belong to the usual OpenERP groups."
-msgstr ""
-
-#. module: portal
-#: model:ir.actions.act_window,name:portal.action_acquirer_list
-#: view:portal.payment.acquirer:0
-msgid "Payment Acquirers"
-msgstr ""
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_projects
-msgid "Projects"
-msgstr "Projekti"
-
-#. module: portal
-#: model:ir.actions.client,name:portal.action_mail_inbox_feeds_portal
-#: model:ir.ui.menu,name:portal.portal_inbox
-msgid "Inbox"
-msgstr "Dolazna pošta"
-
-#. module: portal
-#: view:share.wizard:0
-#: field:share.wizard,user_ids:0
-msgid "Existing users"
-msgstr "Postojeći korisnici"
-
-#. module: portal
-#: field:portal.wizard.user,wizard_id:0
-msgid "Wizard"
-msgstr "Asistent"
-
-#. module: portal
-#: field:portal.payment.acquirer,name:0
-msgid "Name"
-msgstr "Naziv"
-
-#. module: portal
-#: model:ir.model,name:portal.model_res_groups
-msgid "Access Groups"
-msgstr "Pristupne grupe"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "uid: the current user id"
-msgstr "uid: id trenutnog korisnika"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"quote(): a method to quote special string character to make them suitable "
-"for inclusion in a URL"
-msgstr ""
-
-#. module: portal
-#: help:res.groups,is_portal:0
-msgid "If checked, this group is usable as a portal."
-msgstr ""
-
-#. module: portal
-#: field:portal.payment.acquirer,form_template:0
-msgid "Payment form template (HTML)"
-msgstr ""
-
-#. module: portal
-#: field:portal.wizard.user,partner_id:0
-msgid "Contact"
-msgstr "Kontakt osoba"
-
-#. module: portal
-#: model:ir.model,name:portal.model_mail_mail
-msgid "Outgoing Mails"
-msgstr "Odlazna e-pošta"
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:193
-#, python-format
-msgid "Email required"
-msgstr "Obavezan e-mail"
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_messages
-msgid "Messaging"
-msgstr "Slanje poruka"
-
-#. module: portal
-#: model:res.groups,comment:portal.group_anonymous
-msgid ""
-"Anonymous users have specific access rights (such as record rules and "
-"restricted menus).\n"
-"                They usually do not belong to the usual OpenERP groups."
-msgstr ""
-"Anonimni korisnici imaju specifična prava pristupa (npr. ograničen "
-"izbornik).\n"
-"                Oni obično ne pripadaju standardnim OpenERP grupama."
-
-#. module: portal
-#: model:ir.model,name:portal.model_portal_payment_acquirer
-msgid "Online Payment Acquirer"
-msgstr ""
-
-#. module: portal
-#: model:mail.group,name:portal.company_news_feed
-msgid "Company News"
-msgstr "Novosti iz tvrtke"
-
-#. module: portal
-#: code:addons/portal/acquirer.py:76
-#, python-format
-msgid ""
-"You can finish the configuration in the <a href=\"%s\">Bank&Cash settings</a>"
-msgstr ""
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "cr: the current database cursor"
-msgstr ""
-
-#. module: portal
-#: model:ir.actions.client,help:portal.action_mail_inbox_feeds_portal
-msgid ""
-"<p>\n"
-"                    <b>Good Job!</b> Your inbox is empty.\n"
-"                </p><p>\n"
-"                    Your inbox contains private messages or emails sent to "
-"you\n"
-"                    as well as information related to documents or people "
-"you\n"
-"                    follow.\n"
-"                </p>\n"
-"            "
-msgstr ""
-"<p>\n"
-"                    <b>Odlično !</b> Vaš inbox je prazan.\n"
-"                </p><p>\n"
-"                    Vaš inbox sadrži privatne poruke ili e-mailove poslane "
-"Vama\n"
-"                    kao i informacije povezane sa dokumentima ili ljudima "
-"koje\n"
-"                    slijedite.\n"
-"                </p>\n"
-"            "
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"object: the document on which the payment form is rendered (usually an "
-"invoice or sales order record)"
-msgstr ""
-
-#. module: portal
-#: help:portal.wizard,welcome_message:0
-msgid "This text is included in the email sent to new users of the portal."
-msgstr ""
-"Ovaj je tekst uključen u e-mail koji se šalje novim korisnicima portala."
-
-#. module: portal
-#: model:ir.ui.menu,name:portal.portal_company
-msgid "About Us"
-msgstr "O nama"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"currency: the currency record in which the document is issued (e.g. "
-"currency.name could be EUR)"
-msgstr ""
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Payment Acquirer"
-msgstr ""
-
-#. module: portal
-#: code:addons/portal/wizard/portal_wizard.py:35
-#, python-format
-msgid ""
-"Dear %(name)s,\n"
-"\n"
-"You have been given access to %(portal)s.\n"
-"\n"
-"Your login account data is:\n"
-"Database: %(db)s\n"
-"Username: %(login)s\n"
-"\n"
-"In order to complete the signin process, click on the following url:\n"
-"%(url)s\n"
-"\n"
-"%(welcome_message)s\n"
-"\n"
-"--\n"
-"OpenERP - Open Source Business Applications\n"
-"http://www.openerp.com\n"
-msgstr ""
-"Poštovani %(name)s,\n"
-"\n"
-"Dobili ste pristup %(portal)s.\n"
-"\n"
-"Vaši pristupni podaci su:\n"
-"Baza: %(db)s\n"
-"Korisničko ime: %(login)s\n"
-"\n"
-"Za dovršetak procesa pritisnite na link:\n"
-"%(url)s\n"
-"\n"
-"%(welcome_message)s\n"
-"\n"
-"--\n"
-"OpenERP - Open Source Business Applications\n"
-"http://www.openerp.com\n"
-
-#. module: portal
-#: view:portal.wizard:0
-msgid "or"
-msgstr "ili"
-
-#. module: portal
-#: model:portal.payment.acquirer,form_template:portal.paypal_acquirer
-msgid ""
-"\n"
-"% if object.company_id.paypal_account:\n"
-"<form action=\"https://www.paypal.com/cgi-bin/webscr\" method=\"post\" "
-"target=\"_blank\">\n"
-"  <input type=\"hidden\" name=\"cmd\" value=\"_xclick\"/>\n"
-"  <input type=\"hidden\" name=\"business\" "
-"value=\"${object.company_id.paypal_account}\"/>\n"
-"  <input type=\"hidden\" name=\"item_name\" "
-"value=\"${object.company_id.name} ${kind.title()} ${reference}\"/>\n"
-"  <input type=\"hidden\" name=\"amount\" value=\"${amount}\"/>\n"
-"  <input type=\"hidden\" name=\"currency_code\" "
-"value=\"${currency.name}\"/>\n"
-"  <input type=\"image\" name=\"submit\" "
-"src=\"https://www.paypal.com/en_US/i/btn/btn_paynowCC_LG.gif\"/>\n"
-"</form>\n"
-"% endif\n"
-"            "
+#: model:ir.model.fields,field_description:portal.field_account_invoice__portal_url
+#: model:ir.model.fields,field_description:portal.field_portal_mixin__portal_url
+#: model:ir.model.fields,field_description:portal.field_project_project__portal_url
+#: model:ir.model.fields,field_description:portal.field_project_task__portal_url
+#: model:ir.model.fields,field_description:portal.field_sale_order__portal_url
+msgid "Portal Access URL"
 msgstr ""
 
 #. module: portal
@@ -483,84 +287,351 @@ msgid "Portal User Config"
 msgstr "Konfiguracija korisnika portala"
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid ""
-"If the template renders to an empty result in a certain context it will be "
-"ignored, as if it was inactive."
-msgstr ""
+#: model:ir.ui.view,arch_db:portal.pager
+msgid "Prev"
+msgstr "Prethodna"
 
 #. module: portal
-#: field:portal.payment.acquirer,visible:0
-msgid "Visible"
-msgstr "Vidljivo"
-
-#. module: portal
-#: code:addons/portal/wizard/share_wizard.py:39
+#. openerp-web
+#: code:addons/portal/static/src/js/portal_chatter.js:109
 #, python-format
-msgid "Existing Groups (e.g Portal Groups)"
-msgstr "Postojeće grupe (npr. Grupe portala)"
-
-#. module: portal
-#: view:portal.wizard:0
-msgid "Cancel"
-msgstr "Odustani"
-
-#. module: portal
-#: view:portal.wizard:0
-msgid "Apply"
-msgstr "Primjeni"
-
-#. module: portal
-#: view:portal.payment.acquirer:0
-msgid "ctx: the current context dictionary"
+msgid "Published on %s"
 msgstr ""
 
 #. module: portal
-#: view:portal.payment.acquirer:0
+#: model:ir.ui.view,arch_db:portal.wizard_view
 msgid ""
-"This is an HTML form template to submit a payment through this acquirer.\n"
-"                                The template will be rendered with"
+"Select which contacts should belong to the portal in the list below.\n"
+"                        The email address of each selected contact must be valid and unique.\n"
+"                        If necessary, you can fix any contact's email address directly in the list."
+msgstr ""
+"Na donjoj listi odaberite kontakte koji bi trebali pripadati portalu.\n"
+"                        E-mail adresa svakog odabranog kontakta mora biti ispravna i jedinstvena.\n"
+"                        Ako je potrebno možete popraviti e-mail adresu izravno na listi."
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:41
+#, python-format
+msgid "Send"
+msgstr "Pošalji"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:100
+#, python-format
+msgid "Several contacts have the same email: "
+msgstr "Nekoliko kontakata ima isti e-mail:"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:97
+#, python-format
+msgid "Some contacts don't have a valid email: "
+msgstr "Neki kontakti nemaju važeći e-mail:"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:103
+#, python-format
+msgid "Some contacts have the same email as an existing portal user:"
+msgstr "Neki kontakti ima isti e-mail kao postojeći korisnik portala:"
+
+#. module: portal
+#: code:addons/portal/controllers/portal.py:217
+#, python-format
+msgid "Some required fields are empty."
+msgstr "Neka obavezna polja su prazna."
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "State / Province"
+msgstr "Država / Županija"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Street"
+msgstr "Ulica"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:25
+#, python-format
+msgid "Thank You !"
+msgstr "Hvala vam!"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:11
+#, python-format
+msgid "There are no comments for now."
 msgstr ""
 
 #. module: portal
-#: code:addons/portal/mail_mail.py:42
+#: model:ir.ui.view,arch_db:portal.wizard_view
+msgid "This text is included in the email sent to new portal users."
+msgstr "Ovaj tekst je uključen u email poslan novim korisnicima portala."
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_portal_wizard__welcome_message
+msgid "This text is included in the email sent to new users of the portal."
+msgstr ""
+"Ovaj je tekst uključen u e-mail koji se šalje novim korisnicima portala."
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:106
 #, python-format
 msgid ""
-"Access your personal documents through <a href=\"%s\">our Customer Portal</a>"
+"To resolve this error, you can: \n"
+"- Correct the emails of the relevant contacts\n"
+"- Grant access only to contacts with unique emails"
+msgstr ""
+"Kako biste riješili ovu pogrešku, možete:\n"
+"- Ispraviti e-poštu relevantnim kontaktima\n"
+"- Odobriti pristup samo kontaktima sa jedinstvenom e-poštom"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard__user_ids
+msgid "Users"
+msgstr "Korisnici"
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "VAT Number"
+msgstr "Porezni broj"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_account_analytic_account__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_asset_asset__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_bank_statement__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_invoice__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_payment__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_account_voucher__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_blog_blog__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_calendar_event__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_lead__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crm_team__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_crossovered_budget__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_event__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_registration__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_event_track__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_fleet_vehicle__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_fleet_vehicle_log_contract__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_forum_forum__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_forum_tag__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_gamification_badge__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_gamification_challenge__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_applicant__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_contract__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_department__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_employee__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_expense__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_expense_sheet__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_job__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_leave__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_hr_leave_allocation__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_channel__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_mass_mailing_contact__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_activity__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_full__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_simple__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_test_track__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mail_thread__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_equipment__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_equipment_category__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_maintenance_request__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_bom__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_production__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_unbuild__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_mrp_workorder__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_note_note__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_product__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_product_template__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_project_project__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_purchase_order__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_purchase_requisition__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_repair_order__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_res_partner__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_res_users__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_sale_order__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_slide_channel__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_slide_slide__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_landed_cost__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_picking__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_picking_batch__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_stock_production_lot__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_survey_survey__website_message_ids
+#: model:ir.model.fields,field_description:portal.field_test_performance_mail__website_message_ids
+msgid "Website Messages"
+msgstr "Poruke webstranica"
+
+#. module: portal
+#: model:ir.model.fields,help:portal.field_account_analytic_account__website_message_ids
+#: model:ir.model.fields,help:portal.field_account_asset_asset__website_message_ids
+#: model:ir.model.fields,help:portal.field_account_bank_statement__website_message_ids
+#: model:ir.model.fields,help:portal.field_account_invoice__website_message_ids
+#: model:ir.model.fields,help:portal.field_account_payment__website_message_ids
+#: model:ir.model.fields,help:portal.field_account_voucher__website_message_ids
+#: model:ir.model.fields,help:portal.field_blog_blog__website_message_ids
+#: model:ir.model.fields,help:portal.field_calendar_event__website_message_ids
+#: model:ir.model.fields,help:portal.field_crm_lead__website_message_ids
+#: model:ir.model.fields,help:portal.field_crm_team__website_message_ids
+#: model:ir.model.fields,help:portal.field_crossovered_budget__website_message_ids
+#: model:ir.model.fields,help:portal.field_event_event__website_message_ids
+#: model:ir.model.fields,help:portal.field_event_registration__website_message_ids
+#: model:ir.model.fields,help:portal.field_event_track__website_message_ids
+#: model:ir.model.fields,help:portal.field_fleet_vehicle__website_message_ids
+#: model:ir.model.fields,help:portal.field_fleet_vehicle_log_contract__website_message_ids
+#: model:ir.model.fields,help:portal.field_forum_forum__website_message_ids
+#: model:ir.model.fields,help:portal.field_forum_tag__website_message_ids
+#: model:ir.model.fields,help:portal.field_gamification_badge__website_message_ids
+#: model:ir.model.fields,help:portal.field_gamification_challenge__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_applicant__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_contract__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_department__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_employee__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_expense__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_expense_sheet__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_job__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_leave__website_message_ids
+#: model:ir.model.fields,help:portal.field_hr_leave_allocation__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_channel__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_mass_mailing_contact__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_activity__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_full__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_simple__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_test_track__website_message_ids
+#: model:ir.model.fields,help:portal.field_mail_thread__website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_equipment__website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_equipment_category__website_message_ids
+#: model:ir.model.fields,help:portal.field_maintenance_request__website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_bom__website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_production__website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_unbuild__website_message_ids
+#: model:ir.model.fields,help:portal.field_mrp_workorder__website_message_ids
+#: model:ir.model.fields,help:portal.field_note_note__website_message_ids
+#: model:ir.model.fields,help:portal.field_product_product__website_message_ids
+#: model:ir.model.fields,help:portal.field_product_template__website_message_ids
+#: model:ir.model.fields,help:portal.field_project_project__website_message_ids
+#: model:ir.model.fields,help:portal.field_purchase_order__website_message_ids
+#: model:ir.model.fields,help:portal.field_purchase_requisition__website_message_ids
+#: model:ir.model.fields,help:portal.field_repair_order__website_message_ids
+#: model:ir.model.fields,help:portal.field_res_partner__website_message_ids
+#: model:ir.model.fields,help:portal.field_res_users__website_message_ids
+#: model:ir.model.fields,help:portal.field_sale_order__website_message_ids
+#: model:ir.model.fields,help:portal.field_slide_channel__website_message_ids
+#: model:ir.model.fields,help:portal.field_slide_slide__website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_landed_cost__website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_picking__website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_picking_batch__website_message_ids
+#: model:ir.model.fields,help:portal.field_stock_production_lot__website_message_ids
+#: model:ir.model.fields,help:portal.field_survey_survey__website_message_ids
+#: model:ir.model.fields,help:portal.field_test_performance_mail__website_message_ids
+msgid "Website communication history"
+msgstr "Povijest komunikacije Web stranice"
+
+#. module: portal
+#: model:ir.model.fields,field_description:portal.field_portal_wizard_user__wizard_id
+msgid "Wizard"
+msgstr "Čarobnjak"
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:32
+#, python-format
+msgid "Write a message..."
+msgstr "Napiši poruku..."
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
+#, python-format
+msgid "You must be"
+msgstr "Morate biti"
+
+#. module: portal
+#: code:addons/portal/wizard/portal_wizard.py:176
+#, python-format
+msgid ""
+"You must have an email address in your User Preferences to send emails."
+msgstr ""
+"Za slanje e-mailova morate imati upisanu e-mail adresu u korisničkim "
+"postavkama."
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Contact Details"
 msgstr ""
 
 #. module: portal
-#: view:portal.payment.acquirer:0
-msgid "Form Template"
-msgstr "Predložak forme"
+#: model:ir.ui.view,arch_db:portal.portal_layout
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Your Details"
+msgstr "Vaši detalji"
 
 #. module: portal
-#: model:ir.actions.act_window,name:portal.partner_wizard_action
-#: model:ir.model,name:portal.model_portal_wizard
-#: view:portal.wizard:0
-msgid "Portal Access Management"
+#: model:ir.ui.view,arch_db:portal.portal_my_home
+msgid "Your Documents"
 msgstr ""
 
-#~ msgid "Group"
-#~ msgstr "Grupa"
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_signature.xml:6
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+#, python-format
+msgid "Your Name"
+msgstr "Vaše ime ..."
 
-#~ msgid "E-mail"
-#~ msgstr "E-pošta"
+#. module: portal
+#: model:mail.template,subject:portal.mail_template_data_portal_welcome
+msgid "Your Odoo account at ${user.company_id.name}"
+msgstr "Vaš Odoo račun na ${user.company_id.name}"
 
-#~ msgid "Send Invitations"
-#~ msgstr "Pošalji pozivnice"
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "Zip / Postal Code"
+msgstr "Zip / Poštanski broj"
 
-#~ msgid "Parent Menu"
-#~ msgstr "Nadređeni izbornik"
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:56
+#, python-format
+msgid "avatar"
+msgstr ""
 
-#~ msgid "Widgets"
-#~ msgstr "Widgeti"
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:8
+#, python-format
+msgid "comment"
+msgstr "komentar"
 
-#~ msgid "Portal Users"
-#~ msgstr "Korisnici portala"
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:9
+#, python-format
+msgid "comments"
+msgstr "komentari"
 
-#~ msgid "Menu Action"
-#~ msgstr "Akcija izbornika"
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
+#, python-format
+msgid "logged in"
+msgstr "prijavljeni"
 
-#~ msgid "User Name"
-#~ msgstr "Korisničko ime"
+#. module: portal
+#: model:ir.model,name:portal.model_portal_mixin
+msgid "portal.mixin"
+msgstr ""
+
+#. module: portal
+#: model:ir.ui.view,arch_db:portal.portal_my_details
+msgid "select..."
+msgstr "odaberi..."
+
+#. module: portal
+#. openerp-web
+#: code:addons/portal/static/src/xml/portal_chatter.xml:21
+#, python-format
+msgid "to post a comment."
+msgstr "objaviti komentar"
